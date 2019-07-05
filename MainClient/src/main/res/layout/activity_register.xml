@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+
+              android:orientation="vertical">
+
+
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/img_login_top"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="@dimen/y90"
+      android:layout_marginBottom="@dimen/y90"
+      />
+
+
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/login_input_edit"
+        android:hint="请填写手机号码"
+        android:text=""
+        />
+
+  </LinearLayout>
+
+  <View
+      style="@style/login_input_line"
+      />
+
+  <LinearLayout
+      style="@style/login_input_layout"
+      android:orientation="horizontal"
+      >
+    <EditText
+        android:id="@+id/et_code"
+        style="@style/login_input_edit"
+        android:hint="请输入验证码"
+        android:text=""
+        />
+
+    <com.sg.cj.snh.view.SmsBtnView
+        android:id="@+id/smsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/x15"
+        android:background="@drawable/bg_btn"
+        android:layout_gravity="center_vertical"
+        >
+
+    </com.sg.cj.snh.view.SmsBtnView>
+
+  </LinearLayout>
+
+  <View
+      style="@style/login_input_line"
+      />
+
+
+
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+    <EditText
+        android:id="@+id/et_nickname"
+        style="@style/login_input_edit"
+        android:hint="请填写昵称"
+        android:text=""
+        />
+
+  </LinearLayout>
+  <View
+      style="@style/login_input_line"
+      />
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+    <EditText
+        android:id="@+id/et_psd"
+        style="@style/login_input_edit"
+        android:hint="请设置登录密码"
+        />
+
+  </LinearLayout>
+  <View
+      style="@style/login_input_line"
+      />
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+    <EditText
+        android:id="@+id/et_psd_again"
+        style="@style/login_input_edit"
+        android:hint="请再次输入密码"
+        />
+
+  </LinearLayout>
+  <View
+      style="@style/login_input_line"
+      />
+  <Button
+      android:id="@+id/btn_register"
+      style="@style/login_input_button"
+      android:text="注册"
+      />
+
+
+  <Button
+      android:id="@+id/btn_back_login"
+      android:layout_height="@dimen/y100"
+
+      android:layout_gravity="center_horizontal"
+      android:layout_width="@dimen/x250"
+      style="@style/login_input_button"
+      android:layout_marginTop="@dimen/y100"
+      android:background="@drawable/bg_radius_50"
+      android:textColor="@color/et_txt_color"
+      android:text="返回登陆"
+      />
+
+</LinearLayout>

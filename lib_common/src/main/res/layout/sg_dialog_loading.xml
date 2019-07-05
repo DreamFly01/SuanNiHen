@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 通讯对话框 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:padding="30dp" >
+
+    <LinearLayout
+        android:layout_width="@dimen/x222"
+        android:layout_height="@dimen/y222"
+        android:background="@drawable/sg_loading_dialog_bg_shape"
+        android:alpha="0.8"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/x104"
+            android:layout_height="@dimen/y104"
+            android:indeterminateDrawable="@drawable/sg_loading_dialog_progress_bar_anim"/>
+        <TextView
+            android:id="@+id/tipLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connecting_in_progress"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:textSize="@dimen/x60" />
+    </LinearLayout>
+
+</LinearLayout>

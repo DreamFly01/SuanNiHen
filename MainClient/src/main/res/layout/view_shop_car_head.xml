@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_bg"
+
+    >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/y140"
+      android:orientation="horizontal"
+      android:background="@color/white"
+      android:layout_marginTop="@dimen/y20"
+      >
+    <TextView
+        android:id="@+id/txt_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x15"
+        android:text="全选"
+        android:layout_weight="1"
+        android:textSize="@dimen/x42"
+        android:layout_gravity="center_vertical"
+        />
+    <LinearLayout
+        android:id="@+id/layout_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/x15"
+        >
+
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/img_delete"
+          android:layout_gravity="center_vertical"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="删除"
+
+          android:layout_marginLeft="@dimen/x10"
+          android:textSize="@dimen/x42"
+          android:textColor="@color/et_txt_color"
+          android:layout_gravity="center_vertical"
+          />
+
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

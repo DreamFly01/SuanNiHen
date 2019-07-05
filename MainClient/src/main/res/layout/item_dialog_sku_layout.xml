@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10pt"
+        android:layout_marginTop="10pt"
+        android:layout_marginRight="10pt"
+        android:layout_marginBottom="10pt"
+        android:background="@drawable/shape_gray_reangle_bg"
+        android:lines="1"
+        android:paddingLeft="20pt"
+        android:paddingTop="5pt"
+        android:paddingRight="20pt"
+        android:paddingBottom="5pt"
+        android:text="hahahah"
+        android:textColor="@color/gray_1"
+        android:textSize="20pt"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_sku_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40pt"
+        android:text="尺码"
+        android:textColor="@color/gray_1"
+        android:textSize="26pt" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants" />
+
+    <com.donkingliang.labels.LabelsView
+        android:id="@+id/labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30pt"
+        app:labelBackground="@drawable/label_bg"
+        app:labelTextColor="@drawable/label_text_color"
+        app:labelTextPaddingBottom="5dp"
+        app:labelTextPaddingLeft="10dp"
+        app:labelTextPaddingRight="10dp"
+        app:labelTextPaddingTop="5dp"
+        app:labelTextSize="@dimen/txtSize_28"
+        app:lineMargin="10dp"
+        app:selectType="SINGLE_IRREVOCABLY"
+        app:wordMargin="10dp" />
+</LinearLayout>

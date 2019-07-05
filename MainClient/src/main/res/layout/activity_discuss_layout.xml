@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/heard_layout"></include>
+
+    <LinearLayout
+        android:id="@+id/ll_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_weight="1"
+            android:text="请选择"
+            android:textColor="@color/gray_1"
+            android:textSize="24pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宝贝评价"
+            android:textColor="@color/gray_1"
+            android:textSize="24pt" />
+
+        <com.fdl.wedgit.StarBarView
+            android:id="@+id/start_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            app:space_width="4pt"
+            app:star_height="36pt"
+            app:star_hollow="@drawable/start_no_bg"
+            app:star_isIndicator="false"
+            app:star_max="5"
+            app:star_orientation="horizontal"
+            app:star_solid="@drawable/start_yes_bg"
+            app:star_width="36pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200pt"
+        android:layout_marginTop="20pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <EditText
+            android:id="@+id/et_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="商品满意吗？来分享您的使用感受吧~"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/gray_1"
+            android:textSize="24pt" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34pt"
+            android:text="上传图片"
+            android:textColor="@color/txt_dark"
+            android:textSize="24pt"
+
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="90pt"
+            android:paddingTop="30pt"
+            android:paddingRight="90pt"
+            android:paddingBottom="30pt" />
+
+        <TextView
+            android:id="@+id/tv_img_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="30pt"
+            android:text="0/3"
+            android:textColor="@color/gray_1"
+            android:textSize="24pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/app_red"
+                android:gravity="center"
+                android:padding="20pt"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="30pt" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

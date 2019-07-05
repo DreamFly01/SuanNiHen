@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_bg"
+    android:orientation="vertical"
+    >
+
+  <include layout="@layout/view_main_grid_head_1"/>
+
+  <include layout="@layout/view_main_grid_head_2"/>
+
+  <include layout="@layout/view_main_grid_head_3"/>
+
+  <include layout="@layout/view_main_grid_head_4"/>
+
+  <include layout="@layout/view_main_grid_head_5"/>
+
+</LinearLayout>

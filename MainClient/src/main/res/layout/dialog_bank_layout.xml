@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/shape_white_20">
+
+    <TextView
+        android:layout_marginTop="90pt"
+        android:layout_marginLeft="50pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择银行卡"
+        android:textColor="@color/txt_dark"
+        android:textSize="34pt"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="40pt"
+        android:id="@+id/recyclerView_bank"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

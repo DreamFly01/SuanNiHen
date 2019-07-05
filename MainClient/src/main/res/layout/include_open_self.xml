@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#EF0038">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <com.sg.cj.snh.view.CircleImageView
+            android:id="@+id/imgHead"
+            android:layout_width="@dimen/x190"
+            android:layout_height="@dimen/x190"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_gravity="center_vertical"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/txtNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x48"
+                android:text="昵称"
+                />
+
+
+            <TextView
+                android:id="@+id/txtLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x40"
+                android:layout_marginTop="@dimen/y20"
+                android:text="等级"
+                />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgBtnSet"
+            android:layout_width="@dimen/y70"
+            android:layout_height="@dimen/y70"
+            android:layout_marginTop="@dimen/y70"
+            android:layout_marginRight="@dimen/x50"
+
+            android:src="@drawable/img_setup"
+            android:layout_gravity="right|top"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/bg_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200" />
+
+</FrameLayout>
+
+

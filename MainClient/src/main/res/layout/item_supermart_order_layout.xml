@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:id="@+id/iv_product_logo1"
+            android:layout_width="120pt"
+            android:layout_height="120pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20pt">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/app_red"
+                    android:textSize="@dimen/txtSize_28" />
+                <TextView
+                    android:textColor="@color/app_red"
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥24"
+
+                    android:textSize="@dimen/txtSize_28" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/gray_1"
+                android:textSize="@dimen/txtSize_28" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="2pt"
+    android:background="@color/color_app_bg"/>
+</LinearLayout>

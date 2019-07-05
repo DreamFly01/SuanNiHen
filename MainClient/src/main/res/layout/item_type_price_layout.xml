@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+<TextView
+    android:padding="10pt"
+    android:id="@+id/tv_name"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_range_gray_bg"
+    android:text="服饰箱包"
+    android:textColor="@color/gray_1"
+    android:textSize="@dimen/txtSize_28"/>
+    <TextView
+        android:padding="10pt"
+        android:id="@+id/tv_price1"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_range_gray_bg"
+        android:text="服饰箱包"
+        android:textColor="@color/gray_1"
+        android:textSize="@dimen/txtSize_28"/>
+    <TextView
+        android:padding="10pt"
+        android:id="@+id/tv_price2"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_range_gray_bg"
+        android:text="服饰箱包"
+        android:textColor="@color/gray_1"
+        android:textSize="@dimen/txtSize_28"/>
+</LinearLayout>

@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion '28.0.2'
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targerSdkVersion
+    versionCode rootProject.ext.versionCode
+    versionName rootProject.ext.versionName
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  api fileTree(include: ['*.jar'], dir: 'libs')
+  api 'com.android.support:design:27.1.1'
+  api 'com.android.support:recyclerview-v7:27.1.1'
+  api 'com.android.support:appcompat-v7:27.1.1'
+  // retrofit 依赖
+  api 'com.squareup.retrofit2:retrofit:2.4.0'
+  // retrofit gson 依赖
+  api 'com.squareup.retrofit2:converter-gson:2.4.0'
+  //rxAndroid  依赖
+  api 'io.reactivex.rxjava2:rxandroid:2.1.0'
+  //rxjava2+retrofit搭配使用的依赖
+  api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+  //okhttp日记拦截器
+  api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+  //EventBus
+  api 'org.greenrobot:eventbus:3.1.1'
+  //轮播图
+  api 'com.youth.banner:banner:1.4.10'
+  //  // 图片加载
+  //  api 'com.github.bumptech.glide:glide:4.8.0'
+  //  annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+  //下拉刷新
+  api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+  // butterknife
+  implementation('com.jakewharton:butterknife:9.0.0-rc1') {
+    exclude group: "com.android.support"
+  }
+  annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+
+
+
+  api 'me.yokeyword:fragmentation:0.10.4'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

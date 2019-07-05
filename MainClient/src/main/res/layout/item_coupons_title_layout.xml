@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="48pt"
+    android:layout_height="139pt"
+    android:background="@drawable/shape_solid_left_white_20_bg"
+    android:id="@+id/ll_item3"
+    >
+    <ImageView
+        android:layout_centerInParent="true"
+        android:padding="12pt"
+        android:layout_width="22pt"
+        android:layout_height="25pt"
+        android:textColor="@color/white"
+        android:background="@drawable/coupons_right_bg"
+        />
+</RelativeLayout>

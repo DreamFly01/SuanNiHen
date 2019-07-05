@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/main_bg"
+
+              android:orientation="vertical">
+
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/white"
+      android:orientation="vertical"
+      android:layout_marginTop="@dimen/y30"
+      >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y140">
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="我的订单"
+
+          android:textColor="@color/black"
+          android:textSize="@dimen/x50"
+          android:layout_marginLeft="@dimen/x15"
+          />
+
+      <LinearLayout
+          android:id="@+id/layout_my_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="@dimen/x15"
+          >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:text="查看全部"
+            android:textColor="@color/et_txt_color"
+            android:textSize="@dimen/x40"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/img_aray_right"
+            android:layout_marginLeft="@dimen/x15"
+            />
+
+      </LinearLayout>
+    </RelativeLayout>
+
+
+    <View
+        style="@style/login_input_line"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+
+        >
+
+
+      <RelativeLayout
+          style="@style/self_2_relativelayout">
+
+        <LinearLayout
+            android:id="@+id/layout_wait_pay"
+            style="@style/self_2_linearlayout"
+            >
+
+          <ImageView
+              style="@style/self_2_img"
+              android:src="@drawable/img_wait_payme"
+              />
+
+          <TextView
+              style="@style/self_2_txt"
+              android:text="待付款"
+              />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_wait_pay_num"
+            style="@style/self_2_txt_num"
+            android:visibility="gone"
+
+            />
+
+      </RelativeLayout>
+
+
+      <RelativeLayout
+          style="@style/self_2_relativelayout">
+
+        <LinearLayout
+            android:id="@+id/layout_wait_send"
+            style="@style/self_2_linearlayout"
+            >
+
+          <ImageView
+              style="@style/self_2_img"
+              android:src="@drawable/img_wait_send"
+              />
+
+          <TextView
+              style="@style/self_2_txt"
+              android:text="待发货"
+              />
+
+        </LinearLayout>
+
+        <TextView
+
+            style="@style/self_2_txt_num"
+            android:id="@+id/txt_wait_send_num"
+            android:visibility="gone"
+
+            />
+
+      </RelativeLayout>
+
+
+      <RelativeLayout
+          style="@style/self_2_relativelayout">
+
+        <LinearLayout
+            android:id="@+id/layout_wait_shou"
+            style="@style/self_2_linearlayout"
+            >
+
+          <ImageView
+              style="@style/self_2_img"
+              android:src="@drawable/img_wait_shou"
+              />
+
+          <TextView
+
+              style="@style/self_2_txt"
+
+              android:text="待收货"
+              />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/self_2_txt_num"
+            android:id="@+id/txt_wait_shou_num"
+            android:visibility="gone"
+
+            />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+          style="@style/self_2_relativelayout">
+
+        <LinearLayout
+            android:id="@+id/layout_wait_comments"
+            style="@style/self_2_linearlayout"
+            >
+
+          <ImageView
+              style="@style/self_2_img"
+              android:src="@drawable/img_wait_comments"
+              />
+
+          <TextView
+              style="@style/self_2_txt"
+              android:text="待评价"
+              />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/self_2_txt_num"
+
+
+            android:id="@+id/txt_wait_comments_num"
+            android:visibility="gone"
+            />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+          style="@style/self_2_relativelayout">
+
+        <LinearLayout
+            android:id="@+id/layout_refund"
+            style="@style/self_2_linearlayout"
+            >
+
+          <ImageView
+              style="@style/self_2_img"
+              android:src="@drawable/img_refund"
+              />
+
+          <TextView
+              style="@style/self_2_txt"
+              android:text="退款/售后"
+              />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/self_2_txt_num"
+
+            android:id="@+id/txt_refund_num"
+            android:visibility="gone"
+            />
+
+      </RelativeLayout>
+
+
+    </LinearLayout>
+  </LinearLayout>
+
+
+</LinearLayout>

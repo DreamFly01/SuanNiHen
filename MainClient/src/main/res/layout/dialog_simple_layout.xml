@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_white_20">
+
+
+<TextView
+    android:visibility="gone"
+    android:id="@+id/tv_dialog_title"
+    android:layout_marginTop="20pt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="提示"
+    android:layout_gravity="center"
+    android:textSize="40pt"
+    android:textColor="@color/color_red"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/iv_dialog_content"
+        android:layout_marginTop="90pt"
+        android:layout_marginBottom="50pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sssssssssss"
+        android:layout_gravity="center"
+        android:textSize="34pt"
+        android:textColor="@color/txt_dark"/>
+    <LinearLayout
+        android:paddingBottom="20pt"
+        android:gravity="center"
+        android:layout_marginTop="40pt"
+        android:layout_width="match_parent"
+        android:layout_height="100pt"
+        android:orientation="horizontal">
+        <Button
+            android:paddingRight="80pt"
+            android:paddingLeft="80pt"
+            android:id="@+id/btn_comfirm"
+            android:background="@drawable/shape_blue_bottom_20"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="确定"
+            android:textSize="30pt"
+            android:textColor="@color/txt_white"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y100"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    >
+
+
+  <TextView
+      android:id="@+id/txt_shbk"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:text="生活百科"
+      android:textSize="@dimen/x50"
+      android:textColor="#59B7FF"
+
+      android:layout_marginLeft="@dimen/x15"
+      />
+
+  <com.sg.cj.snh.view.VerticalScrollTextView
+      android:id="@+id/txt_shbk_scroll"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginLeft="@dimen/x15"
+      android:layout_weight="1"
+      >
+
+  </com.sg.cj.snh.view.VerticalScrollTextView>
+
+
+  <LinearLayout
+      android:id="@+id/layout_shbk_more"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+
+      android:layout_marginRight="@dimen/x15"
+      >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
+        android:text="更多"
+        android:textColor="@color/et_txt_color"
+        android:textSize="@dimen/x40"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/img_aray_right"
+        android:layout_marginLeft="@dimen/x15"
+        />
+
+  </LinearLayout>
+
+</LinearLayout>

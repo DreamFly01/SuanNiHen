@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="30pt"
+    android:id="@+id/rl_entry_person"
+    >
+<ImageView
+    android:layout_marginTop="80pt"
+    android:layout_centerInParent="true"
+    android:layout_width="wrap_content"
+    android:layout_height="400pt"
+    android:background="@drawable/mercanttype_personal_bg"
+    />
+    <TextView
+        android:id="@+id/tv_personOrAer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txtSize_28"
+        android:text="自产农副产品，家庭手工业产品，依照法律法规不需要进行工商注册登记的。"
+        android:textColor="@color/app_red"/>
+</RelativeLayout>

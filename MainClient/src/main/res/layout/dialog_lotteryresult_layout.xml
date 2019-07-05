@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/ll_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_title"
+                    android:layout_width="246pt"
+                    android:layout_height="152pt"
+                    android:background="@drawable/travel_result_title_bg"
+                    />
+
+                <LinearLayout
+                    android:layout_width="572pt"
+                    android:layout_height="540pt"
+                    android:orientation="vertical"
+                    android:background="@drawable/travel_result_bg"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_marginTop="18pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中奖了"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+                    <android.support.v4.widget.NestedScrollView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_01"
+                                android:layout_marginTop="18pt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="恭喜你！"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/txtSize_30" />
+
+                            <TextView
+                                android:gravity="center"
+                                android:id="@+id/tv_lucky"
+                                android:layout_marginTop="18pt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="刚刚中了一等奖"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/txtSize_30" />
+
+                            <ImageView
+                                android:scaleType="centerCrop"
+                                android:id="@+id/iv_lucky_bg"
+                                android:layout_marginTop="10pt"
+                                android:layout_width="148pt"
+                                android:layout_height="148pt" />
+                            <TextView
+                                android:id="@+id/tv_lucky_name"
+                                android:layout_marginTop="9pt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="笔记本电脑（一台）"
+                                android:textColor="@color/white"
+                                android:textSize="20pt" />
+                            <TextView
+                                android:id="@+id/tv_lucky_num"
+                                android:layout_marginTop="19pt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="兑奖号：923702342121210）"
+                                android:textColor="@color/white"
+                                android:textSize="20pt" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_lucky_address"
+                                    android:layout_marginTop="9pt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="兑奖地址："
+                                    android:textColor="@color/white"
+                                    android:textSize="20pt" />
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/recyclerView"
+                                    android:layout_marginTop="9pt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </android.support.v4.widget.NestedScrollView>
+
+                    <TextView
+                        android:layout_marginBottom="20pt"
+                        android:id="@+id/confir"
+                        android:gravity="center"
+                        android:background="@drawable/btn_travel_orange_radius_40"
+                        android:layout_marginTop="18pt"
+                        android:layout_width="196pt"
+                        android:layout_height="49pt"
+                        android:text="知道了"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="210pt"
+                    android:layout_width="572pt"
+                    android:layout_height="386pt"
+                    android:orientation="vertical"
+                    android:background="@drawable/travel_result_bg"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:layout_marginTop="18pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未中奖"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+
+                    <TextView
+                        android:layout_marginTop="43pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="很遗憾！"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="18pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="明明只差那么一点点~"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+                    <TextView
+                        android:layout_marginBottom="50pt"
+                        android:gravity="center"
+                        android:id="@+id/tv_02"
+                        android:layout_marginTop="32pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="o(╥﹏╥)o"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+                    <TextView
+                        android:layout_marginBottom="20pt"
+                        android:id="@+id/confir1"
+                        android:gravity="center"
+                        android:background="@drawable/btn_travel_orange_radius_40"
+                        android:layout_width="196pt"
+                        android:layout_height="49pt"
+                        android:text="知道了"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txtSize_30" />
+                </LinearLayout>
+                <ImageView
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="496pt"
+                    android:layout_height="224pt"
+                    android:background="@drawable/travel_result_title1_bg"
+                    />
+            </RelativeLayout>
+
+
+</LinearLayout>

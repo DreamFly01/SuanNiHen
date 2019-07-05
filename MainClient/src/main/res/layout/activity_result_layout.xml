@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+
+    <include layout="@layout/heard_white_layout" />
+
+    <ImageView
+        android:layout_width="120pt"
+        android:layout_height="100pt"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200pt"
+        android:background="@drawable/pay_sucessful_bg" />
+
+    <TextView
+        android:id="@+id/tv_pay_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="39pt"
+        android:text="支付完成"
+        android:textColor="#FF5959"
+        android:textSize="33pt" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20pt"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="¥"
+            android:textColor="@color/txt_dark"
+            android:textSize="72pt" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:text="148.40"
+            android:textColor="@color/txt_dark"
+            android:textSize="72pt" />
+    </LinearLayout>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_hym"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="48pt"
+        android:paddingTop="12pt"
+        android:paddingRight="48pt"
+        android:paddingBottom="12pt"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:background="@drawable/pay_hym_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="购买商品可以薅羊毛"
+                android:textColor="@color/txt_dark"
+                android:textSize="24pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:text="你有一次薅羊毛机会"
+                android:textColor="@color/txt_dark"
+                android:textSize="36pt" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF5959"
+            android:padding="16pt"
+            android:text="薅羊毛"
+            android:textColor="@color/white"
+            android:textSize="36pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_qlx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="48pt"
+        android:paddingTop="12pt"
+        android:paddingRight="48pt"
+        android:paddingBottom="12pt"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:background="@drawable/pay_qlx_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="购买商品可以去抽奖"
+                android:textColor="@color/txt_dark"
+                android:textSize="24pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:text="你有一次抽奖机会"
+                android:textColor="@color/txt_dark"
+                android:textSize="36pt" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2D7AF9"
+            android:padding="16pt"
+            android:text="去抽奖"
+            android:textColor="@color/white"
+            android:textSize="36pt" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="120pt" />
+</LinearLayout>

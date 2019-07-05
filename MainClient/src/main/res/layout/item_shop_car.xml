@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/root"
+    android:background="#ffffff"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/y30"
+    >
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/y150">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        >
+
+
+      <ImageView
+          android:id="@+id/shop_select"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:src="@drawable/img_red_selector"
+          android:layout_marginLeft="@dimen/x15"
+          />
+
+      <LinearLayout
+          android:id="@+id/layout_shop"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/img_shop"
+            android:layout_marginLeft="@dimen/x30"
+            />
+
+        <TextView
+            android:id="@+id/txt_shop_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x10"
+            android:textColor="@color/gray_1"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/img_aray_right"
+            android:layout_marginLeft="@dimen/x10"
+            />
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_lj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="@dimen/x20"
+        android:text="领劵"
+        android:textColor="@color/gray_1"
+        />
+  </LinearLayout>
+
+  <View
+      style="@style/login_input_line"
+      android:layout_marginRight="0dp"
+      android:layout_marginLeft="0dp"
+      />
+
+  <com.sg.cj.common.base.view.SgNoScrollListView
+      android:id="@+id/noScrollListView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/gray"
+      android:divider="@color/line"
+
+      android:dividerHeight="@dimen/y2"
+      >
+
+  </com.sg.cj.common.base.view.SgNoScrollListView>
+
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FD8308</color>
+    <color name="colorPrimaryDark">#FD8308</color>
+    <color name="colorAccent">#FD8308</color>
+
+
+    <color name="main_bg">#F2F2F2</color>
+
+
+    <!-- 提示标签颜色 -->
+    <color name="spec_label">#333333</color>
+
+    <color name="line">#E5E5E5</color>
+    <color name="txt_amt">#F62B0C</color>
+
+    <color name="txt_color">#333333</color>
+    <color name="et_txt_color">#666666</color>
+
+    <color name="et_txt_hint_color">#999999</color>
+
+    <color name="gray">#A7A7A7</color>
+
+    <color name="white">#ffffff</color>
+    <color name="spec_font_3">#666666</color>
+    <color name="txt_color_3">#333333</color>
+
+    <color name="main_bg_grid_blue">#19B7F4</color>
+    <color name="black">#000000</color>
+
+
+    <color name="cp_color_gray_light">#cdcdcd</color>
+    <color name="cp_color_gray">#999999</color>
+    <color name="cp_color_gray_deep">#666666</color>
+    <color name="cp_color_gray_dark">#333333</color>
+    <color name="cp_color_section_bg">#EDEDED</color>
+    <color name="cp_color_grid_item_bg">#f5f5f5</color>
+
+
+    <color name="app_red">#FF5959</color>
+    <color name="colorLogin">#34a9f9</color>
+    <color name="transparent">#00000000</color>
+    <color name="txt_red">#ED3326</color>
+    <color name="txt_gray9">#CCCCCC</color>
+    <color name="txt_9">#999999</color>
+    <color name="white_gray">#f3f3f7</color>
+    <color name="txt_gay">#666464</color>
+    <color name="txt_dark">#1e1e1e</color>
+    <color name="bg_gay">#CACACA</color>
+    <color name="txt_blue">#34a9f9</color>
+    <color name="txt_blue1">#53b7fb</color>
+    <color name="updata_blue">#39C1E9</color>
+    <color name="txt_white">#ffffff</color>
+    <color name="color_app_bg">#f3f3f7</color>
+    <color name="color_red">#fb4b2a</color>
+    <color name="color_yellow">#f39800</color>
+    <color name="custom_gray">#D0D0D0</color>
+    <color name="gray_1">#333333</color>
+    <color name="orange">#FC7A06</color>
+    <color name="color_black_41">#414141</color>
+
+</resources>

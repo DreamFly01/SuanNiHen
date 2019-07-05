@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/heard_layout"></include>
+    <!--如果不使用长按出现选项菜单的功能，这里可以直接使用原生 RecyclerView-->
+
+</LinearLayout>

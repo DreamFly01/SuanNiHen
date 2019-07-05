@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <ImageView
+            android:id="@+id/iv_shop_logo"
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_shopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20pt"
+            android:layout_weight="1"
+            android:text="你的衣服"
+            android:textColor="@color/gray_1"
+            android:textSize="@dimen/txtSize_28" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="运费"
+            android:textColor="@color/gray_1"
+            android:textSize="28pt" />
+
+        <TextView
+            android:id="@+id/tv_ExpressMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="包邮"
+            android:textColor="@color/gray_1"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2pt"
+        android:background="@color/color_app_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1pt"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="买家留言"
+            android:textColor="@color/gray_1"
+            android:textSize="28pt" />
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="选填：填写内容已和卖家商量"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/gray_1"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2pt"
+        android:background="@color/color_app_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="合计"
+            android:textColor="@color/gray_1"
+            android:textSize="28pt" />
+
+        <TextView
+            android:id="@+id/tv_TotalMoney1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥24"
+            android:textColor="@color/app_red"
+            android:textSize="28pt" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_app_bg"
+    >
+<RelativeLayout
+    android:id="@+id/rl_back"
+    android:padding="25pt"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商品详情"
+        android:textSize="30pt"
+        android:textColor="@color/gray_1"
+        />
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_width="22pt"
+        android:layout_height="22pt"
+        android:background="@drawable/delete"
+        />
+</RelativeLayout>
+<include layout="@layout/refresh_layout"></include>
+</LinearLayout>

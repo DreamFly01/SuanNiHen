@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/food_head_shape"
+    android:orientation="vertical"
+    android:paddingBottom="15pt">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="30pt"
+            android:padding="10pt"
+            android:text="@string/fee2"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@drawable/line_shape"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="30pt"
+            android:paddingRight="15pt"
+            android:text="@string/amout"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="60pt"
+            android:padding="10pt"
+            android:text="@string/face"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@drawable/line_shape"
+            android:padding="10pt"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="30pt"
+            android:paddingRight="15pt"
+            android:text="@string/amout"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10pt"
+            android:padding="10pt"
+            android:text="@string/preferential"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_look_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10pt"
+
+            android:text="@string/amout"
+            android:textColor="@color/app_red"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/li_expand_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="@dimen/txtSize_24"
+        android:background="@drawable/food_order_btn_shape"
+        android:gravity="right"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30pt"
+            android:gravity="center"
+            android:text="@string/expand_more"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_36" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="60pt"
+            android:layout_marginEnd="20pt"
+            android:src="@drawable/iconfont_up" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

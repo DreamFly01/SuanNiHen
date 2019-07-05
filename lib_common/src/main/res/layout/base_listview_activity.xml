@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_bg"
+                android:orientation="vertical">
+
+
+  <LinearLayout
+      android:id="@+id/layout_buttom"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:orientation="horizontal"
+
+      >
+
+
+  </LinearLayout>
+
+  <com.scwang.smartrefresh.layout.SmartRefreshLayout
+      android:id="@+id/pull_refresh"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_above="@+id/layout_buttom"
+
+      android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/bg_gray_separaor_cccccc"
+        android:dividerHeight="@dimen/y1"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+  </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/img_load_error"
+        />
+  </RelativeLayout>
+
+
+  <RelativeLayout
+      android:id="@+id/layout_shopcar_empty"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      android:background="#f7f7f7"
+      >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:src="@drawable/gouwuche"
+          />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/bg_gray_separaor_cccccc"
+          android:layout_marginTop="@dimen/x15"
+          android:layout_gravity="center_horizontal"
+          android:textSize="@dimen/x46"
+          android:text="您的购物车空空如也，赶紧行动吧！"
+          />
+
+
+      <TextView
+
+          android:layout_width="@dimen/x200"
+          android:layout_height="@dimen/y80"
+          android:textColor="@color/topbar_bg"
+          android:layout_marginTop="@dimen/x15"
+          android:layout_gravity="center_horizontal"
+          android:textSize="@dimen/x46"
+          android:background="@drawable/bg_go_btn"
+          android:gravity="center"
+          android:text="去逛逛"
+          />
+
+    </LinearLayout>
+
+
+  </RelativeLayout>
+
+
+</RelativeLayout>

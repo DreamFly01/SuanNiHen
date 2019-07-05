@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/heard_layout"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30pt"
+        android:layout_marginTop="30pt"
+        android:layout_marginRight="30pt"
+        android:background="@drawable/shape_white_20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:padding="40pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="选择银行"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+
+        <TextView
+
+            android:id="@+id/tv_chose"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26pt"
+            android:layout_weight="1"
+            android:gravity="right|center"
+            android:text="请选择银行"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30pt"
+        android:layout_marginTop="14pt"
+        android:layout_marginRight="30pt"
+        android:background="@drawable/shape_white_20"
+        android:orientation="horizontal"
+>
+
+        <TextView
+            android:padding="40pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="开户行"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+
+        <EditText
+            android:id="@+id/et_01"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right|center"
+            android:hint="请输入开户行"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/txt_gay"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30pt"
+        android:layout_marginTop="14pt"
+        android:layout_marginRight="30pt"
+        android:background="@drawable/shape_white_20"
+        android:orientation="horizontal"
+>
+
+        <TextView
+            android:padding="40pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="银行账号"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+
+        <EditText
+            android:id="@+id/et_02"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right|center"
+            android:hint="请输入银行卡号"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/txt_gay"
+            android:textSize="28pt"
+            android:digits="0123456789"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30pt"
+        android:layout_marginTop="14pt"
+        android:layout_marginRight="30pt"
+        android:background="@drawable/shape_white_20"
+        android:orientation="horizontal"
+>
+
+        <TextView
+            android:padding="40pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开户名"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+
+        <EditText
+            android:id="@+id/et_03"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right|center"
+            android:hint="请输入开户名"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/txt_gay"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30pt"
+        android:layout_marginTop="14pt"
+        android:layout_marginRight="30pt"
+        android:background="@drawable/shape_white_20"
+        android:orientation="horizontal"
+>
+
+        <TextView
+            android:padding="40pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码"
+            android:textColor="@color/txt_dark"
+            android:textSize="28pt" />
+
+        <EditText
+            android:id="@+id/et_04"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right|center"
+            android:hint="请输入银行预留号码"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/txt_gay"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="60pt"
+        android:id="@+id/btn_commit"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="690pt"
+        android:layout_height="80pt"
+        android:text="提交信息并保存"
+        android:textColor="@color/txt_white"
+        android:textSize="36pt"
+        android:background="@drawable/commit_color_selector"/>
+
+    <LinearLayout
+        android:layout_marginTop="30pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_chose"
+            android:layout_width="26pt"
+            android:layout_height="26pt"
+            android:background="@drawable/pay_selete" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14pt"
+            android:text="同意"
+            android:textColor="@color/txt_dark"
+            android:textSize="30pt" />
+
+        <TextView
+            android:id="@+id/tv_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《用户协议》"
+            android:textColor="#3C528B"
+            android:textSize="30pt" />
+    </LinearLayout>
+</LinearLayout>

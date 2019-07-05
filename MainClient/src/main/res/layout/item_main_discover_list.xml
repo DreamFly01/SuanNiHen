@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/x20"
+      android:orientation="vertical"
+      android:background="@drawable/bg_white_radius_40"
+      >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/y25"
+        android:layout_marginRight="@dimen/y25"
+        android:layout_marginTop="@dimen/y50"
+        >
+
+      <ImageView
+          android:id="@+id/img_Supplier"
+          android:layout_width="@dimen/x100"
+          android:layout_height="@dimen/x100"
+          android:layout_gravity="center_vertical"
+
+          />
+
+      <TextView
+          android:id="@+id/txtSupplierName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_gravity="center_vertical"
+          android:layout_marginLeft="@dimen/x15"
+          android:layout_marginRight="@dimen/x15"
+          android:textSize="@dimen/x45"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:textColor="@color/black"
+          />
+
+      <TextView
+          android:id="@+id/txtfbTime"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:textSize="@dimen/x40"
+          android:textColor="@color/et_txt_color"
+          />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/y25"
+        android:layout_marginRight="@dimen/y25"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginBottom="@dimen/y20"
+
+        android:textSize="@dimen/x45"
+
+        android:textColor="@color/black"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/black"
+          >
+
+        <ImageView
+            android:id="@+id/img_Cover"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y300"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            />
+
+
+        <!--<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerSimple-->
+            <!--android:id="@+id/videoplayer"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/y300" />-->
+
+
+
+        <!--<com.sg.cj.snh.view.JCVideoPlayerStandardShowTitleAfterFullscreen-->
+            <!--android:id="@+id/videoplayer"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/y300">-->
+
+        <!--</com.sg.cj.snh.view.JCVideoPlayerStandardShowTitleAfterFullscreen>-->
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y300" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@drawable/img_to_play"
+            />
+
+      </RelativeLayout>
+      <!--<LinearLayout-->
+          <!--android:layout_width="match_parent"-->
+          <!--android:layout_height="@dimen/y160"-->
+          <!--android:background="#F9F9F9"-->
+          <!--&gt;</LinearLayout>-->
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_go_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/y80"
+
+        android:layout_marginLeft="@dimen/y25"
+        android:layout_marginRight="@dimen/y25"
+        android:layout_marginTop="@dimen/y30"
+        >
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/goods_shopping"
+          android:layout_gravity="center_vertical"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:layout_marginLeft="@dimen/y15"
+          android:textSize="@dimen/x43"
+          android:text="去购买"
+          android:textColor="@color/et_txt_color"
+          />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+
+</LinearLayout>

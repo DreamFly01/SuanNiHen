@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_app_bg"
+    android:orientation="horizontal"
+    android:gravity="center">
+<ImageView
+    android:id="@+id/iv_user_logo"
+    android:layout_width="80pt"
+    android:layout_height="80pt" />
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="薅羊毛："
+        android:textSize="24pt"
+        android:textColor="@color/gray_1"
+        />
+    <TextView
+        android:id="@+id/tv_hym_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24pt"
+        android:textColor="@color/app_red"
+        />
+</LinearLayout>

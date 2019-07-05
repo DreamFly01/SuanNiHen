@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="@color/color_app_bg"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/refresh_layout"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/rl_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_red"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingRight="30pt"
+                android:paddingBottom="20pt">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:id="@+id/layout_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50pt"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10pt"
+                    android:orientation="horizontal"
+                    android:background="@drawable/shape_solid_gray_20_bg"
+                    >
+
+                    <ImageView
+                        android:layout_width="25pt"
+                        android:layout_height="30pt"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20pt"
+
+                        android:src="@drawable/address_icon" />
+
+                    <TextView
+                        android:id="@+id/txt_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5pt"
+                        android:layout_marginRight="20pt"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxEms="3"
+                        android:textColor="@color/white"
+                        android:textSize="26pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60pt"
+                    android:layout_marginLeft="5pt"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_home_search">
+
+                    <ImageView
+                        android:layout_width="30pt"
+                        android:layout_height="30pt"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="25pt"
+                        android:src="@drawable/home_search_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10pt"
+                        android:text="搜宝贝"
+                        android:textColor="@color/et_txt_color"
+                        android:textSize="26pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="15pt"
+                    android:id="@+id/ll_msg"
+                    android:layout_width="80pt"
+                    android:layout_height="40pt"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/shape_solid_gray_20_bg"
+                    >
+
+                    <ImageView
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/msg_bg" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--<include layout="@layout/loading_layout"></include>-->
+    </RelativeLayout>
+
+</LinearLayout>

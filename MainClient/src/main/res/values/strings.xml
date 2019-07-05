@@ -1,0 +1,55 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="MissingTranslation">算你狠</string>
+
+    <string name="cp_search_hint_text" tools:ignore="MissingTranslation">城市中文名或拼音</string>
+    <string name="cp_cancel" tools:ignore="MissingTranslation">取消</string>
+    <string name="cp_no_result" tools:ignore="MissingTranslation">没有找到，换个词试试~</string>
+    <string name="cp_locate_failed" translatable="false">定位失败</string>
+    <string name="cp_locating" tools:ignore="MissingTranslation">正在定位…</string>
+    <string name="share_tip" tools:ignore="MissingTranslation">我在算你狠发现一个不错的店铺，赶快来看看吧~</string>
+    <string name="tip_person" tools:ignore="MissingTranslation">自产农副产品，家庭手工业产品，依照法律法规不需要进行工商注册登记的。</string>
+    <string name="tip_company" tools:ignore="MissingTranslation">适合公司/企业入驻，提供营业执照等资料即可入驻</string>
+    <string name="tip_aer" tools:ignore="MissingTranslation">适合本地个体，连锁店</string>
+    <string name="tip_kaihu" tools:ignore="MissingTranslation">说明：开户许可证是指入驻企业在银行开设基本存款账户时取得的凭证，应用银行出具</string>
+    <string name="self" tools:ignore="MissingTranslation">到店自取</string>
+    <string name="address" tools:ignore="MissingTranslation">商家地址:</string>
+    <string name="km" tools:ignore="MissingTranslation">距你0.5km</string>
+    <string name="time" tools:ignore="MissingTranslation">到店时间:</string>
+    <string name="phone" tools:ignore="MissingTranslation">预留电话</string>
+    <string name="lock_map" tools:ignore="MissingTranslation">查看地图</string>
+    <string name="time2" tools:ignore="MissingTranslation">18:30</string>
+    <string name="phone2" tools:ignore="MissingTranslation">17375778888</string>
+    <string name="order_agreement" tools:ignore="MissingTranslation">同意《《到店自取用户协议》》</string>
+    <string name="div" tools:ignore="MissingTranslation">111111</string>
+    <string name="amout" tools:ignore="MissingTranslation">￥0.6</string>
+    <string name="fee2" tools:ignore="MissingTranslation">包装费</string>
+    <string name="face" tools:ignore="MissingTranslation">运费</string>
+    <string name="preferential" tools:ignore="MissingTranslation">已优惠</string>
+    <string name="total" tools:ignore="MissingTranslation">合计</string>
+    <string name="expand_more" tools:ignore="MissingTranslation">展开更多</string>
+    <string name="play_state" tools:ignore="MissingTranslation">支付方式:</string>
+    <string name="play" tools:ignore="MissingTranslation">餐后支付、到店支付</string>
+    <string name="remark" tools:ignore="MissingTranslation">备注:</string>
+    <string name="remark_two" tools:ignore="MissingTranslation">口味、偏淡等要求</string>
+    <string name="people" tools:ignore="MissingTranslation">用餐人数:</string>
+    <string name="remark_three" tools:ignore="MissingTranslation">未选择</string>
+    <string name="submit_order" tools:ignore="MissingTranslation">确认下单</string>
+    <string name="share_details" tools:ignore="MissingTranslation">分享给您的用餐成员就可以一起点餐啦，赶紧分享吧！</string>
+    <string name="hint" tools:ignore="MissingTranslation">提示:确定好菜单后,就可以提交啦!商家才可以看到您点的菜单,就可以提前准备食材啦!</string>
+    <string name="share_dc" tools:ignore="MissingTranslation">分享点餐</string>
+    <string name="stroe_name" tools:ignore="MissingTranslation">果果的店铺</string>
+    <string name="kw_hint" tools:ignore="MissingTranslation">说明，有点毒舌，所以玻璃心就别来了。喜欢说缺点，当然也会夸，看文。</string>
+    <string name="sj_hint" tools:ignore="MissingTranslation">商家回复2、再一次感谢亲对小店的支持，希望亲永远记得有“算你狠商城”陪伴在你的身边，小店时刻准备着再次为亲服务。</string>
+    <string name="store_phone" tools:ignore="MissingTranslation">商家电话:</string>
+    <string name="store_file" tools:ignore="MissingTranslation">查看食品档案</string>
+    <string name="store_time2" tools:ignore="MissingTranslation">营业时间:</string>
+    <string name="tv_Business_hours_time" tools:ignore="MissingTranslation">07:30~23:00 点</string>
+    <string name="store_service" tools:ignore="MissingTranslation">商家服务:</string>
+    <string name="service" tools:ignore="MissingTranslation">预定、到店自取</string>
+    <string name="sPromotions" tools:ignore="MissingTranslation">优惠活动:</string>
+    <string name="permotions" tools:ignore="MissingTranslation">满300减15</string>
+    <string name="_6">6人起订</string>
+    <string name="_6ol">6人起订</string>
+    <string name="moneyStr">¥</string>
+    <string name="foodtips">提示：确定好菜单后，就可以提交了啦！商家才可以看到您点的 菜单，就可以提前准备食材啦！</string>
+</resources>

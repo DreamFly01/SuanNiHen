@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/iv_welcome_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/launch_bg" />
+
+        <android.support.v4.view.ViewPager
+        android:visibility="gone"
+        android:id="@+id/activity_welcome_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="50pt"
+        android:layout_marginRight="30pt"
+        android:id="@+id/tv_jump"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳过"
+        android:paddingTop="10pt"
+        android:paddingBottom="10pt"
+        android:paddingRight="20pt"
+        android:paddingLeft="20pt"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtSize_34"
+        android:background="@drawable/shape_solid_transt_20_bg"
+        />
+</RelativeLayout>

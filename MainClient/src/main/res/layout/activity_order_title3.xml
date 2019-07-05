@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/food_head_shape"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|left"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10pt"
+            android:padding="10pt"
+            android:text="@string/play_state"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+
+        <TextView
+            android:id="@+id/tv_fee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15pt"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/play"
+            android:textColor="@color/color_gray_ac"
+            android:textSize="@dimen/txtSize_30" />
+
+        <ImageView
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:src="@drawable/img_aray_right" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/view_div_w"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|left"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10pt"
+            android:padding="10pt"
+            android:text="@string/remark"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+
+        <TextView
+            android:id="@+id/tv_race"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15pt"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/remark_two"
+            android:textColor="@color/color_grey_999999"
+            android:textSize="@dimen/txtSize_30" />
+
+        <ImageView
+            android:layout_width="30pt"
+
+            android:layout_height="30pt"
+            android:src="@drawable/img_aray_right" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/view_div_w"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|left"
+        android:padding="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10pt"
+            android:padding="10pt"
+            android:text="@string/people"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+
+        <TextView
+            android:id="@+id/tv_people"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15pt"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/remark_three"
+            android:textColor="@color/color_grey_999999"
+            android:textSize="@dimen/txtSize_30" />
+
+        <ImageView
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:src="@drawable/img_aray_right" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/view_div_w"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60pt" />
+
+
+</LinearLayout>

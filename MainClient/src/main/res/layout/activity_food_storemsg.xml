@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:orientation="horizontal"
+        android:padding="20pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:maxLines="1"
+            android:text="@string/store_phone"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/store_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10pt"
+            android:maxLines="1"
+            android:text="@string/phone2"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rv_store_img"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center|left"-->
+        <!--android:background="@color/white"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="20pt">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center|left"-->
+            <!--android:maxLines="1"-->
+            <!--android:text="@string/store_file"-->
+            <!--android:textColor="@color/color_black_333333"-->
+            <!--android:textSize="@dimen/txtSize_30" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="60pt"-->
+            <!--android:layout_height="60pt"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:paddingTop="20pt"-->
+            <!--android:paddingRight="20pt"-->
+            <!--android:src="@drawable/iconfont_up" />-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:orientation="horizontal"
+        android:padding="20pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:maxLines="1"
+            android:text="@string/store_time2"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_Business_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10pt"
+            android:maxLines="1"
+            android:text="@string/tv_Business_hours_time"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:orientation="horizontal"
+        android:padding="20pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:maxLines="1"
+            android:text="@string/store_service"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_ServerContent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10pt"
+            android:maxLines="1"
+            android:text="@string/service"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center|left"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="20pt">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center|left"-->
+            <!--android:maxLines="1"-->
+            <!--android:text="@string/sPromotions"-->
+            <!--android:textColor="@color/color_black_333333"-->
+            <!--android:textSize="@dimen/txtSize_30" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_Promotions"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="10pt"-->
+            <!--android:maxLines="1"-->
+            <!--android:text="@string/permotions"-->
+            <!--android:textColor="#FD1A4F"-->
+            <!--android:textSize="@dimen/txtSize_30" />-->
+
+    <!--</LinearLayout>-->
+</LinearLayout>

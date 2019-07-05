@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_app_bg"
+    >
+<TextView
+    android:padding="20pt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="最近访问"
+    android:textSize="@dimen/txtSize_26"
+    android:textColor="@color/txt_dark"
+    />
+</LinearLayout>

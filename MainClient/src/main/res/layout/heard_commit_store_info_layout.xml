@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100pt"
+            android:background="@drawable/gradient_red_bg"
+            />
+        <android.support.v7.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_heard"
+            android:layout_marginLeft="12pt"
+            android:layout_marginTop="21pt"
+            android:layout_marginRight="12pt"
+            android:layout_marginBottom="20pt"
+            app:cardCornerRadius="20pt"
+            app:cardElevation="20pt"
+            app:contentPadding="20pt">
+
+            <TextView
+                android:id="@+id/tv_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="到店自取"
+                android:textColor="#323231"
+                android:textSize="30pt"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70pt"
+                android:text="商家地址：岳麓区芯城科技园2栋804"
+                android:textColor="#414141"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120pt"
+                android:text="距你0.5km   |"
+                android:textColor="#414141"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200pt"
+                android:layout_marginTop="120pt"
+                android:text="查看地图"
+                android:textColor="@color/txt_red"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="170pt"
+                android:text="到店时间:"
+                android:textColor="#414141"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="400pt"
+                android:layout_marginTop="170pt"
+                android:text="预留电话:"
+                android:textColor="#414141"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220pt"
+                android:text="18：30"
+                android:textColor="@color/orange"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="400pt"
+                android:layout_marginTop="220pt"
+                android:text="12345678901"
+                android:textColor="@color/orange"
+                android:textSize="30pt" />
+
+            <ImageView
+                android:layout_marginLeft="140pt"
+                android:layout_marginTop="290pt"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:background="@drawable/pay_selete"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="290pt"
+                android:text="同意《到店自取用户协议》"
+                android:textColor="#414141"
+                android:textSize="24pt" />
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</LinearLayout>

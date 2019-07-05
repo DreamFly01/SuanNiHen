@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160pt"
+    android:layout_height="110pt"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="140pt"
+        android:layout_height="110pt">
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_width="160pt"
+            android:layout_height="10pt"
+
+            android:background="@color/txt_white"/>
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_width="160pt"
+            android:layout_height="10pt"
+            android:background="@color/txt_white"/>
+        <ImageView
+            android:id="@+id/img_item_cialiao"
+            android:layout_width="150pt"
+            android:layout_height="100pt"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_marginTop="10pt"
+            android:layout_marginRight="10pt"
+            android:padding="10pt"
+            >
+        </LinearLayout>
+        <ImageView
+
+            android:layout_alignParentRight="true"
+            android:id="@+id/img_detel"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:src="@drawable/delete" />
+    </RelativeLayout>
+</LinearLayout>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+
+              android:orientation="vertical">
+
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/y140"
+      android:textColor="@color/black"
+      android:textSize="@dimen/x43"
+      android:gravity="center"
+      android:text="绑定微信"
+      />
+
+  <View
+      style="@style/login_input_line"
+      android:layout_marginLeft="0dp"
+      android:layout_marginRight="0dp"
+      android:layout_marginBottom="@dimen/y30"
+      />
+  <include layout="@layout/view_sms"/>
+
+
+
+</LinearLayout>

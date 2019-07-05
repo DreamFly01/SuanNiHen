@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y127"
+                android:background="#EF0038"
+    android:orientation="vertical"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y127"
+    >
+
+  <TextView
+      android:id="@+id/txtTopName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+
+      android:textSize="@dimen/x46"
+      android:textColor="@color/white"
+      />
+
+
+
+  <ImageView
+      android:id="@+id/imgBtnTopSet"
+      android:layout_width="@dimen/y70"
+      android:layout_height="@dimen/y70"
+      android:layout_marginTop="@dimen/y70"
+      android:layout_marginRight="@dimen/x50"
+
+      android:src="@drawable/img_setup"
+
+      android:layout_centerVertical="true"
+      android:layout_alignParentRight="true"
+      />
+
+
+  <View
+      android:id="@+id/bg_toolbar_close"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+</RelativeLayout>
+
+</LinearLayout>

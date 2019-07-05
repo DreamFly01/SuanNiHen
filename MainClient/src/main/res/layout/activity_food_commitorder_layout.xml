@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_heard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_red_bg"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20pt">
+
+            <LinearLayout
+                android:id="@+id/heard_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingRight="40pt">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="30pt"
+                    android:src="@drawable/left_black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/heard_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="title"
+                android:textColor="@color/white"
+                android:textSize="36pt" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100pt"
+                    android:background="@drawable/gradient_red_bg"
+                    />
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12pt"
+                    android:layout_marginTop="21pt"
+                    android:layout_marginRight="12pt"
+                    android:layout_marginBottom="20pt"
+                    app:cardCornerRadius="20pt"
+                    app:cardElevation="20pt"
+                    app:contentPadding="20pt">
+
+                    <TextView
+                        android:id="@+id/tv_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="到店自取"
+                        android:textColor="#323231"
+                        android:textSize="30pt"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70pt"
+                        android:text="商家地址：岳麓区芯城科技园2栋804"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:id="@+id/tv_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120pt"
+                        android:text="距你0.5km"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120pt"
+                        android:layout_marginLeft="150pt"
+                        android:text="   |"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+                    <TextView
+                        android:id="@+id/goMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="200pt"
+                        android:layout_marginTop="120pt"
+                        android:text="查看地图"
+                        android:textColor="@color/txt_red"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="170pt"
+                        android:text="到店时间:"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="400pt"
+                        android:layout_marginTop="170pt"
+                        android:text="预留电话:"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="220pt"
+                        android:text="18：30"
+                        android:textColor="@color/orange"
+                        android:textSize="30pt" />
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:background="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="400pt"
+                        android:layout_marginTop="220pt"
+                        android:hint="请输入手机号码"
+                        android:textColor="@color/orange"
+                        android:textSize="30pt" />
+
+                    <ImageView
+                        android:layout_marginLeft="140pt"
+                        android:layout_marginTop="290pt"
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/pay_selete"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="290pt"
+                        android:text="同意《到店自取用户协议》"
+                        android:textColor="#414141"
+                        android:textSize="24pt" />
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_heard"
+                android:layout_marginLeft="12pt"
+                android:layout_marginTop="21pt"
+                android:layout_marginRight="12pt"
+                android:layout_marginBottom="20pt"
+                app:cardCornerRadius="20pt"
+                app:contentPadding="20pt">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    >
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"></android.support.v7.widget.RecyclerView>
+
+                    <LinearLayout
+                        android:id="@+id/ll_more_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="20pt"
+                        android:background="@drawable/shape_range_gray_10_bg"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50pt"
+                            android:paddingTop="5pt"
+                            android:paddingRight="50pt"
+                            android:paddingBottom="5pt"
+                            android:text="展开更多"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="30pt" />
+
+                        <ImageView
+                            android:id="@+id/iv_upOrdown"
+                            android:layout_width="40pt"
+                            android:layout_height="40pt"
+                            android:layout_gravity="center"
+                            android:background="@drawable/arrow_down" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_heard"
+                android:layout_marginLeft="12pt"
+                android:layout_marginTop="21pt"
+                android:layout_marginRight="12pt"
+                android:layout_marginBottom="20pt"
+                app:cardCornerRadius="20pt"
+                app:contentPadding="20pt">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.8"
+                        android:text="包装费"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="8pt"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20pt"
+                        android:layout_marginRight="20pt"
+                        android:layout_weight="1"
+                        android:background="@drawable/line_dashes"
+                        android:layerType="software" />
+
+                    <TextView
+                        android:id="@+id/tv_money1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="￥0.6"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50pt"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.8"
+                        android:text="运    费"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="8pt"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20pt"
+                        android:layout_marginRight="20pt"
+                        android:layout_weight="1"
+                        android:background="@drawable/line_dashes"
+                        android:layerType="software" />
+
+                    <TextView
+                        android:id="@+id/tv_money2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="￥0.6"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_redution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100pt"
+                    android:layout_weight="3"
+                    android:text="已优惠￥14.6"
+                    android:textColor="#414141"
+                    android:textSize="26pt" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160pt"
+                    android:layout_weight="3"
+                    android:text="合计"
+                    android:textColor="#414141"
+                    android:textSize="36pt" />
+
+                <TextView
+                    android:id="@+id/tv_TotalMoney"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70pt"
+                    android:layout_marginTop="160pt"
+                    android:layout_weight="3"
+                    android:text="￥168"
+                    android:textColor="@color/txt_red"
+                    android:textSize="36pt" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_heard"
+                android:layout_marginLeft="12pt"
+                android:layout_marginTop="21pt"
+                android:layout_marginRight="12pt"
+                android:layout_marginBottom="20pt"
+                app:cardCornerRadius="20pt"
+                app:contentPadding="20pt">
+
+                <LinearLayout
+                    android:id="@+id/ll_coupons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="使用优惠劵"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+                    <TextView
+                        android:gravity="right"
+                        android:id="@+id/tv_conpons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#414141"
+                        android:textSize="26pt" />
+
+                    <ImageView
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/arrow_right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70pt"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系商家："
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+                    <TextView
+                        android:id="@+id/tv_SupPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="30pt"
+                        android:layout_height="30pt"
+                        android:background="@drawable/call_bg"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="拨打电话"
+                        android:textColor="@color/txt_red"
+                        android:textSize="30pt" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_heard"
+                android:layout_marginLeft="12pt"
+                android:layout_marginTop="21pt"
+                android:layout_marginRight="12pt"
+                android:layout_marginBottom="20pt"
+                app:cardCornerRadius="20pt"
+                app:contentPadding="20pt">
+
+                <LinearLayout
+                    android:id="@+id/ll_payType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="支付方式:"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="餐后支付、到店支付"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <ImageView
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/arrow_right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_remarks"
+                    android:layout_marginTop="50pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="备        注:"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <EditText
+                        android:id="@+id/et_levelWord"
+                        android:background="@null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="口味、偏淡等要求"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <ImageView
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/arrow_right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_personNum"
+                    android:layout_marginTop="100pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="用餐人数："
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <EditText
+                        android:background="@null"
+                        android:id="@+id/et_personNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="请输入用餐人数"
+                        android:textColor="#414141"
+                        android:textSize="30pt" />
+
+                    <ImageView
+                        android:layout_width="40pt"
+                        android:layout_height="40pt"
+                        android:background="@drawable/arrow_right" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2pt"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100pt"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确认下单"
+            android:textColor="#323231"
+            android:textSize="36pt"
+            />
+    </LinearLayout>
+</LinearLayout>

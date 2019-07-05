@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20pt"
+    android:background="@color/color_app_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <ImageView
+            android:id="@+id/img_food_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="10pt"
+            android:paddingRight="10pt"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/tv_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="30pt"
+            android:paddingRight="50pt"
+            android:text="茶的世界"
+            android:textColor="@color/gray_1"
+            android:textSize="@dimen/txtSize_30" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/right" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/item_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingRight="20pt">
+
+
+            <TextView
+                android:id="@+id/tv_state1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="待支付:"
+                android:textColor="@color/gray_1"
+                android:textSize="@dimen/txtSize_30" />
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5pt"
+                android:text="¥24"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/txtSize_30" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingTop="10pt"
+            android:paddingRight="10pt"
+            android:paddingBottom="10pt">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_chose1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/food_red_range"
+                android:paddingLeft="60pt"
+                android:paddingTop="10pt"
+                android:paddingRight="60pt"
+                android:paddingBottom="10pt"
+                android:text="核实"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/txtSize_30"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_chose2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20pt"
+                android:background="@drawable/food_red_range"
+                android:paddingLeft="60pt"
+                android:paddingTop="10pt"
+                android:paddingRight="60pt"
+                android:paddingBottom="10pt"
+                android:text="支付"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/txtSize_30"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_chose3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20pt"
+                android:background="@drawable/food_red_range"
+                android:paddingLeft="60pt"
+                android:paddingTop="10pt"
+                android:paddingRight="60pt"
+                android:paddingBottom="10pt"
+                android:text="支付"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/txtSize_30" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

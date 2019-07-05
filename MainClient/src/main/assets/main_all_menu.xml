@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 快捷入口首页默认配置项 -->
+
+<MainGridBeans>
+
+
+  <MainGridBean>
+    <menuId>1001</menuId>
+    <title>分类</title>
+    <drawableName>img_fl</drawableName>
+    <jumpUrl>com.sg.cj.snh.ui.activity.category.CategoryActivity</jumpUrl>
+    <type>1</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>1004</menuId>
+    <title>美食分享</title>
+    <drawableName>img_msfx</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=美食分享</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+
+
+
+  <MainGridBean>
+    <menuId>1003</menuId>
+    <title>FORARY</title>
+    <drawableName>img_forany</drawableName>
+    <jumpUrl>PartnerApply/index</jumpUrl>
+    <type>2</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>1004</menuId>
+    <title>休闲娱乐</title>
+    <drawableName>img_xxyl</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=娱乐休闲</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2001</menuId>
+    <title>商城</title>
+    <drawableName>img_sc</drawableName>
+    <jumpUrl>Wx_User</jumpUrl>
+    <type>2</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2002</menuId>
+    <title>逛街吧</title>
+    <drawableName>img_gjb</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=逛街吧</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+
+  <MainGridBean>
+    <menuId>2003</menuId>
+    <title>去旅行</title>
+    <drawableName>img_qlx</drawableName>
+    <jumpUrl>Wx_User/Scratch/Index</jumpUrl>
+    <type>2</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2004</menuId>
+    <title>酒店公寓</title>
+    <drawableName>img_jdgy</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=酒店公寓</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2005</menuId>
+    <title>商家入驻</title>
+
+    <drawableName>img_sjrz</drawableName>
+    <jumpUrl>MobileEnter/settled_phone</jumpUrl>
+    <type>2</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2006</menuId>
+    <title>地方名产</title>
+
+    <drawableName>img_dfmc</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=地方名产</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2007</menuId>
+    <title>商超士多</title>
+    <drawableName>img_scsd</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=商超士多</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+  <MainGridBean>
+    <menuId>2008</menuId>
+    <title>家装建材</title>
+    <drawableName>img_jzjc</drawableName>
+    <jumpUrl>Wx_user/LocalPage/local?TypeName=家装建材</jumpUrl>
+    <type>3</type>
+  </MainGridBean>
+
+
+
+</MainGridBeans>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/ll_item"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="30pt">
+
+        <ImageView
+            android:id="@+id/iv_product_logo1"
+            android:layout_width="120pt"
+            android:layout_height="120pt"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20pt">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:textColor="#414141"
+                    android:text="青菜瘦肉粥白粥加糖包子馒头青菜皮蛋瘦肉 头青菜皮蛋瘦肉粥"
+                    android:textSize="26pt" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80pt"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥"
+                    android:textColor="@color/app_red"
+                    android:textSize="@dimen/txtSize_24" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5pt"
+                    android:layout_weight="1"
+                    android:text="24"
+                    android:textColor="@color/app_red"
+                    android:textSize="36pt" />
+                <TextView
+                    android:id="@+id/tv_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#BCBCBC"
+                    android:text="已点"
+                    android:paddingLeft="10pt"
+                    android:paddingRight="10pt"
+                    android:paddingTop="5pt"
+                    android:paddingBottom="5pt"
+                    android:background="@drawable/shape_range_gray_bg"
+                    android:textSize="20pt"
+                    />
+                <LinearLayout
+                    android:id="@+id/ll_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5pt"
+                    android:paddingTop="10pt"
+                    android:paddingRight="5pt"
+                    android:paddingBottom="10pt">
+
+                    <ImageView
+
+                        android:id="@+id/iv_delete"
+                        android:layout_width="50pt"
+                        android:layout_height="50pt"
+                        android:layout_gravity="center"
+                        android:src="@drawable/shopcart_logo_delete" />
+
+                    <TextView
+                        android:id="@+id/tv_goodsNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20pt"
+                        android:text="1"
+                        android:textColor="@color/app_red"
+                        android:textSize="26pt" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_add"
+                        android:layout_width="50pt"
+                        android:layout_height="50pt"
+                        android:layout_marginLeft="20pt"
+                        android:src="@drawable/shopcart_logo_add" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

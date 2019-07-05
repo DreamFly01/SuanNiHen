@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_head"
+    android:layout_width="match_parent"
+    android:layout_height="90pt"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:background="@color/white"
+        >
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:id="@+id/heard_back"
+            android:layout_width="wrap_content"
+            android:layout_height="90pt"
+            android:gravity="center"
+            android:paddingStart="30pt"
+            android:paddingEnd="40pt">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="30pt"
+                android:src="@drawable/left_black_back" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/heard_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="title"
+            android:textColor="@color/txt_dark"
+            android:textSize="36pt" />
+
+        <FrameLayout
+            android:id="@+id/heard_fl_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="90pt"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            android:paddingStart="30pt"
+            android:paddingEnd="40pt">
+
+            <ImageView
+                android:id="@+id/heard_menu"
+                android:layout_width="42pt"
+                android:layout_height="40pt"
+                android:src="@drawable/store_share"
+                android:visibility="visible" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/heard_tv_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="90pt"
+                android:textColor="@color/txt_dark"
+                android:text=""
+                android:textSize="34pt" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</LinearLayout>

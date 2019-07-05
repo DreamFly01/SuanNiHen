@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_item4"
+    android:paddingRight="20pt"
+    >
+    <TextView
+        android:padding="12pt"
+        android:layout_width="48pt"
+        android:layout_height="139pt"
+        android:textSize="24pt"
+        android:text="商家推荐"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_solid_left_blue_20_bg"
+        />
+</LinearLayout>

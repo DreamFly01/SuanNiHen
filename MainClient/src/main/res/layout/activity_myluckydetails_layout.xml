@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/heard_white_layout"></include>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24pt"
+                android:layout_marginTop="48pt"
+                android:background="@drawable/shape_white_20"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20pt">
+
+                <TextView
+                    android:id="@+id/tv_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textColor="#FF9600"
+                    android:textSize="60pt" />
+
+                <ImageView
+                    android:scaleType="centerInside"
+                    android:id="@+id/iv_logo"
+                    android:layout_width="300pt"
+                    android:layout_height="197pt"
+                    android:layout_marginTop="30pt" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28pt"
+                    android:text="--------"
+                    android:textColor="#414141"
+                    android:textSize="30pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="63pt"
+                    android:text="兑奖码"
+                    android:textColor="#414141"
+                    android:textSize="24pt" />
+
+                <TextView
+                    android:id="@+id/tv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10pt"
+                    android:text="-----"
+                    android:textColor="#FF9600"
+                    android:textSize="30pt" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15pt"
+                android:layout_marginTop="48pt"
+                android:background="@drawable/shape_white_20"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20pt">
+
+                <ImageView
+                    android:id="@+id/iv_state"
+                    android:layout_width="80pt"
+                    android:layout_height="80pt"
+                    android:layout_marginLeft="350pt" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="兑奖日期："
+                            android:textColor="#414141"
+                            android:textSize="24pt" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="---------"
+                            android:textColor="#FF9600"
+                            android:textSize="24pt" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14pt"
+                        android:text="*逾期视为自动放弃奖品"
+                        android:textColor="#ACACAC"
+                        android:textSize="24pt" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15pt"
+                android:layout_marginTop="48pt"
+                android:background="@drawable/shape_white_20"
+                android:orientation="vertical"
+                android:padding="20pt">
+
+                <TextView
+                    android:id="@+id/tv_supplier_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="95pt"
+                    android:text="联系商户：------"
+                    android:textSize="26pt" />
+
+                <TextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="95pt"
+                    android:text="联系商户：------"
+                    android:textSize="26pt" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="95pt"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="兑奖地址："
+                        android:textSize="26pt" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

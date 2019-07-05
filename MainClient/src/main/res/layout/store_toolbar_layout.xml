@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_head"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/heard_back"
+        android:layout_width="60pt"
+        android:layout_height="60pt"
+        android:layout_marginLeft="25pt"
+        android:background="@drawable/shape_solid_gray_50_bg">
+
+        <ImageView
+            android:layout_width="23pt"
+            android:layout_height="33pt"
+            android:layout_centerInParent="true"
+            android:background="@drawable/left_black" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="262pt"
+        android:layout_height="60pt"
+        android:background="@drawable/shape_solid_left_gray_50_bg"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:id="@+id/heard_search"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16pt"
+            android:padding="10pt">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_centerInParent="true"
+                android:background="@drawable/search_bg" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/heard_follow"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24pt"
+            android:padding="10pt">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_centerInParent="true"
+                android:background="@drawable/collotion_bg" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/heard_share"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="28pt"
+            android:padding="10pt">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:background="@drawable/store_share" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

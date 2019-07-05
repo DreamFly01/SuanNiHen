@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="292dp"
+    android:layout_height="247dp"
+    android:background="@drawable/bg_lucky_monkey_panel"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item1"
+                android:layout_width="108dp"
+                android:layout_height="71dp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item2"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item3"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item4"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+
+            <View
+                android:layout_width="82dp"
+                android:layout_height="82dp" />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item6"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item7"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item8"
+                android:layout_width="75dp"
+                android:layout_height="72dp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.fdl.activity.goTravel.PanelItemView
+                android:id="@+id/item9"
+                android:layout_width="108dp"
+                android:layout_height="71dp"
+                android:background="@drawable/bg_lucky_monkey_item9"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout >

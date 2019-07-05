@@ -1,0 +1,15 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y127"
+                android:background="#EF0038"
+                android:orientation="horizontal">
+
+
+
+
+  <View
+      android:id="@+id/bg_toolbar_open"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+</RelativeLayout>

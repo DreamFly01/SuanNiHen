@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/heard_layout"></include>
+<include layout="@layout/loading_layout"></include>
+    <TextView
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/tv_noData"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30pt"
+        android:textColor="@color/app_red"
+        android:text="请点击底部按钮，新增地址"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
+        android:id="@+id/recyclerView_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/tv_commit"
+        android:padding="30pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新增地址"
+        android:background="@color/app_red"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtSize_30"
+        android:gravity="center"/>
+</LinearLayout>

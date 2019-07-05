@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <LinearLayout
+        android:padding="30pt"
+        android:id="@+id/ll_shop_bg"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_chose"
+            android:layout_gravity="center"
+            android:layout_width="40pt"
+            android:layout_height="40pt"
+            android:background="@drawable/pay_normall"
+            />
+        <ImageView
+            android:id="@+id/iv_Logo"
+            android:layout_width="80pt"
+            android:layout_height="80pt" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginLeft="20pt"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_weight="1"
+                android:gravity="top"
+                android:id="@+id/tv_name"
+                android:textSize="30pt"
+                android:textColor="@color/gray_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textColor="@color/gray_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30pt"
+                    android:text="店铺星级："/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_follow"
+            android:gravity="center"
+            android:paddingTop="10pt"
+            android:paddingBottom="10pt"
+            android:paddingRight="20pt"
+            android:paddingLeft="20pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_red_range">
+
+            <TextView
+                android:id="@+id/tv_isFollow"
+                android:layout_marginLeft="10pt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30pt"
+                android:text="取消关注"
+
+                android:textColor="@color/app_red"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

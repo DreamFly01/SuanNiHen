@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_common"
+    android:layout_width="178pt"
+    android:layout_height="57pt"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/code_btn_selector"
+    android:gravity="center"
+    android:text="获取验证码"
+    android:paddingTop="10pt"
+    android:paddingBottom="10pt"
+    android:paddingRight="20pt"
+    android:paddingLeft="20pt"
+    android:textColor="@color/txt_white"
+    android:textSize="26pt" />

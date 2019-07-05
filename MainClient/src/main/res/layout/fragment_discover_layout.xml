@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:paddingTop="40pt"
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_red"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="20pt"
+            android:paddingLeft="20pt"
+            android:paddingBottom="20pt"
+            android:background="@color/app_red"
+            >
+
+            <LinearLayout
+                android:id="@+id/heard_back"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:gravity="center">
+
+                <ImageView
+                    android:visibility="visible"
+                    android:layout_width="20pt"
+                    android:layout_height="31pt"
+                    android:src="@drawable/left_black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/heard_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="title"
+                android:textColor="@color/white"
+                android:textSize="36pt" />
+
+            <FrameLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30pt"
+                android:visibility="visible"
+
+                >
+                <ImageView
+                    android:id="@+id/heard_menu"
+                    android:layout_width="42pt"
+                    android:layout_height="40pt"
+                    android:src="@drawable/store_share"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/heard_tv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50pt"
+                    android:textSize="30pt"
+                    android:textColor="@color/gray_1"
+                    />
+            </FrameLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <include layout="@layout/loading_layout"></include>
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10pt"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

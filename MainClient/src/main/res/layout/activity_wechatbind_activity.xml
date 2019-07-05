@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+    <include layout="@layout/heard_layout"></include>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img_login_top"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30pt"
+        />
+    <LinearLayout
+        android:layout_width="680pt"
+        android:layout_height="90pt"
+        android:layout_gravity="center"
+        android:layout_marginTop="53pt"
+        android:orientation="horizontal">
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30pt"
+            android:background="@null"
+            android:hint="11位手机号"
+            android:maxLength="11"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/gray_1"
+            android:textSize="30pt" />
+    </LinearLayout>
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="680pt"
+        android:layout_height="1pt"
+        android:background="@color/txt_9"/>
+    <LinearLayout
+        android:layout_width="680pt"
+        android:layout_height="90pt"
+        android:layout_gravity="center"
+        android:layout_marginTop="20pt"
+        android:orientation="horizontal">
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/et_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30pt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="6 位验证码"
+            android:maxLength="6"
+            android:textColor="@color/txt_dark"
+            android:textColorHint="@color/gray_1"
+            android:textSize="30pt" />
+        <com.fdl.wedgit.IdentifyCodeView
+            android:layout_marginTop="17pt"
+            android:id="@+id/ic_getCode"
+            android:layout_marginRight="34pt"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17pt"
+            />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="680pt"
+        android:layout_height="1pt"
+        android:background="@color/txt_9"/>
+    <Button
+        android:layout_marginTop="59pt"
+        android:id="@+id/btn_commit"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="690pt"
+        android:layout_height="100pt"
+        android:text="绑定"
+        android:textColor="@color/txt_white"
+        android:textSize="36pt"
+        android:background="@drawable/shape_soild_red_bg"/>
+    <TextView
+        android:id="@+id/tv_regist"
+        android:layout_marginTop="30pt"
+        android:layout_marginRight="40pt"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txtSize_28"
+        android:textColor="@color/gray_1"
+        android:text="注册新会员"/>
+</LinearLayout>

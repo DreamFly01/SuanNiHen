@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingTop="30pt"
+            android:paddingRight="60pt"
+            android:paddingBottom="15pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="4.9"
+                android:textColor="@color/color_black_333333"
+                android:textSize="@dimen/txtSize_72" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:maxLines="1"
+                android:text="总评分"
+                android:textColor="#414141"
+                android:textSize="@dimen/txtSize_30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:ellipsize="none"
+                android:maxLines="10"
+                android:text="300"
+                android:textColor="#414141"
+                android:textSize="@dimen/txtSize_30" />
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="1pt"
+            android:layout_height="100pt"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="40pt"
+            android:background="@color/color_grey_999999" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40pt"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40pt"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="口味"
+                    android:textColor="#414141"
+                    android:textSize="@dimen/txtSize_30" />
+
+                <com.fdl.wedgit.StarBarView
+                    android:id="@+id/start_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10pt"
+                    app:space_width="4pt"
+                    app:star_height="36pt"
+                    app:star_hollow="@drawable/start_no_bg"
+                    app:star_isIndicator="false"
+                    app:star_max="5"
+                    app:star_orientation="horizontal"
+                    app:star_solid="@drawable/start_yes_bg"
+                    app:star_width="36pt" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="包装"
+                    android:textColor="#414141"
+                    android:textSize="@dimen/txtSize_30" />
+
+                <com.fdl.wedgit.StarBarView
+                    android:id="@+id/start_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10pt"
+                    app:space_width="4pt"
+                    app:star_height="36pt"
+                    app:star_hollow="@drawable/start_no_bg"
+                    app:star_isIndicator="false"
+                    app:star_max="5"
+                    app:star_orientation="horizontal"
+                    app:star_solid="@drawable/start_yes_bg"
+                    app:star_width="36pt" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="服务"
+                    android:textColor="#414141"
+                    android:textSize="@dimen/txtSize_30" />
+
+                <com.fdl.wedgit.StarBarView
+                    android:id="@+id/start_view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10pt"
+                    app:space_width="4pt"
+                    app:star_height="36pt"
+                    app:star_hollow="@drawable/start_no_bg"
+                    app:star_isIndicator="false"
+                    app:star_max="5"
+                    app:star_orientation="horizontal"
+                    app:star_solid="@drawable/start_yes_bg"
+                    app:star_width="36pt" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

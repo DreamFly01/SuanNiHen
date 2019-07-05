@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+  <LinearLayout
+      android:id="@+id/layoutSms"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/txtSendSms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@null"
+        android:textColor="@color/white"
+        android:text="发送验证码"
+        android:textSize="@dimen/x40"
+        />
+
+  </LinearLayout>
+
+</LinearLayout>

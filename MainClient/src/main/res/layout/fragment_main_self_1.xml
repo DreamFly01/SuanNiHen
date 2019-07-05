@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#EF0038"
+              android:orientation="vertical">
+
+
+
+
+<LinearLayout
+    android:id="@+id/ll_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+  <ImageView
+      android:id="@+id/imgBtnSet"
+      android:layout_width="@dimen/y70"
+      android:layout_height="@dimen/y70"
+      android:layout_marginTop="@dimen/y70"
+      android:layout_marginRight="@dimen/x50"
+      android:layout_gravity="right|top"
+      android:src="@drawable/img_setup"
+      />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y300"
+        android:visibility="visible"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/x60"
+        >
+
+      <com.sg.cj.snh.view.CircleImageView
+          android:id="@+id/imgHead"
+          android:layout_width="@dimen/x190"
+          android:layout_height="@dimen/x190"
+          android:layout_marginLeft="@dimen/x25"
+          android:layout_gravity="center_vertical"
+          />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_weight="1"
+          android:orientation="vertical"
+          android:layout_marginLeft="@dimen/x15"
+          android:layout_gravity="center_vertical"
+          >
+
+        <TextView
+            android:id="@+id/txtNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x48"
+            android:text="昵称"
+
+            />
+
+
+        <TextView
+            android:id="@+id/txtLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x40"
+            android:layout_marginTop="@dimen/y10"
+            android:text="等级"
+
+            />
+
+      </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y164"
+        android:background="#E32239"
+        >
+
+      <LinearLayout
+          android:id="@+id/layout_product_collection"
+          style="@style/self_yellow_layout"
+          >
+
+        <ImageView
+            style="@style/self_yellow_img"
+            android:src="@drawable/product_collection"
+            />
+
+        <TextView
+            android:id="@+id/txt_product_collection"
+            style="@style/self_yellow_txt"
+            android:text="商品收藏"
+            />
+
+      </LinearLayout>
+
+
+      <View
+          android:layout_width="@dimen/x1"
+          android:layout_height="@dimen/y60"
+          android:background="@color/white"
+          android:layout_gravity="center_vertical"
+          />
+
+      <LinearLayout
+          android:id="@+id/layout_shop_focus"
+          style="@style/self_yellow_layout"
+          >
+
+        <ImageView
+            style="@style/self_yellow_img"
+            android:src="@drawable/shop_focus"
+            />
+
+        <TextView
+            android:id="@+id/txt_shop_focus"
+            style="@style/self_yellow_txt"
+
+            android:text="店铺关注"
+
+            />
+
+      </LinearLayout>
+
+
+      <View
+          android:layout_width="@dimen/x1"
+          android:layout_height="@dimen/y60"
+          android:background="@color/white"
+          android:layout_gravity="center_vertical"
+          />
+
+      <LinearLayout
+          android:id="@+id/layout_scan_history"
+          style="@style/self_yellow_layout"
+          >
+
+        <ImageView
+            style="@style/self_yellow_img"
+            android:src="@drawable/scan_history"
+            />
+
+        <TextView
+            android:id="@+id/txt_scan_history"
+            style="@style/self_yellow_txt"
+            android:text="浏览历史"
+
+            />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

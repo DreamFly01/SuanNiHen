@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/heard_layout" />
+
+    <RelativeLayout
+        android:id="@+id/avi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:visibility="visible"
+            app:indicatorColor="@color/app_red"
+            app:indicatorName="@string/agentweb_loading"
+
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_address"
+        android:layout_width="wrap_content"
+        android:layout_height="200pt"
+        android:layout_marginTop="20pt"
+        android:background="@color/color_app_bg"
+        android:orientation="vertical"
+        android:paddingBottom="20pt">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="30pt">
+
+            <LinearLayout
+                android:id="@+id/ll_change_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_1"
+                    android:textSize="28pt" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30pt"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20pt"
+                        android:layout_height="20pt"
+                        android:layout_gravity="center"
+                        android:background="@drawable/address_logo" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10pt"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:textColor="@color/gray_1"
+                        android:textSize="28pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="20pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/img_aray_right" />
+        </LinearLayout>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="4pt"
+            android:background="@drawable/address_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_noAddress"
+        android:layout_width="match_parent"
+        android:layout_height="200pt"
+        android:background="@color/color_app_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_add_my_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_gray_reangle_bg"
+            android:padding="20pt"
+            android:text="添加收货地址"
+            android:textColor="@color/gray_1"
+            android:textSize="28pt" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingLeft="40pt"
+                android:paddingTop="30pt"
+                android:paddingBottom="40pt"
+                android:text="总合计：¥"
+                android:textColor="@color/gray_1"
+                android:textSize="30pt" />
+
+            <TextView
+                android:id="@+id/tv_TotalMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="48"
+                android:textColor="@color/app_red"
+                android:textSize="30pt" />
+
+            <TextView
+                android:id="@+id/tv_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20pt"
+                android:background="@color/app_red"
+                android:padding="30pt"
+                android:text="提交订单"
+                android:textColor="@color/white"
+                android:textSize="30pt" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

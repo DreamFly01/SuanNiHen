@@ -1,0 +1,1 @@
+include ':MainClient', ':lib_common', ':jcvideoplayer-lib', ':uikit'

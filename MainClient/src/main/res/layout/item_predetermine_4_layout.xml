@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160pt"
+    android:layout_height="wrap_content"
+    >
+<TextView
+    android:id="@+id/tv_content1"
+    android:gravity="center"
+    android:layout_width="124pt"
+    android:layout_height="70pt"
+    android:background="@drawable/shape_black_30"
+    android:text="99"
+    android:textColor="#999999"
+    android:textSize="30pt"
+    />
+</LinearLayout>

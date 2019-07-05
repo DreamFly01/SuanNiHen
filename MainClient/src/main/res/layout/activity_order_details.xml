@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
+    tools:context="com.fdl.activity.food.OrderDetailsActivity">
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/heard_layout" />
+    <!--<include layout="@layout/loading_layout"/>-->
+
+    <include
+        layout="@layout/item_order_details1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15pt" />
+
+    <include
+        layout="@layout/item_order_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15pt" />
+
+    <include
+        layout="@layout/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15pt" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:lineSpacingExtra="3pt"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingLeft="15pt"
+        android:paddingTop="50pt"
+        android:paddingRight="15pt"
+        android:paddingBottom="50pt"
+        android:text="@string/hint"
+        android:textColor="@color/color_grey_999999"
+        android:textSize="@dimen/txtSize_30" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D1D0D0"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="3pt"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="15pt"
+            android:text="@string/share_details"
+            android:textColor="#ff7d5001"
+            android:textSize="@dimen/txtSize_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="20pt">
+
+
+        <LinearLayout
+            android:id="@+id/li_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/order_share_shape"
+            android:orientation="horizontal"
+            android:padding="15pt">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12pt"
+                android:gravity="center"
+                android:text="@string/share_dc"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txtSize_30" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

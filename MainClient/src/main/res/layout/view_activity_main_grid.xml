@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    >
+
+  <com.sg.cj.common.base.view.SgNoScrollGridView
+      android:id="@+id/activity_main_gv_container"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/white"
+      android:listSelector="@android:color/transparent"
+      android:numColumns="5"
+      android:scrollbars="none"
+      android:visibility="visible"/>
+
+
+</RelativeLayout>

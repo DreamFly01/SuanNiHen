@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="20pt">
+
+
+        <ImageView
+            android:id="@+id/iv_storeLogo"
+            android:layout_width="60pt"
+            android:layout_height="60pt" />
+        <TextView
+            android:id="@+id/tv_shopName"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="果果的商店"
+            android:textSize="30pt"
+            android:textColor="@color/txt_dark"
+            />
+</LinearLayout>

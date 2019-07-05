@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical"
+    tools:context="com.fdl.activity.food.FoodPlayActivity">
+
+    <include
+        android:id="@+id/li_o1"
+        layout="@layout/heard_layout" />
+
+    <View
+        android:id="@+id/view"
+        style="@style/view_div_w"
+        android:layout_height="15pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/li_o1" />
+
+    <ImageView
+        android:id="@+id/img_user_head"
+        android:layout_width="80pt"
+        android:layout_height="80pt"
+        android:layout_marginTop="80pt"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/li_o1"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:gravity="center"
+        android:text="果果的商店"
+        android:textColor="@color/color_black_41"
+        android:textSize="@dimen/txtSize_38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_user_head"
+        app:layout_goneMarginTop="10pt"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15pt"
+        android:gravity="center"
+        android:text="待提货"
+        android:textColor="@color/color_black_41"
+        android:textSize="@dimen/txtSize_38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_goneMarginTop="10pt"
+        tools:ignore="MissingConstraints" />
+
+
+    <LinearLayout
+        android:id="@+id/li_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40pt"
+        android:layout_marginRight="40pt"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:padding="10pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_status">
+
+        <ImageView
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:layout_gravity="center"
+            android:src="@drawable/store_info1_bg" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="湖南省长沙市雨花区永安小安118栋"
+            android:textColor="@color/color_black_41"
+            android:textSize="@dimen/txtSize_30"
+            app:layout_goneMarginTop="10pt"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li_03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40pt"
+        android:layout_marginRight="40pt"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:padding="10pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/li_02">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30pt"
+            android:layout_marginRight="10pt"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="距离您0.5km"
+            android:textColor="@color/color_black_41"
+            android:textSize="@dimen/txtSize_30"
+            tools:ignore="MissingConstraints" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="25pt"
+            android:layout_gravity="center"
+            android:layout_marginStart="20pt"
+            android:layout_marginRight="20pt"
+            android:background="@color/color_yellow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30pt"
+            android:layout_marginRight="10pt"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="导航"
+            android:textColor="@color/color_black_41"
+            android:textSize="@dimen/txtSize_30"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_navigation" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80pt"
+        android:text="提货码:"
+        android:textColor="@color/color_grey_999999"
+        android:textSize="@dimen/txtSize_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/li_03"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pick_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80pt"
+        android:layout_marginTop="20pt"
+        android:paddingBottom="40pt"
+        android:text="123456666"
+        android:textColor="#414141"
+        android:textSize="@dimen/txtSize_40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img_qr_code"
+        android:layout_width="450pt"
+        android:layout_height="400pt"
+        android:layout_marginTop="50pt"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pick_code"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:text="请在2019年4月3日前，根据地址来到店提货"
+        android:textColor="#FF9600"
+        android:textSize="@dimen/txtSize_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_qr_code"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>

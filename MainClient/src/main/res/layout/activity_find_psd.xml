@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+
+              android:orientation="vertical">
+
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/y140"
+      android:textColor="@color/black"
+      android:textSize="@dimen/x43"
+      android:gravity="center"
+      android:text="短信验证"
+      />
+
+  <View
+      style="@style/login_input_line"
+      android:layout_marginLeft="0dp"
+      android:layout_marginRight="0dp"
+      android:layout_marginBottom="@dimen/y30"
+      />
+
+
+  <LinearLayout
+      android:id="@+id/layout_sms"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+    <include layout="@layout/view_sms"/>
+
+  </LinearLayout>
+
+
+  <LinearLayout
+      android:id="@+id/layout_pwd"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"
+      >
+    <include layout="@layout/view_pwd"/>
+
+  </LinearLayout>
+
+</LinearLayout>

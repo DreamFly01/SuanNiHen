@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="main_bg">#f7f7f7</color>
+
+  <color name="topbar_bg">#FD8308</color>
+
+  <color name="bg_gray_separaor_cccccc">#cccccc</color>
+
+  <color name="toast_bg">#dddfe0</color>
+
+  <color name="txt_topbar">#FFFFFF</color>
+
+</resources>

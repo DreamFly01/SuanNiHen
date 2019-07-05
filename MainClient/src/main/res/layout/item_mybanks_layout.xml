@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30pt"
+        android:paddingTop="15pt"
+        android:paddingRight="30pt"
+        android:paddingBottom="15pt"
+        android:orientation="horizontal"
+        >
+            <com.aries.ui.view.radius.RadiusLinearLayout
+                android:id="@+id/ll_bank"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:rv_radius="20pt"
+                >
+                <ImageView
+                    android:id="@+id/iv_bank_bg"
+                    android:layout_marginTop="30pt"
+                    android:layout_marginLeft="30pt"
+                    android:layout_width="76pt"
+                    android:layout_height="76pt"
+
+                    />
+                <LinearLayout
+                    android:layout_marginTop="30pt"
+                    android:layout_marginLeft="30pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_bank_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="建设银行"
+                        android:textSize="34pt"
+                        android:textColor="@color/txt_white"/>
+                    <TextView
+                        android:layout_marginTop="15pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="储蓄卡"
+                        android:textSize="24pt"
+                        android:textColor="@color/txt_white"/>
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_no"
+                        android:layout_marginBottom="38pt"
+                        android:layout_marginTop="56pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="**** **** **** 9737"
+                        android:textSize="34pt"
+                        android:textColor="@color/txt_white"/>
+
+                </LinearLayout>
+            </com.aries.ui.view.radius.RadiusLinearLayout>
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:id="@+id/btnDelete"
+    android:layout_width="108pt"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+    <ImageView
+        android:layout_width="36pt"
+        android:layout_height="36pt"
+        android:background="@drawable/delete_bank_bg"
+        />
+</LinearLayout>
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

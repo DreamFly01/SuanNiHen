@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+
+  <com.sg.cj.common.base.view.viewpager.SgViewPager
+      android:id="@+id/tabmain_viewPager"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="@color/main_bg"
+       />
+
+  <com.sg.cj.common.base.view.indicator.FixedIndicatorView
+      android:id="@+id/tabmain_indicator"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="@color/white"/>
+
+</LinearLayout>

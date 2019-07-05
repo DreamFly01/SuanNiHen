@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_app_bg"
+    >
+    <include layout="@layout/heard_layout"></include>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_marginTop="92pt"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#959595"
+        android:textSize="30pt"
+        android:text="目前您暂未添加任何银行卡"
+        />
+    <LinearLayout
+        android:layout_marginTop="81pt"
+        android:orientation="horizontal"
+        android:id="@+id/ll_commit"
+        android:layout_width="690pt"
+        android:layout_height="100pt"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_white_20"
+        android:gravity="center"
+        android:textColor="@color/txt_white"
+        android:textSize="36pt" >
+        <ImageView
+            android:layout_width="28pt"
+            android:layout_height="28pt"
+            android:background="@drawable/add_bg"
+            />
+        <TextView
+            android:layout_marginLeft="12pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_red"
+            android:textSize="30pt"
+            android:text="添加银行卡"/>
+    </LinearLayout>
+</LinearLayout>

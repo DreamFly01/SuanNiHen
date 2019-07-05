@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15pt">
+
+        <ImageView
+            android:layout_width="40pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="15pt"
+
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15pt"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/use_head_ime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="茶的世界"
+                android:textColor="#414141"
+                android:textSize="@dimen/txtSize_30" />
+
+            <com.fdl.wedgit.StarBarView
+                android:id="@+id/start_view4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10pt"
+                android:layout_marginTop="5pt"
+                app:space_width="4pt"
+                app:star_height="36pt"
+                app:star_hollow="@drawable/start_no_bg"
+                app:star_isIndicator="false"
+                app:star_max="5"
+                app:star_orientation="horizontal"
+                app:star_solid="@drawable/start_yes_bg"
+                app:star_width="36pt" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:maxLength="21"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingRight="15pt"
+            android:text="2019-5-14--0"
+            android:textColor="#414141"
+            android:textSize="@dimen/txtSize_30" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15pt">
+
+        <TextView
+            android:id="@+id/user_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:lineSpacingExtra="1pt"
+            android:lineSpacingMultiplier="1.1"
+            android:maxLines="12"
+            android:minLines="1"
+            android:text="@string/kw_hint"
+            android:textColor="#414141"
+            android:textSize="@dimen/txtSize_30" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20pt"
+            android:background="@color/white"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_app_bg"
+            android:padding="15pt">
+
+            <TextView
+                android:id="@+id/Merchant_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20pt"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:lineSpacingExtra="1pt"
+                android:lineSpacingMultiplier="1.1"
+                android:maxLines="12"
+                android:minLines="1"
+                android:text="@string/sj_hint"
+                android:textColor="#414141"
+                android:textSize="@dimen/txtSize_30" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="20pt">
+
+        <ImageView
+            android:id="@+id/img_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:scaleType="centerCrop"
+            android:src="@drawable/message" />
+
+        <ImageView
+            android:id="@+id/img_like"
+            android:layout_width="75pt"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40pt"
+            android:layout_marginRight="30pt"
+            android:scaleType="centerCrop"
+            android:src="@drawable/like" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

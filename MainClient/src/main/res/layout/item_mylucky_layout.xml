@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_app_bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+
+    >
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2019.10.10_09.08.05"
+        android:textSize="24pt"
+        android:textColor="#414141"
+        />
+<LinearLayout
+    android:paddingTop="20pt"
+    android:paddingBottom="20pt"
+    android:paddingRight="30pt"
+    android:paddingLeft="30pt"
+    android:layout_marginTop="27pt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_20"
+    android:orientation="horizontal"
+    >
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/iv_logo"
+        android:layout_width="154pt"
+        android:layout_height="101pt" />
+    <LinearLayout
+        android:layout_marginLeft="34pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="特等奖"
+            android:textSize="36pt"
+            android:textColor="#FF9600"
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_marginTop="5pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="亚洲海滩7日游"
+            android:textSize="24pt"
+            android:textColor="#414141"
+            />
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_marginTop="5pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="兑奖码：288223433325352352353"
+            android:textSize="24pt"
+            android:textColor="#414141"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_state"
+        android:layout_gravity="center_vertical"
+        android:layout_width="80pt"
+        android:layout_height="80pt" />
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/travel_bg"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_width="750pt"
+                android:layout_height="680pt"
+                android:background="@drawable/travel_sun_bg" />
+            <LinearLayout
+                android:id="@+id/iv_box"
+                android:layout_width="702pt"
+                android:layout_height="800pt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="465pt"
+                android:background="@drawable/travel_box_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="632pt"
+                    android:layout_height="88pt"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80pt"
+                    android:background="@drawable/travel_txt_bg"
+                    android:gravity="center"
+                    android:paddingLeft="40pt"
+                    android:paddingRight="40pt">
+
+                    <ViewFlipper
+                        android:id="@+id/vf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="636pt"
+                    android:layout_height="542pt"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="48pt">
+
+                    <com.fdl.activity.goTravel.LuckyMonkeyPanelView
+                        android:id="@+id/lucky_panel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                    <RelativeLayout
+                        android:id="@+id/ll_action"
+                        android:layout_centerInParent="true"
+                        android:layout_width="216pt"
+                        android:layout_height="142pt">
+                    <ImageView
+                        android:id="@+id/btn_action"
+                        android:layout_width="216pt"
+                        android:layout_height="142pt"
+                        android:background="@drawable/travel_go_bg"
+                        android:textColor="#4d1c01"
+                        android:textSize="34sp" />
+                        <TextView
+                            android:paddingBottom="10pt"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/tv_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20pt"
+                            android:textColor="@color/white"
+                            android:text=""
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="416pt"
+                android:layout_height="466pt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40pt"
+                android:background="@drawable/travel_car_bg" />
+
+            <ImageView
+                android:layout_width="554pt"
+                android:layout_height="132pt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="146pt"
+                android:background="@drawable/travel_txt" />
+
+            <RelativeLayout
+                android:id="@+id/tv_explain"
+                android:padding="20pt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_box">
+
+            <TextView
+
+                android:layout_width="230pt"
+                android:layout_height="50pt"
+
+                android:layout_marginLeft="83pt"
+                android:layout_marginTop="20pt"
+                android:layout_marginBottom="20pt"
+                android:background="@drawable/travel_txt_bg"
+                android:gravity="center"
+                android:text="活动说明"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="90pt"
+                android:id="@+id/tv_recode"
+                android:padding="20pt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_box"
+                android:layout_toRightOf="@+id/tv_explain">
+
+            <TextView
+                android:layout_width="230pt"
+                android:layout_height="50pt"
+                android:layout_marginTop="20pt"
+                android:layout_marginBottom="20pt"
+                android:background="@drawable/travel_txt_bg"
+                android:gravity="center"
+                android:text="我的记录"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="100pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:paddingLeft="20pt"
+        android:padding="20pt">
+        <ImageView
+            android:layout_width="20pt"
+            android:layout_height="31pt"
+            android:background="@drawable/left_black" />
+    </RelativeLayout>
+
+</RelativeLayout>

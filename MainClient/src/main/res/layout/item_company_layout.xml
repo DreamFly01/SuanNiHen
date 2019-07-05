@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10pt"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_marginLeft="20pt"
+        android:layout_marginRight="20pt"
+        android:visibility="visible"
+        android:id="@+id/iv_item_chose"
+        android:layout_gravity="center"
+        android:layout_width="40pt"
+        android:layout_height="40pt"
+        android:background="@drawable/pay_normall"
+        />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="旗舰店"
+        android:textSize="@dimen/txtSize_28"
+        android:textColor="@color/txt_dark"/>
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/tv_introduce"
+        android:layout_marginLeft="30pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="经营三十岁四十岁时说说说收缩说说说收缩试试水说说说收缩"
+        android:textSize="@dimen/txtSize_28"
+        android:textColor="@color/gray_1"
+        />
+</LinearLayout>

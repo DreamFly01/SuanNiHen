@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.fdl.activity.food.PublishRatingActivity">
+
+
+    <include layout="@layout/heard_white_layout" />
+    <!--<include layout="@layout/loading_layout"/>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15pt">
+
+        <ImageView
+            android:id="@+id/shop_head_img"
+            android:layout_width="50pt"
+            android:layout_height="50pt"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_shop_nameme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10pt"
+            android:gravity="center_vertical"
+            android:text="@string/stroe_name"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <com.fdl.wedgit.StarBarView
+            android:id="@+id/start_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            app:space_width="4pt"
+            app:star_height="36pt"
+            app:star_hollow="@drawable/start_no_bg"
+            app:star_isIndicator="false"
+            app:star_max="5"
+            app:star_orientation="horizontal"
+            app:star_solid="@drawable/start_yes_bg"
+            app:star_width="36pt" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15pt">
+
+
+        <TextView
+            android:id="@+id/tv_Taste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10pt"
+            android:gravity="center_vertical"
+            android:text="口味"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <com.fdl.wedgit.StarBarView
+            android:id="@+id/start_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            app:space_width="4pt"
+            app:star_height="36pt"
+            app:star_hollow="@drawable/start_no_bg"
+            app:star_isIndicator="false"
+            app:star_max="5"
+            app:star_orientation="horizontal"
+            app:star_solid="@drawable/start_yes_bg"
+            app:star_width="36pt" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15pt">
+
+
+        <TextView
+            android:id="@+id/tv_pack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10pt"
+            android:gravity="center_vertical"
+            android:text="包装"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+        <com.fdl.wedgit.StarBarView
+            android:id="@+id/start_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            app:space_width="4pt"
+            app:star_height="36pt"
+            app:star_hollow="@drawable/start_no_bg"
+            app:star_isIndicator="false"
+            app:star_max="5"
+            app:star_orientation="horizontal"
+            app:star_solid="@drawable/start_yes_bg"
+            app:star_width="36pt" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_grey_999999" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30pt"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15pt">
+
+        <ImageView
+            android:id="@+id/shop_user_ime"
+            android:layout_width="120pt"
+            android:layout_height="120pt"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10pt"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/stroe_name"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/img_to_play" />
+
+        <TextView
+            android:id="@+id/tv_incognito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10pt"
+            android:gravity="center_vertical"
+            android:paddingRight="10pt"
+            android:text="匿名"
+            android:textColor="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15pt"
+        android:layout_marginRight="15pt"
+        android:background="@drawable/shape_range_gray_bg"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/et_issue"
+            style="?android:attr/textViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="产品还满意？说说你对产品的心得吧"
+            android:paddingLeft="10pt"
+            android:paddingTop="10pt"
+            android:paddingBottom="100pt"
+            android:textColor="#ffacacac"
+            android:textColorHighlight="@color/color_black_333333"
+            android:textSize="@dimen/txtSize_24" />
+
+
+        <ImageView
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:padding="10pt"
+            android:src="@drawable/merchantin_upload_default" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

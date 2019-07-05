@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/collapsingToolbar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/app_red"
+            android:layout_height="wrap_content">
+           <com.youth.banner.Banner
+               android:layout_width="match_parent"
+               android:layout_height="273pt"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:layout_collapseMode="pin"
+                android:layout_width="match_parent"
+                android:minHeight="60pt"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                app:contentInsetStart="0dp"
+                >
+                <LinearLayout
+                    android:id="@+id/rl_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_marginLeft="25pt"
+                        android:id="@+id/heard_back"
+                        android:layout_width="60pt"
+                        android:layout_height="60pt"
+                        android:background="@drawable/shape_solid_gray_50_bg">
+
+                        <ImageView
+                            android:layout_width="23pt"
+                            android:layout_height="33pt"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/left_black" />
+
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:id="@+id/ll_menu"
+                        android:layout_width="262pt"
+                        android:layout_height="60pt"
+                        android:background="@drawable/shape_solid_left_gray_50_bg"
+                        android:gravity="center_vertical"
+                        >
+                        <ImageView
+                            android:id="@+id/heard_title"
+                            android:layout_marginLeft="26pt"
+                            android:layout_width="40pt"
+                            android:layout_height="40pt"
+                            android:background="@drawable/search_bg"
+                            />
+                        <ImageView
+                            android:id="@+id/ll_follow"
+                            android:layout_marginLeft="44pt"
+                            android:layout_width="40pt"
+                            android:layout_height="40pt"
+                            android:background="@drawable/collotion_bg"
+                            />
+                        <ImageView
+                            android:id="@+id/heard_menu"
+                            android:layout_marginLeft="48pt"
+                            android:layout_width="40pt"
+                            android:layout_height="40pt"
+                            android:background="@drawable/store_share"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+</android.support.design.widget.CoordinatorLayout>

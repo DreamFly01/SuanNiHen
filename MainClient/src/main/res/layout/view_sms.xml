@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+
+              android:orientation="vertical">
+
+
+
+
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+
+    <EditText
+        android:id="@+id/et_username"
+        style="@style/login_input_edit"
+        android:hint="请输入手机"
+        android:inputType="phone"
+        />
+
+  </LinearLayout>
+
+  <View
+      style="@style/login_input_line"
+      />
+
+  <LinearLayout
+      style="@style/login_input_layout"
+      >
+
+    <EditText
+        android:id="@+id/et_psd"
+        style="@style/login_input_edit"
+        android:layout_weight="1"
+        android:hint="请输入验证码"
+        android:text=""
+        android:inputType="number"
+        />
+
+    <com.sg.cj.snh.view.SmsBtnView
+        android:id="@+id/smsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/x15"
+        android:background="@drawable/bg_btn"
+        android:layout_gravity="center_vertical"
+        >
+
+    </com.sg.cj.snh.view.SmsBtnView>
+
+  </LinearLayout>
+
+
+  <View
+      style="@style/login_input_line"
+      />
+
+
+  <Button
+      android:id="@+id/btn_login"
+      style="@style/login_input_button"
+      android:text="登录"
+      />
+</LinearLayout>

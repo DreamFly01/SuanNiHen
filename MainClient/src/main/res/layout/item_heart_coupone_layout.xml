@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="55pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="促销"
+        android:textSize="30pt"
+        android:textColor="@color/gray_1"
+        />
+    <LinearLayout
+        android:layout_marginTop="22pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+
+            android:paddingLeft="10pt"
+            android:paddingRight="10pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="折扣优惠"
+            android:textColor="@color/orange"
+            android:textSize="18pt"
+            android:background="@drawable/shape_range_orange_bg"
+            />
+        <TextView
+            android:layout_marginLeft="20pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满188，省30元"
+            android:textSize="24pt"
+            android:textColor="@color/txt_dark"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="22pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+
+            android:paddingLeft="10pt"
+            android:paddingRight="10pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满减优惠"
+            android:textColor="@color/orange"
+            android:textSize="18pt"
+            android:background="@drawable/shape_range_orange_bg"
+            />
+        <TextView
+            android:layout_marginLeft="20pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满188，省30元"
+            android:textSize="24pt"
+            android:textColor="@color/txt_dark"
+            />
+    </LinearLayout>
+    <TextView
+        android:textColor="@color/gray_1"
+        android:layout_marginTop="42pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="优惠券"
+        android:textSize="30pt"
+        />
+</LinearLayout>

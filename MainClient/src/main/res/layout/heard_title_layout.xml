@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10pt"
+        android:background="@color/color_app_bg"/>
+    <LinearLayout
+        android:padding="20pt"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="40pt"
+        android:layout_height="40pt"
+        android:background="@drawable/title_bg"/>
+    <TextView
+        android:layout_marginLeft="40pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="同城推荐"
+        android:textColor="@color/app_red"
+        android:textSize="@dimen/txtSize_36"/>
+    <ImageView
+        android:layout_marginLeft="40pt"
+        android:layout_width="40pt"
+        android:layout_height="40pt"
+        android:background="@drawable/title_bg"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10pt"
+        android:background="@color/color_app_bg"/>
+</LinearLayout>

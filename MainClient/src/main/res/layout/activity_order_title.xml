@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10pt"
+    android:paddingStart="10pt"
+    android:background="@drawable/food_head_shape"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/self"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10pt"
+        android:layout_marginTop="15pt"
+        android:text="@string/self"
+        android:textColor="#ff323231"
+        android:textSize="@dimen/txtSize_30" />
+
+    <LinearLayout
+        android:id="@+id/li_01"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10pt"
+            android:text="@string/address"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:id="@+id/tv_sj_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:padding="10pt"
+            android:textColor="#ff323231"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/address_km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10pt"
+            android:text="@string/km"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="25pt"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/txtSize_24"
+            android:layout_marginRight="@dimen/txtSize_24"
+            android:background="@color/color_black_333333" />
+
+        <TextView
+            android:id="@+id/tv_look_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:padding="10pt"
+            android:text="@string/lock_map"
+            android:textColor="@color/app_red"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10pt"
+            android:text="@string/time"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="@dimen/txtSize_72"
+            android:padding="10pt"
+            android:text="@string/phone"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+    <!--android:text="@string/time2"-->
+    <LinearLayout
+        android:id="@+id/li_03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10pt"
+            android:text="@string/time2"
+            android:textColor="@color/color_yellow_ff9600"
+            android:textSize="@dimen/txtSize_30" />
+        <!--android:text="@string/phone2"-->
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="@dimen/txtSize_72"
+            android:padding="10pt"
+            android:text="@string/phone2"
+            android:textColor="@color/color_yellow_ff9600"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li_04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10pt">
+
+        <CheckBox
+            android:id="@+id/cb_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--android:text="@string/order_agreement"-->
+        <TextView
+            android:id="@+id/tv_user_Agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="@dimen/txtSize_72"
+            android:padding="10pt"
+            android:text="@string/order_agreement"
+            android:textColor="@color/color_grey_666666"
+            android:textSize="@dimen/txtSize_30" />
+
+    </LinearLayout>
+</LinearLayout>
