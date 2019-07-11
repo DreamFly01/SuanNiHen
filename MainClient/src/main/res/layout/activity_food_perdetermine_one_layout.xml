@@ -17,7 +17,7 @@
         android:textSize="36pt"
         android:textColor="@color/txt_dark"
         android:textStyle="bold"
-        android:text="成人10，儿童2，今天18:00，大厅"
+        android:text="请选择订餐信息"
         />
     <TextView
         android:layout_marginLeft="20pt"

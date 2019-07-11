@@ -192,7 +192,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 wxLogin();
                 break;
             case R.id.btn_qh:
-                if(btnQh.getText().toString().trim().equals("正式")){
+                if(Contans.HOST.equals(SPUtils.getInstance(this).getString(Contans.SP_HOSt))){
                     btnQh.setText("测试");
                     RetrofitUrlManager.getInstance().setGlobalDomain(Contans.HOST_TEST);
                     SPUtils.getInstance(this).saveData(Contans.SP_HOSt,Contans.HOST_TEST);

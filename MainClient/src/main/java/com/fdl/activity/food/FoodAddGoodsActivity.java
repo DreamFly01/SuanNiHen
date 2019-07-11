@@ -42,6 +42,8 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,11 +98,11 @@ public class FoodAddGoodsActivity extends FragmentActivity {
     LinearLayout liEvaluate;
     @BindView(R.id.store_phone)
     TextView storePhone;
-//    @BindView(R.id.rv_store_img)
+    //    @BindView(R.id.rv_store_img)
 //    RecyclerView rvStoreImg;
     @BindView(R.id.tv_Business_hours)
     TextView tvBusinessHours;
-//    @BindView(R.id.tv_Promotions)
+    //    @BindView(R.id.tv_Promotions)
 //    TextView tvPromotions;
     @BindView(R.id.ll_storeInfo)
     LinearLayout llStoreInfo;
@@ -192,6 +194,8 @@ public class FoodAddGoodsActivity extends FragmentActivity {
                 bean = model.data;
                 avi.setVisibility(View.GONE);
                 initData(model.data);
+                initLeft(FoodAddGoodsActivity.this);
+                initRight(FoodAddGoodsActivity.this);
             }
         });
     }
@@ -290,15 +294,15 @@ public class FoodAddGoodsActivity extends FragmentActivity {
                     case R.id.iv_add:
                         if (right.get(position - 1).itemBean.total >= right.get(position - 1).itemBean.Inventory) {
                         } else {
-                            right.get(position - 1).itemBean.total += 1;
-                            rightAdapter.setNewData(right);
+                            int num = right.get(position - 1).itemBean.total += 1;
+                            updata(right.get(position-1).itemBean.CommTenantId.longValue(),num);
+
                         }
-                        setTvPrice();
                         break;
                     case R.id.iv_delete:
-                        right.get(position - 1).itemBean.total -= 1;
-                        rightAdapter.setNewData(right);
-                        setTvPrice();
+                        int num =right.get(position - 1).itemBean.total -= 1;
+                        updata(right.get(position-1).itemBean.CommTenantId.longValue(),num);
+
                         break;
                     case R.id.iv_product_logo1:
                         bundle = new Bundle();
@@ -310,6 +314,16 @@ public class FoodAddGoodsActivity extends FragmentActivity {
                 }
             }
         });
+    }
+
+    private void updata(long id, int num) {
+        for (int i = 0; i < right.size(); i++) {
+            if (null!=right.get(i).itemBean&&right.get(i).itemBean.CommTenantId.longValue() == id) {
+                right.get(i).itemBean.total = num;
+            }
+        }
+        rightAdapter.setNewData(right);
+        setTvPrice();
     }
 
     private void initLeft(Context mContext) {
@@ -346,6 +360,15 @@ public class FoodAddGoodsActivity extends FragmentActivity {
         List<ScrollBean> list = new ArrayList<>();
         ScrollBean scrollBean = null;
         ScrollBean.ScrollItemBean scrollItemBean;
+        for (CommTenantType commTenantType : bean.CommTenantResultList) {
+            for (CommTenant commTenant : commTenantType.CommTenantList) {
+                for (OrdersData ordersDatum : ordersData) {
+                    if (commTenant.CommTenantId.longValue() == ordersDatum.GoodsId) {
+                        commTenant.total = ordersDatum.GoodsNum2;
+                    }
+                }
+            }
+        }
         for (int i = 0; i < bean.CommTenantResultList.size(); i++) {
             left.add(bean.CommTenantResultList.get(i).TypeName);
             scrollBean = new ScrollBean(true, bean.CommTenantResultList.get(i).TypeName);
@@ -368,16 +391,7 @@ public class FoodAddGoodsActivity extends FragmentActivity {
             }
         }
 
-        for (CommTenantType commTenantType : bean.CommTenantResultList) {
-            for (CommTenant commTenant : commTenantType.CommTenantList) {
-                for (OrdersData ordersDatum : ordersData) {
-                    if(commTenant.CommTenantId.longValue() == ordersDatum.GoodsId){
-                        commTenant.total+=ordersDatum.GoodsNum2;
-                        commTenant.GoodsNum = ordersDatum.GoodsNum;
-                    }
-                }
-            }
-        }
+
         for (int i = 0; i < right.size(); i++) {
             if (right.get(i).isHeader) {
                 //遍历右侧列表,判断如果是header,则将此header在右侧列表中所在的position添加到集合中
@@ -387,8 +401,7 @@ public class FoodAddGoodsActivity extends FragmentActivity {
                 list.add(right.get(i));
             }
         }
-        initLeft(this);
-        initRight(this);
+
     }
 
     /**
@@ -436,10 +449,11 @@ public class FoodAddGoodsActivity extends FragmentActivity {
             if (null != right.get(i).itemBean && right.get(i).itemBean.total > 0) {
                 OrdersData bean = new OrdersData();
                 bean.GoodsId = (right.get(i).itemBean.CommTenantId).intValue();
-                bean.GoodsNum2 = right.get(i).itemBean.total;
                 bean.Image = right.get(i).itemBean.CommTenantIcon;
                 bean.SalesPrice = right.get(i).itemBean.Price;
-                bean.GoodsNum = right.get(i).itemBean.GoodsNum;
+                bean.GoodsNum = 0;
+                bean.GoodsNum2 = right.get(i).itemBean.total;
+                bean.GoodsName = right.get(i).itemBean.CommTenantName;
                 returnData.add(bean);
             }
         }
@@ -457,28 +471,24 @@ public class FoodAddGoodsActivity extends FragmentActivity {
         if (ordersData.size() > 0) {
             for (OrdersData returnDatum : returnData) {
                 for (OrdersData ordersDatum : ordersData) {
+                    FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
+                    bean.GoodsId = returnDatum.GoodsId;
+                    bean.GoodsNum = (ordersDatum.GoodsNum + returnDatum.GoodsNum2);
+                    bean.GoodsNum2 = 0;
+                    bean.GoodsNormId = 0;
                     if (returnDatum.GoodsId == ordersDatum.GoodsId) {
-                        listMap.get(returnDatum.GoodsId).GoodsId = ordersDatum.GoodsId;
-                        listMap.get(returnDatum.GoodsId).OrderId = ordersDatum.Id;
-                        listMap.get(returnDatum.GoodsId).GoodsNormId = 0;
-                        listMap.get(returnDatum.GoodsId).GoodsNum += (ordersDatum.GoodsNum+ordersDatum.GoodsNum2);
-                        listMap.get(returnDatum.GoodsId).GoodsNum2 =0;
+                        bean.OrderId = ordersDatum.Id;
                     } else {
-                        FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
-                        bean.GoodsId = returnDatum.GoodsId;
-                        bean.GoodsNum = (returnDatum.GoodsNum+returnDatum.GoodsNum2);
-                        bean.GoodsNormId = 0;
-                        bean.GoodsNum2 = 0;
                         bean.OrderId = 0;
-                        listMap.put(returnDatum.GoodsId, bean);
                     }
+                    listMap.put(returnDatum.GoodsId, bean);
                 }
             }
         } else {
             for (OrdersData returnDatum : returnData) {
                 FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
                 bean.GoodsId = returnDatum.GoodsId;
-                bean.GoodsNum = (returnDatum.GoodsNum+returnDatum.GoodsNum2);
+                bean.GoodsNum = returnDatum.GoodsNum2;
                 bean.GoodsNormId = 0;
                 bean.OrderId = 0;
                 bean.GoodsNum2 = 0;
@@ -514,12 +524,22 @@ public class FoodAddGoodsActivity extends FragmentActivity {
 
     private double totalPrice;
 
+    private Map<Long,ScrollBean.ScrollItemBean> priceMap = new TreeMap<>();
+    private List<ScrollBean.ScrollItemBean> priceList = new ArrayList<>();
+
     private void setTvPrice() {
         totalPrice = 0;
+        priceList.clear();
         for (int i = 0; i < right.size(); i++) {
             if (null != right.get(i).itemBean && right.get(i).itemBean.total > 0) {
-                totalPrice += (right.get(i).itemBean.Price * right.get(i).itemBean.total);
+                priceMap.put(right.get(i).itemBean.CommTenantId,right.get(i).itemBean);
             }
+        }
+        for (Object o : priceMap.keySet()) {
+            priceList.add( priceMap.get(o));
+        }
+        for (int i = 0; i < priceList.size(); i++) {
+                totalPrice += (priceList.get(i).Price * priceList.get(i).total);
         }
         tvPrice.setText("共¥" + StrUtils.moenyToDH(totalPrice + ""));
     }

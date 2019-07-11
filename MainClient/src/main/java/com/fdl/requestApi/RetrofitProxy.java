@@ -69,7 +69,7 @@ public class RetrofitProxy {
                 .build();
         retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())//使用String作为数据转换器
-                .baseUrl(Contans.HOST_TEST)
+                .baseUrl(SPUtils.getInstance(context).getString(Contans.SP_HOSt))
                 .callbackExecutor(executor)
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())// 使用RxJava作为回调适配器

@@ -13,8 +13,9 @@ public class SubscribeApplyInfoBean {
     public SupData SUP;
     public FoodData FOOD;
     public List<OrdersData> ORDERS;
+    public Coupons COUPON;
 
-   public  class SupData{
+    public class SupData {
         public String ShopName;
         public int StarLevel;
         public String Logo;
@@ -25,7 +26,8 @@ public class SubscribeApplyInfoBean {
         public String Address;
 
     }
-  public  class FoodData{
+
+    public class FoodData {
         public int IsPaid;
         public int SubscribePrice;
         public int AdultCount;
@@ -38,8 +40,14 @@ public class SubscribeApplyInfoBean {
         public String UCode;
         public String SHAREURL;
         public String OrderNo;
-      public String LDinnerTime;
-
-
-  }
+        public String LDinnerTime;
+    }
+    public class Coupons{
+        public int CouponId;
+        public String CouponName;
+        public double ConditionValue;
+        public double CouponValue;
+        public String CouponTypes;
+        public int CouponWay;
+    }
 }

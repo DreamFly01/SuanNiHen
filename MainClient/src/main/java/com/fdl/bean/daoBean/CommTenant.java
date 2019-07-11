@@ -1,5 +1,8 @@
 package com.fdl.bean.daoBean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
@@ -12,7 +15,7 @@ import org.greenrobot.greendao.annotation.Generated;
  * <p>version：1<p>
  */
 @Entity ()
-public class CommTenant {
+public class CommTenant implements Parcelable {
     @Id
     public Long CommTenantId;
     private int SupplierId;
@@ -45,6 +48,37 @@ public class CommTenant {
     @Generated(hash = 1641007702)
     public CommTenant() {
     }
+
+    protected CommTenant(Parcel in) {
+        if (in.readByte() == 0) {
+            CommTenantId = null;
+        } else {
+            CommTenantId = in.readLong();
+        }
+        SupplierId = in.readInt();
+        CommTenantName = in.readString();
+        CommTenantIcon = in.readString();
+        OnThePin = in.readInt();
+        Price = in.readDouble();
+        UnitsTitle = in.readString();
+        total = in.readInt();
+        commtenantId = in.readLong();
+        Inventory = in.readLong();
+        GoodsNum = in.readInt();
+    }
+
+    public static final Creator<CommTenant> CREATOR = new Creator<CommTenant>() {
+        @Override
+        public CommTenant createFromParcel(Parcel in) {
+            return new CommTenant(in);
+        }
+
+        @Override
+        public CommTenant[] newArray(int size) {
+            return new CommTenant[size];
+        }
+    };
+
     public Long getCommTenantId() {
         return this.CommTenantId;
     }
@@ -110,5 +144,30 @@ public class CommTenant {
     }
     public void setGoodsNum(int GoodsNum) {
         this.GoodsNum = GoodsNum;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (CommTenantId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(CommTenantId);
+        }
+        dest.writeInt(SupplierId);
+        dest.writeString(CommTenantName);
+        dest.writeString(CommTenantIcon);
+        dest.writeInt(OnThePin);
+        dest.writeDouble(Price);
+        dest.writeString(UnitsTitle);
+        dest.writeInt(total);
+        dest.writeLong(commtenantId);
+        dest.writeLong(Inventory);
+        dest.writeInt(GoodsNum);
     }
 }

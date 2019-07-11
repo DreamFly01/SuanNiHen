@@ -86,6 +86,7 @@ public class StoreCouponsActivity extends BaseActivity {
     private Bundle bundle;
     private StoreCouponsAdapter couponsAdapter;
     private double money;
+    private int from;
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {
@@ -95,6 +96,7 @@ public class StoreCouponsActivity extends BaseActivity {
             storeId = bundle.getInt("storeId");
             SupplierId = bundle.getInt("SupplierId");
             money = bundle.getDouble("money");
+            from = bundle.getInt("from");
         }
     }
 
@@ -286,8 +288,12 @@ public class StoreCouponsActivity extends BaseActivity {
     private List<CommTenant> productData = new ArrayList<>();
 
     private void queryPruduct() {
-        CommTenantDao commTenantDao = DBManager.getDaoMaster().newSession().getCommTenantDao();
-        productData = commTenantDao.queryBuilder().where(CommTenantDao.Properties.SupplierId.eq(SupplierId)).list();
+        if (from == 1) {
+            productData = bundle.getParcelableArrayList("data");
+        } else {
+            CommTenantDao commTenantDao = DBManager.getDaoMaster().newSession().getCommTenantDao();
+            productData = commTenantDao.queryBuilder().where(CommTenantDao.Properties.SupplierId.eq(SupplierId)).list();
+        }
         getData();
 
     }

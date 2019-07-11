@@ -118,6 +118,7 @@ public class FoodkDialogFragment extends DialogFragment {
                         break;
                     case R.id.tv_delete:
                         cancleOrder(data.get(position).Id, position);
+
                         break;
                 }
             }
@@ -147,6 +148,11 @@ public class FoodkDialogFragment extends DialogFragment {
                     llAddPredetermine.setVisibility(View.GONE);
                 }else {
                     llAddPredetermine.setVisibility(View.VISIBLE);
+                }
+                if(data.size()<=0){
+                    title.setText("暂无预定订单");
+                }else {
+                    title.setText("你已预定"+data.size()+"个订单");
                 }
             }
         });

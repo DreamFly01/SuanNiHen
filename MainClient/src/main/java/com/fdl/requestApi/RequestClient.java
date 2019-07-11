@@ -1134,6 +1134,24 @@ public class RequestClient {
                         .ChangePredeterminerOrder(map),
                 context, observer);
     }
+
+    /**
+     * 预定订单优惠劵更改
+     * @param OrderNo
+     * @param couponid
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription CouponsChange(String OrderNo, int couponid, Context context, NetSubscriber<BaseResultBean> observer) {
+        Map<String, Object> map = new TreeMap<>();
+        map.put("orderno",OrderNo);
+        map.put("couponid",couponid);
+        return doRequest1(RetrofitProxy
+                        .getApiService(context, "")
+                        .CouponsChange(map),
+                context, observer);
+    }
     /**
      * 获取客服数据
      *

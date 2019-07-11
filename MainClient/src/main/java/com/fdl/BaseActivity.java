@@ -16,9 +16,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fdl.utils.Contans;
 import com.fdl.utils.IsBang;
+import com.fdl.utils.SPUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.snh.PartyApp;
 import com.sg.cj.snh.R;
@@ -37,6 +40,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     private boolean isImm = true;
     //管理异步处理与Activity生命周期,避免出现内存泄漏
     private CompositeSubscription mCompositeSubscription;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +63,15 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         }
         immersionBar.statusBarDarkFont(false);
         immersionBar.init();
+
+        title = findView(R.id.heard_title);
+        if (Contans.HOST_TEST.equals(SPUtils.getInstance(this).getString(Contans.SP_HOSt))&&null!=title) {
+                String titleStr = title.getText().toString();
+                title.setText(titleStr + "(测试)");
+        }
         setUpLisener();
         getDataOnCreate();
+
 
     }
 
@@ -282,7 +293,9 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     protected <T extends View> T findView(int id) {
         return (T) findViewById(id);
     }
+
     private static final int MIN_DELAY_TIME = 1000;  // 两次点击间隔不能少于1000ms
+
     public boolean isFastClick() {
         boolean flag = true;
         long currentClickTime = System.currentTimeMillis();

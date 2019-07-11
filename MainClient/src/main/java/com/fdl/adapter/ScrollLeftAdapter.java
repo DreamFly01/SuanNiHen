@@ -36,6 +36,9 @@ public class ScrollLeftAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
         }
         helper.getView(R.id.item).setSelected(true);
     }
+    public void cleanTv(){
+        tv.clear();
+    }
     //传入position,设置左侧列表相应item高亮
     public void selectItem(int position) {
         for (int i = 0; i < getData().size(); i++) {

@@ -170,6 +170,9 @@ public class PayActivity extends BaseActivity {
     public void setUpViews() {
         FinishActivityManager.getManager().addActivity(this);
 //        ImmersionBar.with(this).statusBarColor(R.color.white).titleBar(rlHead).statusBarDarkFont(true).init();
+        if (ImmersionBar.hasNotchScreen(this)) {
+            IsBang.setImmerHeard(this, rlHead);
+        }
         TextView title = (TextView) findViewById(R.id.heard_title);
         title.setText("支付");
         if (toltalOrderNo != null) {

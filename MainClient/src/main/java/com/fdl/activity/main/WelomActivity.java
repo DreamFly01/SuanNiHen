@@ -32,6 +32,7 @@ import java.util.TimerTask;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 import pub.devrel.easypermissions.PermissionRequest;
@@ -91,6 +92,7 @@ public class WelomActivity extends BaseActivity implements EasyPermissions.Permi
             SPUtils.getInstance(this).saveData(Contans.SP_HOSt,Contans.HOST);
             SPUtils.getInstance(this).saveData(Contans.LAST_CITY, "全国");
             SPUtils.getInstance(this).saveData(Contans.LAST_CITY_ID, "全国");
+            RetrofitUrlManager.getInstance().startAdvancedModel(SPUtils.getInstance(this).getString(Contans.SP_HOSt));
         } else {
             ivWelcomeBg.setVisibility(View.VISIBLE);
             activityWelcomePager.setVisibility(View.GONE);

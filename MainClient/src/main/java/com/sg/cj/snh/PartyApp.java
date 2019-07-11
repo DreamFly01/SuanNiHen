@@ -166,8 +166,7 @@ public class PartyApp extends App {
                 CrashReport.initCrashReport(getApplicationContext(), Contans.BUGLY_ID, true);
             }
         }
-        if (!StrUtils.isEmpty(SPUtils.getInstance(this).getString(Contans.SP_HOSt))) {
-        }
+
     }
 
     public enum ToastMgr {

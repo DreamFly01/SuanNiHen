@@ -177,8 +177,8 @@ public class FoodShopActivity extends FragmentActivity {
     RelativeLayout rlBottomBar;
 
     private ImmersionBar immersionBar;
-    private List<String> left;
-    private List<ScrollBean> right;
+    private List<String> left = new ArrayList<>();
+    private List<ScrollBean> right = new ArrayList<>();
     private ScrollLeftAdapter leftAdapter;
     private ScrollRightAdapter rightAdapter;
     private List<Integer> tPosition = new ArrayList<>();
@@ -237,8 +237,8 @@ public class FoodShopActivity extends FragmentActivity {
         immersionBar.init();
         setUpViews();
         dialogUtils = new DialogUtils(this);
-        id = 330;
-
+//        id = 330;
+        getData();
     }
 
 
@@ -254,10 +254,12 @@ public class FoodShopActivity extends FragmentActivity {
                     //展开状态
                     heardBack.setBackgroundResource(R.drawable.shape_solid_gray_50_bg);
                     llMenu.setBackgroundResource(R.drawable.shape_solid_left_gray_50_bg);
+                    immersionBar.statusBarDarkFont(true).init();
                 } else if (state == State.COLLAPSED) {
                     //折叠状态
                     heardBack.setBackgroundColor(Color.parseColor("#00000000"));
                     llMenu.setBackgroundColor(Color.parseColor("#00000000"));
+                    immersionBar.statusBarDarkFont(false).init();
                 } else {
 
                     //中间状态
@@ -601,8 +603,7 @@ public class FoodShopActivity extends FragmentActivity {
 
     //获取数据(若请求服务端数据,请求到的列表需有序排列)
     private void initData(SupplierBean bean) {
-        left = new ArrayList<>();
-        right = new ArrayList<>();
+
         List<ScrollBean> list = new ArrayList<>();
         ScrollBean scrollBean = null;
         ScrollBean.ScrollItemBean scrollItemBean;
@@ -637,7 +638,6 @@ public class FoodShopActivity extends FragmentActivity {
                 list.add(right.get(i));
             }
         }
-
     }
 
     /**
@@ -746,7 +746,12 @@ public class FoodShopActivity extends FragmentActivity {
                 liEvaluate.setVisibility(View.GONE);//评价
                 break;
             case R.id.tv_predestine:
-                getPredetermineListData();
+                if (!(PartyApp.getAppComponent().getDataManager().getId() != 0)) {
+                    startActivity(new Intent(this, LoginActivity.class));
+                } else {
+                    getPredetermineListData();
+                }
+
                 break;
 
         }
@@ -882,7 +887,12 @@ public class FoodShopActivity extends FragmentActivity {
                 }
             }
         }
+        left.clear();
+        right.clear();
         initData(bean);
+        if (null != leftAdapter) {
+            leftAdapter.cleanTv();
+        }
         initLeft(FoodShopActivity.this);
         initRight(FoodShopActivity.this);
         setBoomMenu();
@@ -976,7 +986,6 @@ public class FoodShopActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getData();
     }
 
     public abstract static class AppBarStateChangeListener implements AppBarLayout.OnOffsetChangedListener {
@@ -1095,6 +1104,7 @@ public class FoodShopActivity extends FragmentActivity {
         marketBean.SupplierName = bean.SupplierName;
         marketBean.shopType = shopType;
         marketBean.itemType = SuperMarketBean.CATCHDATE;
+        marketBean.insertTime = String.valueOf(System.currentTimeMillis());
         if (beanList.size() < 3) {
             if (null != market) {
                 marketBeanDao.update(marketBean);

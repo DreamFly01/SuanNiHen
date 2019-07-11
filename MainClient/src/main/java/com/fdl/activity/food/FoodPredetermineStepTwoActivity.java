@@ -1,6 +1,7 @@
 package com.fdl.activity.food;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,11 +15,14 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.fdl.BaseActivity;
 import com.fdl.activity.buy.PayActivity;
+import com.fdl.activity.supermarket.StoreCouponsActivity;
 import com.fdl.adapter.PredetermineAdapter;
 import com.fdl.bean.BaseResultBean;
 import com.fdl.bean.FoodGoodsCommitBean;
 import com.fdl.bean.OrdersData;
 import com.fdl.bean.SubscribeApplyInfoBean;
+import com.fdl.bean.daoBean.CommTenant;
+import com.fdl.db.ShopTypeEnum;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.DialogUtils;
@@ -90,18 +94,25 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     FrameLayout heardMenu;
     @BindView(R.id.tv_totalPrice)
     TextView tvTotalPrice;
+    @BindView(R.id.tv_conpons)
+    TextView tvConpons;
+    @BindView(R.id.ll_coupons)
+    LinearLayout llCoupons;
+    @BindView(R.id.tv_redution)
+    TextView tvRedution;
 
     private int applyId;
     private Bundle bundle;
     private PredetermineAdapter adapter;
     HashMap<Integer, OrdersData> tempMap = new HashMap<>();
     private DialogUtils dialogUtils;
-    private boolean isCommit = false;//数据是否提交
+    private boolean isNeedCommit = false;//数据是否需要提交
     private boolean isChange = false;//数据是否改变
     private int id;
 
     private int commitType;//数据更改方式 0 调用save生成新的预订单，1调用change 更改预订单
     private int changeType;//数据更改渠道 0 添加新的菜品，1 已经存在的菜品数量的增减
+    private int changeCoupons;//优惠劵是否修改 0，无修改，1有修改
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {
@@ -119,7 +130,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     public void setUpViews() {
         setImm(false);
         heardTitle.setText("订单详情");
-        heardTvMenu.setText("分享");
+        heardTvMenu.setText("邀请");
         setRecyclerView();
         getData();
 
@@ -127,6 +138,13 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
 
     private void setRecyclerView() {
         adapter = new PredetermineAdapter(R.layout.item_predetermine_goods_layout, null);
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
@@ -137,19 +155,19 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 isChange = true;
-                isCommit = false;
+                isNeedCommit = true;
                 commitType = 1;
                 changeType = 1;
                 switch (view.getId()) {
                     case R.id.iv_delete:
                         ordersData.get(position).GoodsNum2 -= 1;
                         adapter.setNewData(ordersData);
-                        setTvPrice();
+                        setTvPrice(couponsValue, couponName);
                         break;
                     case R.id.iv_add:
-                        ordersData.get(position).GoodsNum += 1;
-                        adapter.notifyItemChanged(position);
-                        setTvPrice();
+                        ordersData.get(position).GoodsNum2 += 1;
+                        adapter.setNewData(ordersData);
+                        setTvPrice(couponsValue, couponName);
                         break;
                 }
             }
@@ -165,7 +183,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
 
     private boolean isMore = false;
 
-    @OnClick({R.id.heard_back, R.id.tv_add, R.id.tv_clean, R.id.ll_more_data, R.id.tv_share, R.id.tv_pay, R.id.heard_fl_menu})
+    @OnClick({R.id.heard_back, R.id.tv_add, R.id.tv_clean, R.id.ll_more_data, R.id.tv_share, R.id.tv_pay, R.id.heard_fl_menu, R.id.ll_coupons})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.heard_back:
@@ -188,38 +206,77 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
             case R.id.ll_more_data:
                 if (isMore) {
                     adapter.setNewData(myOrdersData);
-                    upOrDown.setBackgroundResource(R.drawable.arrow_up);
+                    upOrDown.setBackgroundResource(R.drawable.arrow_down);
                     isMore = false;
                 } else {
                     adapter.setNewData(ordersData);
-                    upOrDown.setBackgroundResource(R.drawable.arrow_down);
+                    upOrDown.setBackgroundResource(R.drawable.arrow_up);
                     isMore = true;
                 }
                 break;
             case R.id.tv_share:
-                if (isChange) {
-                    setCommitData();
+                if (isChange | changeCoupons == 1) {
+                    setCommitData(0);
                 } else {
                     dialogUtils.noBtnDialog("当前菜单无任何改变");
                 }
                 break;
             case R.id.tv_pay:
-                if (!isCommit) {
-                    dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
+                if (isNeedCommit) {
+                    int noPayMoney =0;
+                    int payMoney = 0;
+                    for (OrdersData ordersDatum : ordersData) {
+                        noPayMoney += ordersDatum.GoodsNum2*ordersDatum.SalesPrice;
+                        payMoney+=ordersDatum.GoodsNum*ordersDatum.SalesPrice;
+                    }
+                    dialogUtils.twoBtnDialog("当前总价格为："+(noPayMoney+payMoney)+"其中未确定："+noPayMoney+",应支付为:"+payMoney+",是否继续支付？", new DialogUtils.ChoseClickLisener() {
+                        @Override
+                        public void onConfirmClick(View v) {
+                            toPay();
+                        }
+
+                        @Override
+                        public void onCancelClick(View v) {
+                            dialogUtils.dismissDialog();
+                        }
+                    },false);
+//                    dialogUtils.noBtnDialog("请先提交菜单，再去买单哦~");
+                }else if (ordersData.size() <= 0) {
+                    dialogUtils.noBtnDialog("当前订单没有菜品，请先去添加菜品哦~");
                 } else {
                     toPay();
                 }
 
                 break;
             case R.id.heard_fl_menu:
-                if (!isChange) {
-                    dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
-                } else if (isCommit) {
-                    dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
+                if (StrUtils.isEmpty(orderNo)) {
+                    setCommitData(1);
                 } else {
-                    dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
+                    if (!isNeedCommit) {
+                        dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
+                    } else {
+                        dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
+                    }
                 }
 
+                break;
+            case R.id.ll_coupons:
+                List<CommTenant> productData = new ArrayList<>();
+                for (int i = 0; i < ordersData.size(); i++) {
+                    CommTenant commTenant = new CommTenant();
+                    commTenant.total = ordersData.get(i).GoodsNum + ordersData.get(i).GoodsNum2;
+                    commTenant.CommTenantId = Long.parseLong(ordersData.get(i).GoodsId + "");
+                    commTenant.Price = ordersData.get(i).SalesPrice;
+                    commTenant.setCommTenantName(ordersData.get(i).GoodsName);
+                    productData.add(commTenant);
+                }
+                Intent intent1 = new Intent(this, StoreCouponsActivity.class);
+                intent1.putExtra("storeId", id);
+                intent1.putExtra("money", totalPrice);
+                intent1.putExtra("SupplierId", id);
+                intent1.putExtra("from", ShopTypeEnum.TYPE1.getValue());
+                intent1.putParcelableArrayListExtra("data", (ArrayList<? extends Parcelable>) productData);
+                startActivityForResult(intent1, 1000);
                 break;
         }
     }
@@ -227,8 +284,9 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     private String shareUrl;
     private String imgUrl;
     private String shopName;
+
     private void getData() {
-        addSubscription(RequestClient.GetSubscribeApplyInfo(applyId, this, new NetSubscriber<BaseResultBean<SubscribeApplyInfoBean>>(this,true) {
+        addSubscription(RequestClient.GetSubscribeApplyInfo(applyId, this, new NetSubscriber<BaseResultBean<SubscribeApplyInfoBean>>(this, true) {
             @Override
             public void onResultNext(BaseResultBean<SubscribeApplyInfoBean> model) {
                 shopName = model.data.SUP.ShopName;
@@ -243,10 +301,11 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 imgUrl = model.data.SUP.Logo;
                 int noCommit = 0;
                 for (int i = 0; i < model.data.ORDERS.size(); i++) {
-                    noCommit+=model.data.ORDERS.get(i).GoodsNum2;
+                    noCommit += model.data.ORDERS.get(i).GoodsNum2;
                 }
-                if(noCommit>0){
-                    dialogUtils.noBtnDialog("当前菜单有更新，请确认后提交新的菜单");
+                if (noCommit > 0) {
+                    isChange = true;
+                    dialogUtils.noBtnDialog("当前菜单有更新，请确认后提交新的菜单哦~");
                 }
             }
         }));
@@ -258,22 +317,22 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     Map<String, Object> dataMap = new TreeMap<>();
     List<FoodGoodsCommitBean> goodsList = new ArrayList<>();
 
-    private void setCommitData() {
+    private void setCommitData(int from) {
         dataMap.put("SupplierId", 330);
         dataMap.put("LeaveWord", "");
         dataMap.put("applyid", applyId);
-        dataMap.put("CouponsId", 0);
+        dataMap.put("CouponsId", couponsId);
         for (OrdersData data : ordersData) {
             FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
             bean.GoodsId = data.GoodsId;
-            bean.Number = (data.GoodsNum+data.GoodsNum2);
+            bean.Number = (data.GoodsNum + data.GoodsNum2);
             bean.NormsId = 0;
             bean.NormsInfo = "";
             bean.GoodsNum2 = 0;
             goodsList.add(bean);
         }
         dataMap.put("goodIds", goodsList);
-        commitOrder();
+        commitOrder(from);
     }
 
     /**
@@ -288,7 +347,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
             for (OrdersData ordersDatum : ordersData) {
                 FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
                 bean.GoodsId = ordersDatum.GoodsId;
-                bean.GoodsNum = ordersDatum.GoodsNum+ordersDatum.GoodsNum2;
+                bean.GoodsNum = ordersDatum.GoodsNum + ordersDatum.GoodsNum2;
                 bean.GoodsNormId = 0;
                 bean.OrderId = ordersDatum.Id;
                 bean.GoodsNum2 = 0;
@@ -303,12 +362,12 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                             listMap.get(returnDatum.GoodsId).GoodsId = ordersDatum.GoodsId;
                             listMap.get(returnDatum.GoodsId).OrderId = ordersDatum.Id;
                             listMap.get(returnDatum.GoodsId).GoodsNormId = 0;
-                            listMap.get(returnDatum.GoodsId).GoodsNum +=  (ordersDatum.GoodsNum+ordersDatum.GoodsNum2);
-                            listMap.get(returnDatum.GoodsId).GoodsNum2=0;
+                            listMap.get(returnDatum.GoodsId).GoodsNum += (ordersDatum.GoodsNum + ordersDatum.GoodsNum2);
+                            listMap.get(returnDatum.GoodsId).GoodsNum2 = 0;
                         } else {
                             FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
                             bean.GoodsId = returnDatum.GoodsId;
-                            bean.GoodsNum = returnDatum.GoodsNum+returnDatum.GoodsNum2;
+                            bean.GoodsNum = returnDatum.GoodsNum + returnDatum.GoodsNum2;
                             bean.GoodsNormId = 0;
                             bean.OrderId = 0;
                             bean.GoodsNum2 = 0;
@@ -320,9 +379,9 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 for (OrdersData returnDatum : returnData) {
                     FoodGoodsCommitBean bean = new FoodGoodsCommitBean();
                     bean.GoodsId = returnDatum.GoodsId;
-                    bean.GoodsNum = returnDatum.GoodsNum+returnDatum.GoodsNum2;
+                    bean.GoodsNum = returnDatum.GoodsNum + returnDatum.GoodsNum2;
                     bean.GoodsNormId = 0;
-                    bean.OrderId = 0;
+                    bean.OrderId = returnDatum.Id;
                     bean.GoodsNum2 = 0;
                     listMap.put(returnDatum.GoodsId, bean);
 
@@ -336,18 +395,27 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     }
 
     private String orderNo;
-
-    private void commitOrder() {
-
+    private void commitOrder(int isShare) {
         if (StrUtils.isEmpty(orderNo) && commitType == 0) {
             addSubscription(RequestClient.SaveOrder(dataMap, this, new NetSubscriber<BaseResultBean>(this, true) {
                 @Override
                 public void onResultNext(BaseResultBean model) {
-                    isCommit = true;
+                    isNeedCommit = false;
                     isChange = false;
                     commitType = 1;
-                    dialogUtils.noBtnDialog("提交成功！");
                     orderNo = model.TotalOrderNo;
+                    for (int i = 0; i < ordersData.size(); i++) {
+                        if (ordersData.get(i).GoodsNum2 > 0) {
+                            ordersData.get(i).GoodsNum += ordersData.get(i).GoodsNum2;
+                            ordersData.get(i).GoodsNum2 = 0;
+                        }
+                    }
+                    adapter.setNewData(ordersData);
+                    if (isShare == 1) {
+                        dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
+                    } else {
+                        dialogUtils.noBtnDialog("提交成功！");
+                    }
                 }
             }));
         } else {
@@ -355,18 +423,38 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
             RequestClient.ChangePredeterminerOrder(orderNo, 1, goodsList1, this, new NetSubscriber<BaseResultBean>(this, true) {
                 @Override
                 public void onResultNext(BaseResultBean model) {
-                    isCommit = true;
+                    isNeedCommit = false;
                     isChange = false;
                     commitType = 1;
                     dialogUtils.noBtnDialog("提交成功！");
-                    orderNo = model.TotalOrderNo;
+                    for (int i = 0; i < ordersData.size(); i++) {
+                        if (ordersData.get(i).GoodsNum2 > 0) {
+                            ordersData.get(i).GoodsNum += ordersData.get(i).GoodsNum2;
+                            ordersData.get(i).GoodsNum2 = 0;
+                        }
+                    }
+                    adapter.setNewData(ordersData);
+                    if (changeCoupons == 1) {
+                        changeCoupons();
+                    }
                 }
             });
         }
     }
 
+    //修改优惠劵
+    private void changeCoupons() {
+        addSubscription(RequestClient.CouponsChange(orderNo, couponsId, this, new NetSubscriber<BaseResultBean>(this) {
+            @Override
+            public void onResultNext(BaseResultBean model) {
+
+            }
+        }));
+    }
+
     private List<OrdersData> ordersData = new ArrayList<>();
     private List<OrdersData> myOrdersData = new ArrayList<>();
+    private double couponsValue;
 
     private void fillView(SubscribeApplyInfoBean bean) {
         ordersData = bean.ORDERS;
@@ -384,7 +472,10 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
         for (int i = 0; i < ordersData.size(); i++) {
             tempMap.put(ordersData.get(i).GoodsId, ordersData.get(i));
         }
-        setTvPrice();
+
+        couponsValue = bean.COUPON.CouponValue;
+        couponName = bean.COUPON.CouponName;
+        setTvPrice(couponsValue, couponName);
     }
 
     private void setRecyclerViewData(List<OrdersData> ordersData) {
@@ -403,18 +494,38 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
 
 
     List<OrdersData> returnData = new ArrayList<>();
+    private int couponsId = 0;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //菜单修改
         if (requestCode == 1002 && resultCode == 1002) {
             if (null != data) {
                 returnData = data.getParcelableArrayListExtra("data");
-                if (returnData.size() > 0) {
+                if (returnData.size() > 0&&StrUtils.isEmpty(orderNo)) {
                     isChange = true;
+                    isNeedCommit = true;
                 }
-                setTvPrice();
                 setRecyclerViewData(getNewList(returnData));
+                setTvPrice(couponsValue, couponName);
+            }
+        }
+        //
+        else if (requestCode == 1000 && resultCode == 1001) {
+            if (null != data) {
+                if (couponsId == data.getIntExtra("couponsId", 0)) {
+                    changeCoupons = 0;
+                } else {
+                    changeCoupons = 1;
+                    isNeedCommit = true;
+                }
+                couponsValue = data.getDoubleExtra("CouponValue", 0);
+                couponsId = data.getIntExtra("couponsId", 0);
+                tvConpons.setText(data.getStringExtra("couponsInfo"));
+                double price = totalPrice - couponsValue;
+                tvTotalPrice.setText("¥" + StrUtils.moenyToDH(price + ""));
+                tvRedution.setText("(已优惠：¥" + StrUtils.moenyToDH(couponsValue + "") + ")");
             }
         }
     }
@@ -428,7 +539,13 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 tempMap.get(temp).SalesPrice = data.SalesPrice;
                 tempMap.get(temp).Image = data.Image;
                 tempMap.get(temp).GoodsName = data.GoodsName;
-                tempMap.get(temp).GoodsNum += data.GoodsNum;
+                if (StrUtils.isEmpty(orderNo)) {
+                    tempMap.get(temp).GoodsNum = 0;
+                    tempMap.get(temp).GoodsNum2 = data.GoodsNum2;
+                } else {
+                    tempMap.get(temp).GoodsNum += data.GoodsNum2;
+                    tempMap.get(temp).GoodsNum2 = 0;
+                }
             } else {
                 tempMap.put(temp, data);
             }
@@ -465,6 +582,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
         for (OrdersData data : ordersData) {
             totalMoney += data.GoodsNum * data.SalesPrice;
         }
+        totalMoney -= couponsValue;
         bundle.putString("TotalMoney", totalMoney + "");
         bundle.putString("TotalOrderNo", orderNo);
         JumpUtils.dataJump(this, PayActivity.class, bundle, true);
@@ -472,12 +590,18 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
 
 
     private double totalPrice;
+    private String couponName;
 
-    private void setTvPrice() {
+    private void setTvPrice(double couponValue, String couponName) {
         totalPrice = 0;
         for (int i = 0; i < ordersData.size(); i++) {
-            totalPrice += ordersData.get(i).SalesPrice * ordersData.get(i).GoodsNum;
+
+            totalPrice += ordersData.get(i).SalesPrice * (ordersData.get(i).GoodsNum + ordersData.get(i).GoodsNum2);
         }
+
+        totalPrice -= couponValue;
+        tvConpons.setText(couponName);
+        tvRedution.setText("(已优惠：¥" + StrUtils.moenyToDH(couponValue + "") + ")");
         tvTotalPrice.setText("¥" + StrUtils.moenyToDH(totalPrice + ""));
     }
 

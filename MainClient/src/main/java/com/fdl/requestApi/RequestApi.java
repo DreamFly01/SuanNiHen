@@ -868,4 +868,12 @@ public interface RequestApi {
      */
     @POST("food/goods_order_change")
     Observable<BaseResultBean> ChangePredeterminerOrder(@Body Map<String,Object> params);
+
+    /**
+     * 预定订单优惠劵更改
+     * @param params
+     * @return
+     */
+    @POST("food/couponschange")
+    Observable<BaseResultBean> CouponsChange(@Body Map<String,Object> params);
 }

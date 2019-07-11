@@ -292,7 +292,7 @@ public class StoreListActivity extends BaseActivity {
 
     private List<SuperMarketBean> getCache() {
         SuperMarketBeanDao marketBeanDao = DBManager.getInstance(this).getDaoSession().getSuperMarketBeanDao();
-        List<SuperMarketBean> beanList = marketBeanDao.queryBuilder().where(SuperMarketBeanDao.Properties.ShopType.eq(shopType)).list();
+        List<SuperMarketBean> beanList = marketBeanDao.queryBuilder().where(SuperMarketBeanDao.Properties.ShopType.eq(shopType)).orderDesc(SuperMarketBeanDao.Properties.InsertTime).list();
         List<SuperMarketBean> datas = new ArrayList<>();
         for (int i = 0; i < beanList.size(); i++) {
             datas.add(beanList.get(i));

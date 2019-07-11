@@ -57,7 +57,7 @@ public class StoreCouponsAdapter extends BaseQuickAdapter<CouponsBean,BaseViewHo
                 helper.getView(R.id.ll_left).setBackgroundResource(R.drawable.store_coupons_right_red_bg);
                 helper.getView(R.id.ll_right).setBackgroundResource(R.drawable.store_coupons_left_red_bg);
             }else if(item.CouponWay == 2){
-                helper.getView(R.id.ll_left).setBackgroundResource(R.drawable.product_coupons_right_blue_bg);;
+                helper.getView(R.id.ll_left).setBackgroundResource(R.drawable.product_coupons_right_blue_bg);
                 helper.getView(R.id.ll_right).setBackgroundResource(R.drawable.product_coupson_left_blue_bg);
             }
         }

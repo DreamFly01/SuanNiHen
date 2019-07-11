@@ -444,12 +444,11 @@
         <activity android:name="com.fdl.activity.account.money.WithdrawActivity" />
         <activity android:name="com.fdl.activity.account.money.WithdrawListActivity" />
         <activity android:name="com.fdl.activity.account.money.WithdrawDetailsActivity" />
-        <activity android:name="com.fdl.activity.food.OrderDetailsActivity" /> <!-- 发布评价 -->
+        <!-- 发布评价 -->
         <activity android:name="com.fdl.activity.food.FoodPlayActivity" />
-        <activity android:name="com.fdl.activity.food.PublishRatingActivity" /> <!-- 发布评价 -->
+        <!-- 发布评价 -->
 
         <activity android:name="com.fdl.activity.food.FoodShopActivity" /> <!-- 美食商铺 -->
-        <activity android:name="com.fdl.activity.food.FoodOrderDetailsActivity" />
         <activity android:name="com.fdl.activity.food.FoodCommitOrderActivity"></activity>
         <activity android:name="com.fdl.activity.food.FoodPredetermineStepOneActivity"></activity>
         <activity android:name="com.fdl.activity.food.FoodPredetermineStepTwoActivity"></activity>

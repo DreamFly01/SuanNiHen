@@ -25,6 +25,7 @@ public class SuperMarketBean implements MultiItemEntity {
     public String Latitude;
     public double Evaluate;
     public String Distance;
+    public String insertTime;
 
     public static final int NETDATE = 1;
     public static final int CATCHDATE = 2;
@@ -33,15 +34,15 @@ public class SuperMarketBean implements MultiItemEntity {
     public int itemType;
     public int shopType;
 
-
     public SuperMarketBean(int itemType) {
         this.itemType = itemType;
     }
 
-    @Generated(hash = 68447239)
+    @Generated(hash = 1416530512)
     public SuperMarketBean(Long superMarketId, int SupplierId, String SupplierName,
             String Icon, String Address, String Longitude, String Latitude,
-            double Evaluate, String Distance, int itemType, int shopType) {
+            double Evaluate, String Distance, String insertTime, int itemType,
+            int shopType) {
         this.superMarketId = superMarketId;
         this.SupplierId = SupplierId;
         this.SupplierName = SupplierName;
@@ -51,6 +52,7 @@ public class SuperMarketBean implements MultiItemEntity {
         this.Latitude = Latitude;
         this.Evaluate = Evaluate;
         this.Distance = Distance;
+        this.insertTime = insertTime;
         this.itemType = itemType;
         this.shopType = shopType;
     }
@@ -145,5 +147,13 @@ public class SuperMarketBean implements MultiItemEntity {
 
     public void setShopType(int shopType) {
         this.shopType = shopType;
+    }
+
+    public String getInsertTime() {
+        return this.insertTime;
+    }
+
+    public void setInsertTime(String insertTime) {
+        this.insertTime = insertTime;
     }
 }

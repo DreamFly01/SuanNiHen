@@ -33,8 +33,9 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
         public final static Property Latitude = new Property(6, String.class, "Latitude", false, "LATITUDE");
         public final static Property Evaluate = new Property(7, double.class, "Evaluate", false, "EVALUATE");
         public final static Property Distance = new Property(8, String.class, "Distance", false, "DISTANCE");
-        public final static Property ItemType = new Property(9, int.class, "itemType", false, "ITEM_TYPE");
-        public final static Property ShopType = new Property(10, int.class, "shopType", false, "SHOP_TYPE");
+        public final static Property InsertTime = new Property(9, String.class, "insertTime", false, "INSERT_TIME");
+        public final static Property ItemType = new Property(10, int.class, "itemType", false, "ITEM_TYPE");
+        public final static Property ShopType = new Property(11, int.class, "shopType", false, "SHOP_TYPE");
     }
 
 
@@ -59,8 +60,9 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
                 "\"LATITUDE\" TEXT," + // 6: Latitude
                 "\"EVALUATE\" REAL NOT NULL ," + // 7: Evaluate
                 "\"DISTANCE\" TEXT," + // 8: Distance
-                "\"ITEM_TYPE\" INTEGER NOT NULL ," + // 9: itemType
-                "\"SHOP_TYPE\" INTEGER NOT NULL );"); // 10: shopType
+                "\"INSERT_TIME\" TEXT," + // 9: insertTime
+                "\"ITEM_TYPE\" INTEGER NOT NULL ," + // 10: itemType
+                "\"SHOP_TYPE\" INTEGER NOT NULL );"); // 11: shopType
     }
 
     /** Drops the underlying database table. */
@@ -109,8 +111,13 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
         if (Distance != null) {
             stmt.bindString(9, Distance);
         }
-        stmt.bindLong(10, entity.getItemType());
-        stmt.bindLong(11, entity.getShopType());
+ 
+        String insertTime = entity.getInsertTime();
+        if (insertTime != null) {
+            stmt.bindString(10, insertTime);
+        }
+        stmt.bindLong(11, entity.getItemType());
+        stmt.bindLong(12, entity.getShopType());
     }
 
     @Override
@@ -153,8 +160,13 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
         if (Distance != null) {
             stmt.bindString(9, Distance);
         }
-        stmt.bindLong(10, entity.getItemType());
-        stmt.bindLong(11, entity.getShopType());
+ 
+        String insertTime = entity.getInsertTime();
+        if (insertTime != null) {
+            stmt.bindString(10, insertTime);
+        }
+        stmt.bindLong(11, entity.getItemType());
+        stmt.bindLong(12, entity.getShopType());
     }
 
     @Override
@@ -174,8 +186,9 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // Latitude
             cursor.getDouble(offset + 7), // Evaluate
             cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // Distance
-            cursor.getInt(offset + 9), // itemType
-            cursor.getInt(offset + 10) // shopType
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // insertTime
+            cursor.getInt(offset + 10), // itemType
+            cursor.getInt(offset + 11) // shopType
         );
         return entity;
     }
@@ -191,8 +204,9 @@ public class SuperMarketBeanDao extends AbstractDao<SuperMarketBean, Long> {
         entity.setLatitude(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setEvaluate(cursor.getDouble(offset + 7));
         entity.setDistance(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setItemType(cursor.getInt(offset + 9));
-        entity.setShopType(cursor.getInt(offset + 10));
+        entity.setInsertTime(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setItemType(cursor.getInt(offset + 10));
+        entity.setShopType(cursor.getInt(offset + 11));
      }
     
     @Override

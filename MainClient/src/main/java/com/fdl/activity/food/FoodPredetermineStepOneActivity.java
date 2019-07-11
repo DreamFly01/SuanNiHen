@@ -20,6 +20,7 @@ import com.fdl.bean.SubscribeInfoBean;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.JumpUtils;
+import com.fdl.utils.StrUtils;
 import com.fdl.utils.TimeUtils;
 import com.fdl.utils.ToastUtils;
 import com.fdl.wedgit.RecycleViewDivider;
@@ -82,9 +83,10 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
     private List<FoodNumSelectBean> data3 = new ArrayList<>();
     private List<FoodNumSelectBean> data4 = new ArrayList<>();
     private List<FoodNumSelectBean> data5 = new ArrayList<>();
-    private String str1 = "0", str2 = "0", str3 = "--", str4 = "--", str5 = "--";
+    private String str1 = "", str2 = "", str3 = "", str4 = "", str5 = "";
     private String time;
-private int seatType = 0;
+    private int seatType = 0;
+
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_food_perdetermine_one_layout);
@@ -103,8 +105,6 @@ private int seatType = 0;
         heardTitle.setText("订单详情");
         heardTvMenu.setText("提交");
         heardMenu.setVisibility(View.VISIBLE);
-        setDesc();
-
     }
 
     @Override
@@ -119,7 +119,7 @@ private int seatType = 0;
                         data1.get(i).isSelect = false;
                     }
                 }
-                str1 = data1.get(position).content1;
+                str1 = "成人" + data1.get(position).content1;
                 adapter1.setNewData(data1);
                 setDesc();
             }
@@ -129,16 +129,15 @@ private int seatType = 0;
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 for (int i = 0; i < data2.size(); i++) {
                     if (i == position) {
-                        data2.get(i).isSelect = data2.get(i).isSelect? false:true;
+                        data2.get(i).isSelect = data2.get(i).isSelect ? false : true;
                     } else {
                         data2.get(i).isSelect = false;
                     }
                 }
-                if(data2.get(position).isSelect){
-
-                str2 = data2.get(position).content1;
-                }else {
-                    str2 = "0";
+                if (data2.get(position).isSelect) {
+                    str2 = "儿童" + data2.get(position).content1;
+                } else {
+                    str2 = "";
                 }
                 adapter2.setNewData(data2);
                 setDesc();
@@ -154,7 +153,7 @@ private int seatType = 0;
                         data3.get(i).isSelect = false;
                     }
                 }
-                str3 = data3.get(position).content1;
+                str3 = "," + data3.get(position).content1;
                 time = data3.get(position).time;
                 adapter3.setNewData(data3);
                 setDesc();
@@ -170,7 +169,7 @@ private int seatType = 0;
                         data4.get(i).isSelect = false;
                     }
                 }
-                str4 = data4.get(position).content1;
+                str4 = "," + data4.get(position).content1;
                 adapter4.setNewData(data4);
                 setDesc();
             }
@@ -186,7 +185,7 @@ private int seatType = 0;
                     }
                 }
                 seatType = position;
-                str5 = data5.get(position).content1 + data5.get(position).content2;
+                str5 = "," + data5.get(position).content1 + data5.get(position).content2;
                 adapter5.setNewData(data5);
                 setDesc();
             }
@@ -257,7 +256,7 @@ private int seatType = 0;
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -1);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <= bean.SubscribeEarlyDay; i++) {
             FoodNumSelectBean bean = new FoodNumSelectBean();
             c.add(Calendar.DAY_OF_MONTH, 1);
             switch (i) {
@@ -286,7 +285,7 @@ private int seatType = 0;
             data3.add(bean);
         }
 
-        for (int i = 0; i <= (bean.BusinessHoursE - bean.BusinessHoursF); i++) {
+        for (int i = 0; i <= (bean.BusinessHoursE - bean.BusinessHoursF)*2; i++) {
             FoodNumSelectBean bean = new FoodNumSelectBean();
             if (i % 2 == 0) {
                 bean.content1 = (this.bean.BusinessHoursF + i) + ":30";
@@ -319,40 +318,43 @@ private int seatType = 0;
     }
 
     private boolean check() {
-        if (str1.equals("0")) {
+        if (StrUtils.isEmpty(str1)) {
             ToastUtils.toast("请选择成人数量");
             return false;
         }
-        if (str3.equals("--")) {
+        if (StrUtils.isEmpty(str3)) {
             ToastUtils.toast("请选择用餐时间");
             return false;
         }
-        if (str4.equals("--")) {
+        if (StrUtils.isEmpty(str4)) {
             ToastUtils.toast("请选择用餐时间");
             return false;
         }
-        if (str5.equals("--")) {
+        if (StrUtils.isEmpty(str5)) {
             ToastUtils.toast("请选择用餐位置");
             return false;
         }
-        if(seatType==1&&(Integer.parseInt(str1)+Integer.parseInt(str2))<6){
+        if (seatType == 1 && (Integer.parseInt(str1.substring(2))< 6)) {
             ToastUtils.toast("包厢起订6人");
-            return  false;
+            return false;
         }
         return true;
     }
 
     private void setDesc() {
-        desc.setText("成人" + str1 + ",儿童" + str2 + "," + str3 + "," + str4 + "," + str5);
+        desc.setText(str1 + str2 + str3 + str4 + str5);
     }
 
     private void postData() {
-        addSubscription(RequestClient.PostSubscribeInfo(id, Integer.parseInt(str1), Integer.parseInt(str2), seatType, time + " " + str4, this, new NetSubscriber<BaseResultBean<Integer>>(this, true) {
+        if(StrUtils.isEmpty(str2)){
+            str2 = "儿童0";
+        }
+        addSubscription(RequestClient.PostSubscribeInfo(id, Integer.parseInt(str1.substring(2)), Integer.parseInt(str2.substring(2)), seatType, time + " " + str4, this, new NetSubscriber<BaseResultBean<Integer>>(this, true) {
             @Override
             public void onResultNext(BaseResultBean model) {
                 bundle = new Bundle();
                 bundle.putInt("applyId", (Integer) model.data);
-                bundle.putInt("storeId",id);
+                bundle.putInt("storeId", id);
                 JumpUtils.dataJump(FoodPredetermineStepOneActivity.this, FoodPredetermineStepTwoActivity.class, bundle, true);
             }
         }));
