@@ -28,11 +28,13 @@ public class FoodPredetermine1Adapter extends BaseQuickAdapter<FoodNumSelectBean
     protected void convert(BaseViewHolder helper, FoodNumSelectBean item) {
         TextView tv = helper.getView(R.id.tv_content1);
         helper.setText(R.id.tv_content1,item.content1);
-        if (item.isSelect) {
+        if (item.isSelect&&item.canSelect) {
             tv.setBackgroundResource(R.drawable.shape_soild_red_bg);
             tv.setTextColor(mContext.getResources().getColor(R.color.white));
-
-        }else {
+        }else if(!item.canSelect){
+            tv.setBackgroundResource(R.drawable.shape_solid_gray_20_bg);
+            tv.setTextColor(mContext.getResources().getColor(R.color.white));
+        }else if(item.canSelect&&!item.isSelect) {
             tv.setBackgroundResource(R.drawable.shape_black_30);
             tv.setTextColor(Color.parseColor("#999999"));
         }

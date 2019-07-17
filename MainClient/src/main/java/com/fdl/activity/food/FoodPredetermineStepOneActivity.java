@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.Time;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -143,9 +144,14 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
                 setDesc();
             }
         });
+
         adapter3.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Calendar currentTime = Calendar.getInstance();//可以对每个时间域单独修改
+                String currentDinnerTime = currentTime.get(Calendar.HOUR_OF_DAY)+":"+currentTime.get(Calendar.MINUTE);
+                int index1=currentDinnerTime.indexOf(":");
+                long resultTime = Long.parseLong(currentDinnerTime.substring(0,index1))*60*60+ Long.parseLong(currentDinnerTime.substring(index1+1))*60;
                 for (int i = 0; i < data3.size(); i++) {
                     if (i == position) {
                         data3.get(i).isSelect = true;
@@ -157,16 +163,36 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
                 time = data3.get(position).time;
                 adapter3.setNewData(data3);
                 setDesc();
+                //预定时间的判断 只判断今天的
+                if(position == 0){
+                    for (int j = 0; j < data4.size(); j++) {
+                        int index2=data4.get(j).content1.indexOf(":");
+                        long itemTime = Long.parseLong(data4.get(j).content1.substring(0,index2))*60*60+ Long.parseLong(data4.get(j).content1.substring(index2+1))*60;
+                        if(itemTime>resultTime){
+                            data4.get(j).canSelect = true;
+                        }else {
+                            data4.get(j).canSelect = false;
+                        }
+                    }
+                }else {
+                    for (int j = 0; j < data4.size(); j++) {
+                        data4.get(j).canSelect =  true;
+                    }
+                }
+                adapter4.setNewData(data4);
+
             }
         });
         adapter4.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                for (int i = 0; i < data4.size(); i++) {
-                    if (i == position) {
-                        data4.get(i).isSelect = true;
-                    } else {
-                        data4.get(i).isSelect = false;
+                if(data4.get(position).canSelect){
+                    for (int i = 0; i < data4.size(); i++) {
+                        if (i == position) {
+                            data4.get(i).isSelect = true;
+                        } else {
+                            data4.get(i).isSelect = false;
+                        }
                     }
                 }
                 str4 = "," + data4.get(position).content1;
@@ -285,14 +311,16 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
             data3.add(bean);
         }
 
-        for (int i = 0; i <= (bean.BusinessHoursE - bean.BusinessHoursF)*2; i++) {
-            FoodNumSelectBean bean = new FoodNumSelectBean();
-            if (i % 2 == 0) {
-                bean.content1 = (this.bean.BusinessHoursF + i) + ":30";
-                data4.add(bean);
-            } else {
-                bean.content1 = (this.bean.BusinessHoursF + i) + ":00";
-                data4.add(bean);
+        for (int i = 0; i <= (bean.BusinessHoursE - bean.BusinessHoursF); i++) {
+            for (int j = 0; j < 2; j++) {
+                FoodNumSelectBean bean = new FoodNumSelectBean();
+                if (j % 2 == 0) {
+                    bean.content1 = (this.bean.BusinessHoursF + i) + ":00";
+                    data4.add(bean);
+                } else {
+                    bean.content1 = (this.bean.BusinessHoursF + i) + ":30";
+                    data4.add(bean);
+                }
             }
         }
         for (int i = 0; i < 2; i++) {
@@ -334,7 +362,7 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
             ToastUtils.toast("请选择用餐位置");
             return false;
         }
-        if (seatType == 1 && (Integer.parseInt(str1.substring(2))< 6)) {
+        if (seatType == 1 && (Integer.parseInt(str1.substring(2)) < 6)) {
             ToastUtils.toast("包厢起订6人");
             return false;
         }
@@ -346,7 +374,7 @@ public class FoodPredetermineStepOneActivity extends BaseActivity {
     }
 
     private void postData() {
-        if(StrUtils.isEmpty(str2)){
+        if (StrUtils.isEmpty(str2)) {
             str2 = "儿童0";
         }
         addSubscription(RequestClient.PostSubscribeInfo(id, Integer.parseInt(str1.substring(2)), Integer.parseInt(str2.substring(2)), seatType, time + " " + str4, this, new NetSubscriber<BaseResultBean<Integer>>(this, true) {

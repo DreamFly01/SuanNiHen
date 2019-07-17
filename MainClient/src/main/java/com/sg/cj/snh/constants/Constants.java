@@ -1,6 +1,7 @@
 package com.sg.cj.snh.constants;
 
 
+import com.fdl.utils.Contans;
 import com.sg.cj.common.base.App;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class Constants {
     // public static final String BASE_IP = "http://shop.hnyunshang.com/";
 //  public static final String BASE_IP = "https://shop.snihen.com/";//正式环境
     public static final String BASE_IP = "http://test.snihen.com/";//测试环境
-    public static final String BASE_HOST = BASE_IP + "api/";
+    public static final String BASE_HOST =Contans.API_HOST;
     //去支付：http://shop.hnyunshang.com/Wx_User/SNH_ShopOrders?CartIds=570%2C568&SupplierIds=93%2C
     public static final String QZF = BASE_IP + "Wx_User/SNH_ShopOrders?CartIds=@@&SupplierIds=##";
     //商品收藏：

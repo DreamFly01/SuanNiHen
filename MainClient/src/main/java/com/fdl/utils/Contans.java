@@ -1,5 +1,7 @@
 package com.fdl.utils;
 
+import com.sg.cj.snh.BuildConfig;
+
 /**
  * <p>desc：用户信息以及配置信息等常量<p>
  * <p>author：DreamFly<p>
@@ -10,8 +12,8 @@ package com.fdl.utils;
 public class Contans {
     public static final String HOST_TEST = "http://test.snihen.com/api/";//测试环境
     public static final String HOST = "https://shop.snihen.com/api/";//正式环境
-    public static final String SP_HOSt = "snhHostApi";
-    public static final boolean debug = true;
+    public static final String API_HOST = BuildConfig.SERVER_DEBUG ? HOST_TEST : HOST;
+    public static boolean debug = true;
     //用户信息
     public static final String USER_INFO = "my_sp";
     public static final String LIST_BANNER_DATA = "bannerData";

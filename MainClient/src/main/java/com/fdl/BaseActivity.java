@@ -3,12 +3,14 @@ package com.fdl;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.transition.Fade;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 
 import com.fdl.utils.Contans;
 import com.fdl.utils.IsBang;
+import com.fdl.utils.LanguageUtils;
 import com.fdl.utils.SPUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.snh.PartyApp;
@@ -28,6 +31,7 @@ import com.sg.cj.snh.R;
 
 import java.lang.reflect.Field;
 import java.util.Calendar;
+import java.util.Locale;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -45,6 +49,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageUtils.setdefaultLanguage(this,SPUtils.getInstance(this).getString("language"));
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initContentView(savedInstanceState);
         ButterKnife.bind(this);
@@ -65,7 +70,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         immersionBar.init();
 
         title = findView(R.id.heard_title);
-        if (Contans.HOST_TEST.equals(SPUtils.getInstance(this).getString(Contans.SP_HOSt))&&null!=title) {
+        if (Contans.HOST_TEST.equals(Contans.API_HOST)&&null!=title) {
                 String titleStr = title.getText().toString();
                 title.setText(titleStr + "(测试)");
         }

@@ -12,4 +12,5 @@ public class FoodNumSelectBean {
     public String content2;
     public String time;
     public boolean isSelect;
+    public boolean canSelect = true;
 }

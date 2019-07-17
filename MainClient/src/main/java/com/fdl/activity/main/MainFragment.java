@@ -724,6 +724,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
             @Override
             public void onReceiveLocation(BDLocation bdLocation) {
                 if (null != bdLocation) {
+                    bdLocation.setLocationWhere(BDLocation.LOCATION_WHERE_IN_CN);
                     latitude = bdLocation.getLatitude();
                     longitude = bdLocation.getLongitude();
                     city = bdLocation.getAddress().city;
@@ -789,13 +790,11 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true);
         option.setLocationNotify(true);
-
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
         option.setCoorType("bd09ll");
         option.setIsNeedAddress(true);
 //可选，是否需要地址信息，默认为不需要，即参数为false
 //如果开发者需要获得当前点的地址信息，此处必须为true
-
         mLocationClient.setLocOption(option);
 //mLocationClient为第二步初始化过的LocationClient对象
 //需将配置好的LocationClientOption对象，通过setLocOption方法传递给LocationClient对象使用

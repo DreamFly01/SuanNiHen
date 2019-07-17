@@ -89,10 +89,8 @@ public class WelomActivity extends BaseActivity implements EasyPermissions.Permi
             ivWelcomeBg.setVisibility(View.GONE);
             activityWelcomePager.setVisibility(View.VISIBLE);
             initWelcom();
-            SPUtils.getInstance(this).saveData(Contans.SP_HOSt,Contans.HOST);
             SPUtils.getInstance(this).saveData(Contans.LAST_CITY, "全国");
             SPUtils.getInstance(this).saveData(Contans.LAST_CITY_ID, "全国");
-            RetrofitUrlManager.getInstance().startAdvancedModel(SPUtils.getInstance(this).getString(Contans.SP_HOSt));
         } else {
             ivWelcomeBg.setVisibility(View.VISIBLE);
             activityWelcomePager.setVisibility(View.GONE);

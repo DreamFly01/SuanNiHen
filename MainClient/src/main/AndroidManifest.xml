@@ -61,10 +61,10 @@
     <!-- SDK 权限申明, 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
     <!-- 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。 -->
     <permission
-        android:name="com.wta.YdbDev.jiuwei212903.permission.RECEIVE_MSG"
+        android:name="${applicationId}.permission.RECEIVE_MSG"
         android:protectionLevel="signature" />
     <!-- 接收 SDK 消息广播权限， 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
-    <uses-permission android:name="com.wta.YdbDev.jiuwei212903.permission.RECEIVE_MSG" />
+    <uses-permission android:name="${applicationId}.permission.RECEIVE_MSG" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
@@ -76,7 +76,8 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
     <application
         android:name=".PartyApp"
         android:allowBackup="true"
@@ -86,7 +87,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:name">
+        tools:replace="android:name"
+        android:configChanges="locale"
+        >
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
@@ -154,7 +157,7 @@
         <!-- android:authorities="{包名}.ipc.provider", 请将com.netease.nim.demo替换为自己的包名 -->
         <provider
             android:name="com.netease.nimlib.ipc.NIMContentProvider"
-            android:authorities="com.wta.YdbDev.jiuwei212903.ipc.provider"
+            android:authorities="${applicationId}.ipc.provider"
             android:exported="false"
             android:process=":core" />
 
@@ -180,9 +183,10 @@
         <!-- since 3.0.9 Required SDK 核心功能 -->
         <provider
             android:name="cn.jpush.android.service.DataProvider"
-            android:authorities="com.wta.YdbDev.jiuwei212903.DataProvider"
+            android:authorities="${applicationId}.DataProvider"
             android:exported="true"
-            tools:replace="android:exported" />
+            tools:replace="android:authorities,android:exported"
+            />
 
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的 JPush 服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，或把 enabled 设置成 false ；App 不会被其他 App 拉起，但会拉起其他的 App。 -->
@@ -193,15 +197,17 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
 
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </service>
 
         <!-- since 3.1.0 Required SDK 核心功能 -->
         <provider
             android:name="cn.jpush.android.service.DownloadProvider"
-            android:authorities="com.wta.YdbDev.jiuwei212903.DownloadProvider"
-            android:exported="true" />
+            android:authorities="${applicationId}.DownloadProvider"
+            android:exported="true"
+            tools:replace="android:authorities"
+            />
 
         <!-- Required SDK 核心功能 -->
         <receiver
@@ -210,7 +216,7 @@
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
 
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -235,7 +241,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </activity>
         <!-- SDK 核心功能 -->
@@ -246,7 +252,7 @@
             android:theme="@style/MyDialogStyle">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </activity>
 
@@ -279,7 +285,7 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
 
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
 
@@ -301,7 +307,7 @@
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
 
-                <category android:name="com.wta.YdbDev.jiuwei212903" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
 

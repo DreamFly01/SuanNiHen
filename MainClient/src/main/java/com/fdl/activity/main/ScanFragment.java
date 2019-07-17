@@ -14,7 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fdl.BaseFragment;
+import com.fdl.activity.buy.ProductDetailsActivity;
+import com.fdl.activity.buy.ShopDetailsActivity;
+import com.fdl.activity.food.FoodShopActivity;
 import com.fdl.utils.IsBang;
+import com.fdl.utils.JumpUtils;
+import com.fdl.utils.UrlUtils;
 import com.sg.cj.snh.R;
 import com.sg.cj.snh.ui.activity.WebViewActivity;
 
@@ -26,6 +31,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.bingoogolapple.qrcode.core.BarcodeType;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
+import cn.bingoogolapple.qrcode.zbar.ZBarView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -39,7 +45,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
  * <p>changeTime：2019/1/19<p>
  * <p>version：1<p>
  */
-public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,EasyPermissions.PermissionCallbacks {
+public class ScanFragment extends BaseFragment implements QRCodeView.Delegate, EasyPermissions.PermissionCallbacks {
     @BindView(R.id.heard_back)
     LinearLayout heardBack;
     @BindView(R.id.heard_title)
@@ -50,10 +56,14 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
     TextView heardTvMenu;
     @BindView(R.id.rl_head)
     LinearLayout rlHead;
-    @BindView(R.id.zxingview)
-    ZXingView mZXingView;
+    @BindView(R.id.zbarview)
+    ZBarView mZXingView;
     Unbinder unbinder;
 
+    private String shopUrl = "https://shop.snihen.com/miniprogram/shop";//全国店铺
+    private String storeUrl = "https://shop.snihen.com/miniprogram/store";//本地店铺
+    private String goodsUrl = "https://shop.snihen.com/miniprogram/good";//商品页面
+    private String foodUrl = "https://shop.snihen.com/miniprogram/food";//美食分享
     @Override
     public int initContentView() {
         return R.layout.activity_scan_layout;
@@ -61,7 +71,7 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
 
     @Override
     public void setUpViews(View view) {
-        IsBang.setImmerHeard(getContext(),rlHead);
+        IsBang.setImmerHeard(getContext(), rlHead);
         heardTitle.setText("扫一扫");
         heardTvMenu.setVisibility(View.GONE);
         heardTvMenu.setTextColor(Color.WHITE);
@@ -125,8 +135,9 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
         mZXingView.onDestroy();
         super.onDestroy();
     }
+
     private void vibrate() {
-        Vibrator vibrator = (Vibrator)getActivity().getSystemService(VIBRATOR_SERVICE);
+        Vibrator vibrator = (Vibrator) getActivity().getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(200);
     }
 
@@ -139,9 +150,28 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
     public void onScanQRCodeSuccess(String result) {
         vibrate();
 //        mZXingView.startSpot(); // 开始识别
-        Intent intent = new Intent(getActivity(),WebViewActivity.class);
-        intent.putExtra("url",result);
-        startActivity(intent);
+        Bundle bundle ;
+        if (result.contains(shopUrl)) {
+            bundle = new Bundle();
+            bundle.putInt("stroeId",Integer.parseInt(UrlUtils.getParameters(result).get("storeID")));
+            JumpUtils.dataJump(getActivity(),ShopDetailsActivity.class,bundle,false);
+        } else if (result.contains(storeUrl)) {
+            bundle = new Bundle();
+            JumpUtils.dataJump(getActivity(),ProductDetailsActivity.class,bundle,false);
+
+        } else if (result.contains(goodsUrl)) {
+            bundle = new Bundle();
+            JumpUtils.dataJump(getActivity(),ProductDetailsActivity.class,bundle,false);
+
+        }else if(result.contains(foodUrl)){
+            bundle = new Bundle();
+            bundle.putInt("stroeId",Integer.parseInt(UrlUtils.getParameters(result).get("storeID")));
+            JumpUtils.dataJump(getActivity(),FoodShopActivity.class,bundle,false);
+        } else {
+            Intent intent = new Intent(getActivity(), WebViewActivity.class);
+            intent.putExtra("url", result);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -185,10 +215,10 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
     @AfterPermissionGranted(110)
 
     private void checkPerm() {
-        String[] params={Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA};
-        if(EasyPermissions.hasPermissions(getContext(),params)){
-        }else{
-            EasyPermissions.requestPermissions(this,"需要定位权限,和相机权限",110,params);
+        String[] params = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA};
+        if (EasyPermissions.hasPermissions(getContext(), params)) {
+        } else {
+            EasyPermissions.requestPermissions(this, "需要定位权限,和相机权限", 110, params);
         }
     }
 
@@ -196,7 +226,7 @@ public class ScanFragment extends BaseFragment  implements QRCodeView.Delegate,E
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        EasyPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
 }

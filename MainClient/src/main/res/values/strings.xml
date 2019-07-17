@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" tools:ignore="MissingTranslation">算你狠</string>
+    <!--<string name="app_name" tools:ignore="MissingTranslation">算你狠</string>-->
 
     <string name="cp_search_hint_text" tools:ignore="MissingTranslation">城市中文名或拼音</string>
     <string name="cp_cancel" tools:ignore="MissingTranslation">取消</string>

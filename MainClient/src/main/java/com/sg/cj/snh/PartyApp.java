@@ -4,6 +4,7 @@ package com.sg.cj.snh;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.fdl.utils.ActivityManagerUtils;
 import com.fdl.utils.Contans;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.JumpUtils;
+import com.fdl.utils.LanguageUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
 import com.mob.MobSDK;
@@ -64,6 +66,8 @@ import com.snh.greendao.DaoSession;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+
+import java.util.Locale;
 
 import cn.jpush.android.api.JPushInterface;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
@@ -166,7 +170,7 @@ public class PartyApp extends App {
                 CrashReport.initCrashReport(getApplicationContext(), Contans.BUGLY_ID, true);
             }
         }
-
+        LanguageUtils.setdefaultLanguage(this,"zh");
     }
 
     public enum ToastMgr {

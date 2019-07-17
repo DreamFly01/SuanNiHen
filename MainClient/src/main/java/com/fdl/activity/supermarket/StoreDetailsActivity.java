@@ -898,8 +898,8 @@ public class StoreDetailsActivity extends FragmentActivity {
                     CouponsBean couponsTitle = new CouponsBean(CouponsBean.COUPONS_TITLE);
                     couponsData.add(couponsTitle);
                     couponsData.addAll(model.data);
-                    couponsAdapter.setNewData(couponsData);
                 }
+                couponsAdapter.setNewData(couponsData);
                 if (couponsData.size() <= 0) {
                     llCoupons.setVisibility(View.GONE);
                 }
@@ -989,7 +989,7 @@ public class StoreDetailsActivity extends FragmentActivity {
     }
 
     private void recevierCoupons(int couponid) {
-        RequestClient.ReceiveCoupons(couponid, id,this, new NetSubscriber<BaseResultBean>(this, true) {
+        RequestClient.ReceiveCoupons(couponid, id, this, new NetSubscriber<BaseResultBean>(this, true) {
             @Override
             public void onResultNext(BaseResultBean model) {
                 Toast.makeText(StoreDetailsActivity.this, "领取成功！", Toast.LENGTH_SHORT).show();

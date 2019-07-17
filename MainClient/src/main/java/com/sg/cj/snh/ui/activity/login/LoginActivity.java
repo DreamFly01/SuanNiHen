@@ -64,8 +64,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @BindView(R.id.txt_regiest)
     TextView txtRegiest;
     @BindView(R.id.btn_wechat_login)
-    Button btnWechatLogin;
-    @BindView(R.id.btn_qh)
     Button btnQh;
     private ImmersionBar immersionBar;
     private Bundle bundle;
@@ -81,14 +79,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     protected void initEventAndData() {
         EventBus.getDefault().register(this);
         SgLog.d("登录");
-        if (Contans.debug) {
-            btnQh.setVisibility(View.VISIBLE);
-        }
-        if(Contans.HOST.equals(SPUtils.getInstance(this).getString(Contans.SP_HOSt))){
-            btnQh.setText("正式");
-        }else {
-            btnQh.setText("测试");
-        }
+
 //    PartyApp.getAppComponent().getDataManager().cleanData();
         // mPresenter.loadToken();
         // mPresenter.loadCode();
@@ -172,7 +163,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-    @OnClick({R.id.btn_login, R.id.txt_forget_psd, R.id.txt_regiest, R.id.btn_wechat_login, R.id.txt_sms_login,R.id.btn_qh})
+    @OnClick({R.id.btn_login, R.id.txt_forget_psd, R.id.txt_regiest, R.id.btn_wechat_login, R.id.txt_sms_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
@@ -191,17 +182,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.btn_wechat_login:
                 wxLogin();
                 break;
-            case R.id.btn_qh:
-                if(Contans.HOST.equals(SPUtils.getInstance(this).getString(Contans.SP_HOSt))){
-                    btnQh.setText("测试");
-                    RetrofitUrlManager.getInstance().setGlobalDomain(Contans.HOST_TEST);
-                    SPUtils.getInstance(this).saveData(Contans.SP_HOSt,Contans.HOST_TEST);
-                }else {
-                    btnQh.setText("正式");
-                    RetrofitUrlManager.getInstance().setGlobalDomain(Contans.HOST);
-                    SPUtils.getInstance(this).saveData(Contans.SP_HOSt,Contans.HOST);
-                }
-                break;
+
         }
     }
 

@@ -2,6 +2,10 @@ package com.fdl.utils;
 
 import com.sg.cj.common.base.utils.SgLog;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

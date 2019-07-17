@@ -229,10 +229,16 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                         noPayMoney += ordersDatum.GoodsNum2*ordersDatum.SalesPrice;
                         payMoney+=ordersDatum.GoodsNum*ordersDatum.SalesPrice;
                     }
-                    dialogUtils.twoBtnDialog("当前总价格为："+(noPayMoney+payMoney)+"其中未确定："+noPayMoney+",应支付为:"+payMoney+",是否继续支付？", new DialogUtils.ChoseClickLisener() {
+                    int finalPayMoney = payMoney;
+                    dialogUtils.twoBtnDialog("当前总价格为："+(noPayMoney+payMoney)+"元，其中未确定："+noPayMoney+"元,应支付为:"+payMoney+"元,是否继续支付？", new DialogUtils.ChoseClickLisener() {
                         @Override
                         public void onConfirmClick(View v) {
+                            dialogUtils.dismissDialog();
+                            if(finalPayMoney >0){
                             toPay();
+                            }else{
+                                dialogUtils.noBtnDialog("当前支付价格为0，无法前往支付");
+                            }
                         }
 
                         @Override
@@ -253,7 +259,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                     setCommitData(1);
                 } else {
                     if (!isNeedCommit) {
-                        dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
+                        dialogUtils.ShareDialog(shopName, shareUrl, "我在该店铺预订了"+time+"吃饭，邀请您点餐", imgUrl);
                     } else {
                         dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
                     }
@@ -284,12 +290,14 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     private String shareUrl;
     private String imgUrl;
     private String shopName;
+    private String time;
 
     private void getData() {
         addSubscription(RequestClient.GetSubscribeApplyInfo(applyId, this, new NetSubscriber<BaseResultBean<SubscribeApplyInfoBean>>(this, true) {
             @Override
             public void onResultNext(BaseResultBean<SubscribeApplyInfoBean> model) {
                 shopName = model.data.SUP.ShopName;
+                time = model.data.FOOD.DinnerTime;
                 fillView(model.data);
                 if (StrUtils.isEmpty(model.data.FOOD.OrderNo)) {
                     commitType = 0;
@@ -305,6 +313,8 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 }
                 if (noCommit > 0) {
                     isChange = true;
+                    isNeedCommit = true;
+                    changeType =1 ;
                     dialogUtils.noBtnDialog("当前菜单有更新，请确认后提交新的菜单哦~");
                 }
             }
@@ -340,8 +350,6 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
      */
     HashMap<Integer, FoodGoodsCommitBean> listMap = new HashMap<>();
     List<FoodGoodsCommitBean> goodsList1 = new ArrayList<>();
-
-    // TODO: 2019/7/3 当前更改菜单 需要重新new一个list
     private void setCommitData1() {
         if (changeType == 1) {
             for (OrdersData ordersDatum : ordersData) {
@@ -412,7 +420,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                     }
                     adapter.setNewData(ordersData);
                     if (isShare == 1) {
-                        dialogUtils.ShareDialog(shopName, shareUrl, "我在算你狠平台预订了一个美食订单，快来一起点餐吧~", imgUrl);
+                        dialogUtils.ShareDialog(shopName, shareUrl, "我在该店铺预订了"+time+"吃饭，邀请您点餐", imgUrl);
                     } else {
                         dialogUtils.noBtnDialog("提交成功！");
                     }

@@ -31,6 +31,7 @@ import com.fdl.activity.supermarket.StoreDetails2Activity;
 import com.fdl.utils.Contans;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.JumpUtils;
+import com.fdl.utils.LanguageUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
 import com.gyf.barlibrary.ImmersionBar;
@@ -127,6 +128,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
+        LanguageUtils.setdefaultLanguage(this,"zh");
         initContentView(savedInstanceState);
         ButterKnife.bind(this);
         setUpViews();

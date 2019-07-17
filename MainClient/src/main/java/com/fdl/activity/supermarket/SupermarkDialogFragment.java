@@ -140,6 +140,7 @@ public class SupermarkDialogFragment extends DialogFragment {
             }
         }, recyclerView);
         refreshLayout.setEnableLoadMore(false);
+        refreshLayout.setEnableRefresh(false);
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
