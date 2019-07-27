@@ -17,6 +17,8 @@ public class SuperMarkGoodsBean {
     public String[] RollImages;
     public String Describe;
     public int CommentCount;
+    public double Price;
+    public int Stock;
     public List<GoodsCommentResult> Comment;
 
     public class GoodsCommentResult{

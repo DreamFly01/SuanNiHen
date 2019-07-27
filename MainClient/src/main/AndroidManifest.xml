@@ -5,11 +5,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- 外置存储存取权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 多媒体相关 -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -39,8 +37,6 @@
     <!-- 8.0 系统需要 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- 多媒体相关 -->
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />

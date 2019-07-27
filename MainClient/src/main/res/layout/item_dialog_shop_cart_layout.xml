@@ -14,19 +14,20 @@
         <TextView
             android:layout_marginLeft="30pt"
             android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="¥24"
+            android:layout_weight="1"
             android:textColor="@color/gray_1"
             android:textSize="@dimen/txtSize_28" />
         <TextView
             android:textColor="@color/app_red"
-            android:paddingRight="60pt"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
             android:id="@+id/tv_price"
             android:gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="¥28"
             android:textSize="@dimen/txtSize_28" />
         <LinearLayout
@@ -37,7 +38,7 @@
             android:paddingTop="10pt"
             android:paddingBottom="10pt"
             android:paddingLeft="5pt"
-            android:paddingRight="5pt">
+            android:paddingRight="20pt">
             <ImageView
                 android:id="@+id/iv_delete"
                 android:layout_gravity="center"
@@ -53,12 +54,13 @@
                 android:textColor="@color/gray_1"
                 android:layout_gravity="center"
                 android:textSize="26pt"/>
+            <ImageView
+                android:layout_marginLeft="20pt"
+                android:id="@+id/iv_add"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:src="@drawable/shopcart_logo_add"/>
         </LinearLayout>
-        <ImageView
-            android:layout_marginLeft="20pt"
-            android:id="@+id/iv_add"
-            android:layout_width="50pt"
-            android:layout_height="50pt"
-            android:src="@drawable/shopcart_logo_add"/>
+
     </LinearLayout>
 </LinearLayout>

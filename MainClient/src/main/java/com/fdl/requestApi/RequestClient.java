@@ -73,6 +73,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -1955,6 +1956,21 @@ public class RequestClient {
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .GetSupplierMoneyLog(map),
+                context, observer);
+    }
+
+    /**
+     * 判断用户是否可以领取红包
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription getRedEnvelopeType(Context context, NetSubscriber<BaseResultBean> observer) {
+        Map<String, Object> map = new TreeMap<>();
+        map.put("UserId", PartyApp.getAppComponent().getDataManager().getId());
+        return doRequest1(RetrofitProxy
+                        .getApiService(context,"")
+                        .getRedPacketType(map),
                 context, observer);
     }
 

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,18 +24,28 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.fdl.adapter.SuperMarkAdapter;
 import com.fdl.bean.BaseResultBean;
+import com.fdl.bean.ScrollBean;
 import com.fdl.bean.SuperMarkGoodsBean;
+import com.fdl.bean.daoBean.CommTenant;
+import com.fdl.db.DBManager;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.StrUtils;
+import com.fdl.utils.ToastUtils;
 import com.fdl.wedgit.MyWebView;
 import com.fdl.wedgit.RecycleViewDivider;
+import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.sg.cj.common.base.utils.SgLog;
 import com.sg.cj.snh.R;
+import com.snh.greendao.CommTenantDao;
+import com.snh.greendao.DaoMaster;
+import com.snh.greendao.DaoSession;
 import com.youth.banner.Banner;
 
+import org.greenrobot.eventbus.EventBus;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -71,9 +82,11 @@ public class SupermarkDialogFragment extends DialogFragment {
     private TextView goodsName, num;
 
     private int index = 1;
-    private Long goodsId;
+    private Long goodsId,supplerId;
     private SuperMarkAdapter adapter;
     private SuperMarkGoodsBean data;
+    private ImageView del,add;
+    private TextView tvNum,addcart;
 
     private boolean isShow = true;
     @Override
@@ -91,6 +104,10 @@ public class SupermarkDialogFragment extends DialogFragment {
         banner = heard.findViewById(R.id.banner);
         webView = heard.findViewById(R.id.web_view);
         goodsName = heard.findViewById(R.id.tv_goodsName);
+        del = view.findViewById(R.id.iv_delete);
+        add = view.findViewById(R.id.iv_add);
+        tvNum = view.findViewById(R.id.tv_goodsNum);
+        addcart = view.findViewById(R.id.tv_addcart);
         num = heard.findViewById(R.id.tv_num);
         unbinder = ButterKnife.bind(this, view);
         return view;
@@ -108,13 +125,13 @@ public class SupermarkDialogFragment extends DialogFragment {
         getDialog().getWindow().setContentView(view);
         getDialog().getWindow().setWindowAnimations(R.style.MyDialogAlpha);
         super.onStart();
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         goodsId = getArguments().getLong("id");
+        supplerId = getArguments().getLong("supperId");
         setView();
         getData();
 
@@ -147,6 +164,29 @@ public class SupermarkDialogFragment extends DialogFragment {
                 isShow = true;
                 index = 1;
                 getData();
+            }
+        });
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Integer.parseInt(tvNum.getText().toString().trim())<1){
+                    return;
+                }else {
+                    tvNum.setText((Integer.parseInt(tvNum.getText().toString().trim())-1)+"");
+                }
+            }
+        });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvNum.setText((Integer.parseInt(tvNum.getText().toString().trim())+1)+"");
+            }
+        });
+        addcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updataDataToDb(supplerId,goodsId);
             }
         });
     }
@@ -252,5 +292,50 @@ public class SupermarkDialogFragment extends DialogFragment {
             imgElement.attr("style", "max-width:100%;height:auto");
         }
         return document.toString();
+    }
+
+    private void updataDataToDb(Long id,Long goodId) {
+
+        int total = getArguments().getInt("total");
+        Long inventory = getArguments().getLong("Inventory");
+        double price = getArguments().getDouble("Price");
+
+        DaoMaster daoMaster = new DaoMaster(DBManager.getInstance(getContext()).getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        CommTenantDao commTenantDao = daoSession.getCommTenantDao();
+
+        CommTenant commTenant = commTenantDao.load(goodId);
+        if (commTenant != null) {
+            commTenant.setSupplierId(id.intValue());
+            commTenant.setCommTenantIcon(data.CoverImgId);
+            commTenant.setCommTenantId((long) data.GoodsId);
+            commTenant.setCommTenantName(data.GoodsName);
+            commTenant.setTotal((Integer.parseInt(tvNum.getText().toString().trim())+total));
+            commTenant.setPrice(price);//价格
+            commTenant.setInventory(inventory);
+            try {
+                commTenantDao.update(commTenant);
+                SgLog.d("更新成功");
+            } catch (Exception e) {
+                SgLog.d("更新失败");
+            }
+        } else {
+            commTenant = new CommTenant();
+            commTenant.setSupplierId(id.intValue());
+            commTenant.setPrice(price);
+            commTenant.setCommTenantIcon(data.CoverImgId);
+            commTenant.setCommTenantId((long) data.GoodsId);
+            commTenant.setCommTenantName(data.GoodsName);
+            commTenant.setTotal(Integer.parseInt(tvNum.getText().toString().trim()));
+            commTenant.setInventory(inventory);
+            commTenantDao.insert(commTenant);
+        }
+        SgLog.d("数据：" + new Gson().toJson(commTenantDao.loadAll()));
+        ToastUtils.toast("添加成功");
+        StoreDetailsUpDateEvent event =new StoreDetailsUpDateEvent();
+        event.setUpdateDb(true);
+        EventBus.getDefault().post(event);
+        getDialog().dismiss();
+
     }
 }

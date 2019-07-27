@@ -1,5 +1,6 @@
 package com.fdl.utils;
 
+
 import com.sg.cj.snh.BuildConfig;
 
 /**
@@ -12,6 +13,7 @@ import com.sg.cj.snh.BuildConfig;
 public class Contans {
     public static final String HOST_TEST = "http://test.snihen.com/api/";//测试环境
     public static final String HOST = "https://shop.snihen.com/api/";//正式环境
+    public static final String T_HOST = "http://test.snihen.com:8089/api/";
     public static final String API_HOST = BuildConfig.SERVER_DEBUG ? HOST_TEST : HOST;
     public static boolean debug = true;
     //用户信息

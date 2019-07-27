@@ -1,5 +1,7 @@
 package com.fdl.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * <p>desc：<p>
  * <p>author：DreamFly<p>

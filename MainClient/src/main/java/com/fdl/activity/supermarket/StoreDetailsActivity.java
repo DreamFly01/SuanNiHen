@@ -62,6 +62,7 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -181,6 +182,7 @@ public class StoreDetailsActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedetails1_layout);
+        EventBus.getDefault().register(this);
         bundle = getIntent().getExtras();
         if (null != bundle) {
             id = bundle.getInt("stroeId");
@@ -263,6 +265,7 @@ public class StoreDetailsActivity extends FragmentActivity {
                                 }
                             } else {
                                 goodsId = Integer.parseInt(map.get("goodsid"));
+
                                 showFragment();
                             }
                         }
@@ -384,6 +387,7 @@ public class StoreDetailsActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
         if (null != immersionBar) {
             immersionBar.destroy();
         }
@@ -533,9 +537,12 @@ public class StoreDetailsActivity extends FragmentActivity {
                         setBoomMenu();
                         break;
                     case R.id.iv_product_logo1:
-
                         bundle = new Bundle();
                         bundle.putLong("id", right.get(position - 1).itemBean.CommTenantId);
+                        bundle.putLong("supperId", id);
+                        bundle.putInt("total",right.get(position - 1).itemBean.total);
+                        bundle.putLong("Inventory",right.get(position - 1).itemBean.Inventory);
+                        bundle.putDouble("Price",right.get(position - 1).itemBean.Price);
                         fragment = new SupermarkDialogFragment();
                         fragment.setArguments(bundle);
                         fragment.show(getSupportFragmentManager(), "details");
@@ -706,7 +713,6 @@ public class StoreDetailsActivity extends FragmentActivity {
     }
 
     private void updataDataToDb(ScrollBean beans) {
-
         DaoMaster daoMaster = new DaoMaster(DBManager.getInstance(this).getWritableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         CommTenantDao commTenantDao = daoSession.getCommTenantDao();
@@ -917,6 +923,7 @@ public class StoreDetailsActivity extends FragmentActivity {
     private void showFragment() {
         bundle = new Bundle();
         bundle.putLong("id", goodsId);
+        bundle.putLong("supperId",id);
         fragment = new SupermarkDialogFragment();
         fragment.setArguments(bundle);
         fragment.show(getSupportFragmentManager(), "details");
@@ -1059,4 +1066,13 @@ public class StoreDetailsActivity extends FragmentActivity {
             }
         }
     }
+
+    @Subscribe
+    public void upDateDbEvent(StoreDetailsUpDateEvent event){
+        if(event.isUpdateDb()){
+            querInit();
+            setBoomMenu();
+        }
+    }
+
 }

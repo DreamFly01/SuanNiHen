@@ -507,12 +507,11 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
 
     private void requestPermision() {
 
-        String[] params = {Manifest.permission.ACCESS_FINE_LOCATION};
         List<PermissionItem> permissonItems = new ArrayList<PermissionItem>();
         permissonItems.add(new PermissionItem(Manifest.permission.ACCESS_FINE_LOCATION, "定位", R.drawable.permission_ic_location));
-        if (!EasyPermissions.hasPermissions(getContext(), params)) {
+        if (!EasyPermissions.hasPermissions(getContext(), permissions)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(params, 10010);
+                requestPermissions(permissions, 10010);
             }
         } else {
             initLocation();
@@ -680,11 +679,10 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
 
 
     private int type = 0;
-
-    //九宫格页面处理
+    String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
     private void checkPerm() {
-        String[] params = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
-        if (EasyPermissions.hasPermissions(getContext(), params)) {
+
+        if (EasyPermissions.hasPermissions(getContext(), permissions)) {
             if (type == 1) {
                 bundle = new Bundle();
                 bundle.putString("addressLevel", level);

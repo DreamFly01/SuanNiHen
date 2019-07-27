@@ -876,4 +876,14 @@ public interface RequestApi {
      */
     @POST("food/couponschange")
     Observable<BaseResultBean> CouponsChange(@Body Map<String,Object> params);
+
+
+    /**
+     * 新增银行卡
+     * @param params
+     * @return
+     */
+    @GET("RedPacket/GetIsAvailable")
+    Observable<BaseResultBean> getRedPacketType(@QueryMap Map<String,Object> params);
+
 }

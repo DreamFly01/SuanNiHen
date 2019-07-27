@@ -2,8 +2,6 @@ package com.fdl.activity.main;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -12,9 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,36 +19,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fdl.BaseActivity;
-import com.fdl.activity.goTravel.TravelActivity;
-import com.fdl.activity.merchantEntry.PerfectCompanyThreeActivity;
-import com.fdl.activity.supermarket.StoreDetails2Activity;
+import com.fdl.bean.BaseResultBean;
+import com.fdl.requestApi.NetSubscriber;
+import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.Contans;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.JumpUtils;
 import com.fdl.utils.LanguageUtils;
-import com.fdl.utils.SPUtils;
-import com.fdl.utils.StrUtils;
+import com.fdl.utils.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
-import com.gyf.barlibrary.OSUtils;
 import com.sg.cj.snh.PartyApp;
 import com.sg.cj.snh.R;
 import com.sg.cj.snh.ui.activity.login.LoginActivity;
-import com.sg.cj.snh.ui.fragment.main.DiscoverLayerFragment;
-import com.sg.cj.snh.ui.fragment.main.HomeLayerFragment;
-import com.sg.cj.snh.ui.fragment.main.SelfLayerFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.yokeyword.fragmentation.SupportActivity;
-import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
-import pub.devrel.easypermissions.PermissionRequest;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * <p>desc：<p>
@@ -139,6 +127,8 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
             getWindow().setEnterTransition(new Fade().setDuration(2000));
             getWindow().setExitTransition(new Fade().setDuration(2000));
         }
+
+        isGetRedEnvelope();
     }
 
     protected void initContentView(Bundle savedInstanceState) {
@@ -455,4 +445,17 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
         ImmersionBar.with(this).destroy();
     }
 
+    private void isGetRedEnvelope(){
+        CompositeSubscription mCompositeSubscription = new CompositeSubscription();
+        mCompositeSubscription.add(RequestClient.getRedEnvelopeType(this, new NetSubscriber<BaseResultBean>(this) {
+            @Override
+            public void onResultNext(BaseResultBean model) {
+                if(model.code.equals("01")){
+                    ToastUtils.toast("可以领取红包(*^__^*)");
+                }else {
+                    ToastUtils.toast("不可以领取红包");
+                }
+            }
+        }));
+    }
 }
