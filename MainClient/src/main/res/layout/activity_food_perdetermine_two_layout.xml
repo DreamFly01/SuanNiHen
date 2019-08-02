@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@color/color_app_bg"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
     <include layout="@layout/heard_layout"></include>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
-                android:padding="30pt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="30pt"
                 android:text="@string/foodtips"
-                android:textSize="24pt"
                 android:textColor="@color/orange"
-                />
+                android:textSize="24pt" />
+
+            <!--预定成功-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,90 +37,90 @@
                 android:layout_marginRight="12pt"
                 android:layout_marginBottom="20pt"
                 app:cardCornerRadius="20pt"
-                app:contentPadding="20pt"
-                >
+                app:contentPadding="20pt">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30pt"
                         android:text="预定成功"
                         android:textColor="@color/txt_dark"
-                        />
+                        android:textSize="30pt" />
+
                     <LinearLayout
-                        android:layout_marginTop="30pt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:layout_marginTop="30pt"
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20pt"
                             android:text="您已预定成功，请按时到店就餐，座位最晚给您保留到   "
                             android:textColor="@color/gray"
-                            />
+                            android:textSize="20pt" />
+
                         <TextView
                             android:id="@+id/tv_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20pt"
                             android:text="----"
                             android:textColor="@color/txt_red"
-                            />
+                            android:textSize="20pt" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="20pt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:layout_marginTop="20pt"
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="26pt"
                             android:text="商家地址："
                             android:textColor="@color/gray"
-                            />
+                            android:textSize="26pt" />
+
                         <TextView
                             android:id="@+id/tv_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="26pt"
                             android:text="----"
                             android:textColor="@color/txt_dark"
-                            />
+                            android:textSize="26pt" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="20pt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:layout_marginTop="20pt"
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="26pt"
                             android:text="联系电话："
                             android:textColor="@color/gray"
-                            />
+                            android:textSize="26pt" />
+
                         <TextView
                             android:id="@+id/tv_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="26pt"
                             android:text="----"
                             android:textColor="@color/orange"
-                            />
+                            android:textSize="26pt" />
                     </LinearLayout>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <!--菜品-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,184 +128,167 @@
                 android:layout_marginLeft="12pt"
                 android:layout_marginTop="21pt"
                 android:layout_marginRight="12pt"
-                android:layout_marginBottom="20pt"
+                android:layout_marginBottom="5pt"
                 app:cardCornerRadius="20pt"
                 app:contentPadding="20pt">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="30pt"
-                        android:text="预定信息"
-                        android:textColor="@color/txt_dark"
-                        />
+                    android:orientation="vertical">
+
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_store_log"
+                            android:layout_width="54pt"
+                            android:layout_height="54pt" />
+
+                        <TextView
+                            android:id="@+id/tv_storeName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20pt"
+                            android:text="----"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="30pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_soild_red_bg"
+                            android:paddingLeft="20pt"
+                            android:paddingTop="5pt"
+                            android:paddingRight="20pt"
+                            android:paddingBottom="5pt"
+                            android:text="添加菜单"
+                            android:textColor="@color/white"
+                            android:textSize="20pt" />
+
+                        <TextView
+                            android:id="@+id/tv_clean"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20pt"
+                            android:background="@drawable/shape_black_20"
+                            android:paddingLeft="20pt"
+                            android:paddingTop="5pt"
+                            android:paddingRight="20pt"
+                            android:paddingBottom="5pt"
+                            android:text="清    空"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="20pt"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="30pt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="用餐人数："
-                            android:textColor="@color/gray"
-                            />
-                        <TextView
-                            android:id="@+id/tv_numInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="----"
-                            android:textColor="@color/txt_dark"
-                            />
-                    </LinearLayout>
+                        android:nestedScrollingEnabled="false" />
 
-                    <LinearLayout
-                        android:layout_marginTop="20pt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="用餐时间："
-                            android:textColor="@color/gray"
-                            />
-                        <TextView
-                            android:id="@+id/tv_timeInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="----"
-                            android:textColor="@color/txt_dark"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="20pt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="预定信息："
-                            android:textColor="@color/gray"
-                            />
-                        <TextView
-                            android:id="@+id/tv_personInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26pt"
-                            android:text="----"
-                            android:textColor="@color/txt_dark"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ll_heard"
-                android:layout_marginLeft="12pt"
-                android:layout_marginTop="21pt"
-                android:layout_marginRight="12pt"
-                android:layout_marginBottom="20pt"
-                app:cardCornerRadius="20pt"
-                app:contentPadding="20pt">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    >
-                    <ImageView
-                        android:id="@+id/iv_store_log"
-                        android:layout_width="54pt"
-                        android:layout_height="54pt" />
-                    <TextView
-                        android:layout_marginLeft="20pt"
-                        android:id="@+id/tv_storeName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="----"
-                        android:textSize="30pt"
-                        android:textColor="@color/txt_dark"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:id="@+id/tv_add"
-                        android:paddingTop="5pt"
-                        android:paddingBottom="5pt"
-                        android:paddingRight="20pt"
-                        android:paddingLeft="20pt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="添加菜单"
-                        android:textColor="@color/white"
-                        android:textSize="20pt"
-                        android:background="@drawable/shape_soild_red_bg"
-                        />
-                    <TextView
-                        android:visibility="gone"
-                        android:id="@+id/tv_clean"
-                        android:layout_marginLeft="20pt"
-                        android:paddingTop="5pt"
-                        android:paddingBottom="5pt"
-                        android:paddingRight="20pt"
-                        android:paddingLeft="20pt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="清    空"
-                        android:textColor="@color/txt_dark"
-                        android:textSize="20pt"
-                        android:background="@drawable/shape_black_20"
-                        />
-                </LinearLayout>
-                <android.support.v7.widget.RecyclerView
-                    android:layout_marginTop="30pt"
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false"
-                    ></android.support.v7.widget.RecyclerView>
                     <LinearLayout
                         android:id="@+id/ll_more_data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
+
                         <ImageView
                             android:id="@+id/iv_upOrDown"
-                            android:layout_gravity="center"
                             android:layout_width="40pt"
                             android:layout_height="40pt"
-                            android:background="@drawable/arrow_down"
-                            />
+                            android:layout_gravity="center"
+                            android:background="@drawable/arrow_down" />
                     </LinearLayout>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+            <!--优惠券-->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_heard"
+                android:layout_marginLeft="12pt"
+                android:layout_marginRight="12pt"
+                android:layout_marginBottom="20pt"
+                app:cardCornerRadius="20pt"
+                app:contentPadding="20pt">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_coupons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="使用优惠劵"
+                            android:textColor="#414141"
+                            android:textSize="26pt" />
+
+                        <TextView
+                            android:id="@+id/tv_conpons"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:textColor="#414141"
+                            android:textSize="26pt" />
+
+                        <ImageView
+                            android:layout_width="40pt"
+                            android:layout_height="40pt"
+                            android:background="@drawable/arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_totalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#F9F9F9"
+                            android:gravity="left"
+                            android:padding="13pt"
+                            android:text="----"
+                            android:textColor="#FB4B2A"
+                            android:textSize="28pt" />
+
+                        <TextView
+                            android:id="@+id/tv_redution"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#F9F9F9"
+                            android:gravity="left"
+                            android:padding="13pt"
+                            android:textColor="#FB4B2A"
+                            android:textSize="28pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <!--预定信息-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -315,98 +301,130 @@
                 app:contentPadding="20pt">
 
                 <LinearLayout
-                    android:id="@+id/ll_coupons"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="使用优惠劵"
-                        android:textColor="#414141"
-                        android:textSize="26pt" />
-                    <TextView
-                        android:gravity="right"
-                        android:id="@+id/tv_conpons"
+                        android:text="预定信息"
+                        android:textColor="@color/txt_dark"
+                        android:textSize="30pt" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="#414141"
-                        android:textSize="26pt" />
+                        android:layout_marginTop="30pt"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="40pt"
-                        android:layout_height="40pt"
-                        android:background="@drawable/arrow_right" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用餐人数："
+                            android:textColor="@color/gray"
+                            android:textSize="26pt" />
+
+                        <TextView
+                            android:id="@+id/tv_numInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="----"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="26pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20pt"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用餐时间："
+                            android:textColor="@color/gray"
+                            android:textSize="26pt" />
+
+                        <TextView
+                            android:id="@+id/tv_timeInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="----"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="26pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20pt"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="预定信息："
+                            android:textColor="@color/gray"
+                            android:textSize="26pt" />
+
+                        <TextView
+                            android:id="@+id/tv_personInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="----"
+                            android:textColor="@color/txt_dark"
+                            android:textSize="26pt" />
+                    </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/tv_totalPrice"
-            android:gravity="left"
-            android:background="#F9F9F9"
-            android:textColor="#FB4B2A"
-            android:padding="13pt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="----"
-            android:textSize="28pt" />
-        <TextView
-            android:id="@+id/tv_redution"
-            android:gravity="left"
-            android:background="#F9F9F9"
-            android:textColor="#FB4B2A"
-            android:padding="13pt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28pt" />
-    </LinearLayout>
+
 
     <TextView
-        android:gravity="center"
-        android:background="#D1D0D0"
-        android:textColor="#7D5001"
-        android:padding="13pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#D1D0D0"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="13pt"
         android:text="分享给您的用餐成员就可以一起点餐啦，赶紧分享吧！"
+        android:textColor="#7D5001"
         android:textSize="20pt"
 
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:padding="20pt"
-        >
+        android:orientation="horizontal"
+        android:padding="20pt">
+
         <TextView
             android:id="@+id/tv_share"
-            android:gravity="center"
-            android:layout_width="342pt"
-            android:layout_height="80pt"
-            android:text="提交菜品"
-            android:textColor="@color/white"
-            android:textSize="30pt"
+            android:layout_width="330dp"
+            android:layout_height="53dp"
             android:background="@drawable/shape_soild_red_bg"
-            />
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="30pt" />
+
         <TextView
             android:id="@+id/tv_pay"
-            android:layout_marginLeft="20pt"
-            android:gravity="center"
             android:layout_width="342pt"
             android:layout_height="80pt"
-            android:text="买单"
+            android:layout_marginLeft="20pt"
             android:background="@drawable/shape_soild_red_bg"
+            android:gravity="center"
+            android:text="买单"
             android:textColor="@color/white"
             android:textSize="30pt"
-            />
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

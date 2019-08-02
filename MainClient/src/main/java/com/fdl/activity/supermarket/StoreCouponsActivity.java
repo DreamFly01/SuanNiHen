@@ -3,7 +3,6 @@ package com.fdl.activity.supermarket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,12 +13,9 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.fdl.BaseActivity;
-import com.fdl.adapter.CouponsAdapter;
-import com.fdl.adapter.MyCouponsAdapter;
 import com.fdl.adapter.StoreCouponsAdapter;
 import com.fdl.bean.BaseResultBean;
 import com.fdl.bean.CouponsBean;
-import com.fdl.bean.MyCouponsBean;
 import com.fdl.bean.daoBean.CommTenant;
 import com.fdl.db.DBManager;
 import com.fdl.requestApi.NetSubscriber;
@@ -29,17 +25,9 @@ import com.fdl.utils.ToastUtils;
 import com.fdl.wedgit.RecycleViewDivider;
 import com.gyf.barlibrary.ImmersionBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.sg.cj.common.base.utils.ToastUtil;
 import com.sg.cj.snh.R;
 import com.snh.greendao.CommTenantDao;
-import com.snh.greendao.DaoMaster;
-import com.snh.greendao.DaoSession;
 import com.wang.avi.AVLoadingIndicatorView;
-
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

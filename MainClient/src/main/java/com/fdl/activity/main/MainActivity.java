@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,18 +20,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fdl.activity.main.event.AddressLocationEvent;
+import com.fdl.activity.main.event.GPSEvent;
+import com.fdl.activity.main.redPacket.RedPacketDialog;
 import com.fdl.bean.BaseResultBean;
+import com.fdl.jpush.Logger;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
+import com.fdl.utils.BaiduMapUtils;
 import com.fdl.utils.Contans;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.JumpUtils;
 import com.fdl.utils.LanguageUtils;
-import com.fdl.utils.ToastUtils;
+import com.fdl.utils.SPUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.snh.PartyApp;
 import com.sg.cj.snh.R;
 import com.sg.cj.snh.ui.activity.login.LoginActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
@@ -42,6 +51,7 @@ import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.yokeyword.fragmentation.SupportActivity;
 import pub.devrel.easypermissions.EasyPermissions;
 import rx.subscriptions.CompositeSubscription;
+
 
 /**
  * <p>desc：<p>
@@ -116,7 +126,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
-        LanguageUtils.setdefaultLanguage(this,"zh");
+        LanguageUtils.setdefaultLanguage(this, "zh");
         initContentView(savedInstanceState);
         ButterKnife.bind(this);
         setUpViews();
@@ -128,12 +138,17 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
             getWindow().setExitTransition(new Fade().setDuration(2000));
         }
 
-        isGetRedEnvelope();
+        if (PartyApp.getAppComponent().getDataManager().getId() != 0 &&
+                !TextUtils.isEmpty(SPUtils.getInstance(this).getString(Contans.CITY_ID))) {
+            isGetRedEnvelope();
+        }
+
     }
 
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main_layout);
         instans = this;
+        EventBus.getDefault().register(this);
     }
 
     public void setUpViews() {
@@ -169,6 +184,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
             case 0:
                 resetBtn();
                 iv01.setBackgroundResource(R.drawable.tab_1_selected);
+                tv01.setTextColor(getResources().getColor(R.color.main_text_selected));
                 if (mainFragment == null) {
                     mainFragment = new MainFragment();
                     transaction.add(R.id.framecontent, mainFragment);
@@ -182,16 +198,16 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
 //                    JumpUtils.simpJump(this,StoreDetails2Activity.class,false);
 //                }else {
 
-                    resetBtn();
-                    iv02.setBackgroundResource(R.drawable.tab_3_selected);
-
-                    if (discoverFragment == null) {
-                        discoverFragment = new DiscoverFragment();
-                        transaction.add(R.id.framecontent, discoverFragment);
-                    } else {
-                        transaction.show(discoverFragment);
-                    }
-                    transaction.commit();
+                resetBtn();
+                iv02.setBackgroundResource(R.drawable.tab_3_selected);
+                tv02.setTextColor(getResources().getColor(R.color.main_text_selected));
+                if (discoverFragment == null) {
+                    discoverFragment = new DiscoverFragment();
+                    transaction.add(R.id.framecontent, discoverFragment);
+                } else {
+                    transaction.show(discoverFragment);
+                }
+                transaction.commit();
 //                }
                 break;
             case 2:
@@ -202,6 +218,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
                 } else {
                     resetBtn();
                     iv04.setBackgroundResource(R.drawable.tab_4_selected);
+                    tv04.setTextColor(getResources().getColor(R.color.main_text_selected));
                     if (buyCarFragment == null) {
                         // 如果MessageFragment为空，则创建一个并添加到界面上
                         buyCarFragment = new BuyCarFragment();
@@ -223,6 +240,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
                 } else {
                     resetBtn();
                     iv05.setBackgroundResource(R.drawable.tab_5_selected);
+                    tv05.setTextColor(getResources().getColor(R.color.main_text_selected));
                     if (homeFragment == null) {
                         homeFragment = new HomeFragment();
                         transaction.add(R.id.framecontent, homeFragment);
@@ -236,6 +254,7 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
             case 4:
 //                JumpUtils.simpJump(this, ScanActivity.class, false);
 //                iv02.setBackgroundResource(R.drawable.tab_3_selected);
+                tv03.setTextColor(getResources().getColor(R.color.main_text_selected));
                 if (scanFragment == null) {
                     // 如果MessageFragment为空，则创建一个并添加到界面上
                     scanFragment = new ScanFragment();
@@ -255,7 +274,11 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
         iv02.setBackgroundResource(R.drawable.tab_3);
         iv04.setBackgroundResource(R.drawable.tab_4);
         iv05.setBackgroundResource(R.drawable.tab_5);
-
+        tv01.setTextColor(getResources().getColor(R.color.black));
+        tv02.setTextColor(getResources().getColor(R.color.black));
+        tv03.setTextColor(getResources().getColor(R.color.black));
+        tv04.setTextColor(getResources().getColor(R.color.black));
+        tv05.setTextColor(getResources().getColor(R.color.black));
     }
 
     FragmentTransaction transaction;
@@ -326,9 +349,14 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if ((System.currentTimeMillis() - mExitTime) > EXIT_TIME) {
-                toast = Toast.makeText(this, "再按一次，退出算你狠", Toast.LENGTH_SHORT);
-                toast.show();
-                mExitTime = System.currentTimeMillis();
+                if (scanFragment == null || scanFragment.isHidden()) {
+                    toast = Toast.makeText(this, "再按一次，退出算你狠", Toast.LENGTH_SHORT);
+                    toast.show();
+                    mExitTime = System.currentTimeMillis();
+                } else {
+                    setTabSelection(0);
+                }
+
             } else {
                 if (null != toast) {
                     toast.cancel();
@@ -433,29 +461,51 @@ public class MainActivity extends SupportActivity implements EasyPermissions.Per
         isForeground = true;
         super.onResume();
     }
+
     public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
     public static final String KEY_TITLE = "title";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_EXTRAS = "extras";
+
     @Override
     protected void onDestroy() {
 //        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onDestroy();
         // 必须调用该方法，防止内存泄漏
         ImmersionBar.with(this).destroy();
+        EventBus.getDefault().unregister(this);
     }
 
-    private void isGetRedEnvelope(){
+    private void isGetRedEnvelope() {
+        RetrofitUrlManager.getInstance().putDomain("port8089", Contans.PORT_8089_HOST);
         CompositeSubscription mCompositeSubscription = new CompositeSubscription();
         mCompositeSubscription.add(RequestClient.getRedEnvelopeType(this, new NetSubscriber<BaseResultBean>(this) {
             @Override
             public void onResultNext(BaseResultBean model) {
-                if(model.code.equals("01")){
-                    ToastUtils.toast("可以领取红包(*^__^*)");
-                }else {
-                    ToastUtils.toast("不可以领取红包");
+                if (model.code.equals("01")) {
+                    RedPacketDialog dialog = new RedPacketDialog(MainActivity.this);
+                    dialog.show();
                 }
             }
+
         }));
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 101) {
+            GPSEvent event = new GPSEvent();
+            event.setOpen(BaiduMapUtils.isOPenGPS(MainActivity.this));
+            EventBus.getDefault().post(event);
+        }
+    }
+
+    @Subscribe
+    public void addressLocationEvent(AddressLocationEvent event) {
+        if (event.isLocation()) {
+            isGetRedEnvelope();
+        }
+    }
+
 }

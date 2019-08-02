@@ -34,6 +34,7 @@ import com.fdl.bean.SuperMarketBean;
 import com.fdl.bean.SupplierBean;
 import com.fdl.db.DBManager;
 import com.fdl.db.ShopTypeEnum;
+import com.fdl.jpush.Logger;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.Contans;
@@ -148,7 +149,6 @@ public class StoreListActivity extends BaseActivity {
                 } else {
                     refreshLayout.finishLoadMore();
                 }
-
             }
 
             @Override
@@ -260,6 +260,7 @@ public class StoreListActivity extends BaseActivity {
                     longitude = bdLocation.getLongitude();
                     SPUtils.getInstance(StoreListActivity.this).saveData(Contans.LATITUDE, bdLocation.getLatitude() + "");
                     SPUtils.getInstance(StoreListActivity.this).saveData(Contans.LONGITUDE, bdLocation.getLongitude() + "");
+                    Logger.i("GPS","GPS:latitude="+latitude+",longitude="+longitude);
                 }
 
             }

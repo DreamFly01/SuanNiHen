@@ -48,8 +48,13 @@
     <string name="service" tools:ignore="MissingTranslation">预定、到店自取</string>
     <string name="sPromotions" tools:ignore="MissingTranslation">优惠活动:</string>
     <string name="permotions" tools:ignore="MissingTranslation">满300减15</string>
-    <string name="_6">6人起订</string>
-    <string name="_6ol">6人起订</string>
-    <string name="moneyStr">¥</string>
-    <string name="foodtips">提示：确定好菜单后，就可以提交了啦！商家才可以看到您点的 菜单，就可以提前准备食材啦！</string>
+    <string name="_6" tools:ignore="MissingTranslation">6人起订</string>
+    <string name="_6ol" tools:ignore="MissingTranslation">6人起订</string>
+    <string name="moneyStr" tools:ignore="MissingTranslation">¥</string>
+    <string name="foodtips" tools:ignore="MissingTranslation">提示：确定好菜单后，就可以提交了啦！商家才可以看到您点的 菜单，就可以提前准备食材啦！</string>
+    <string name="red_packet_message" tools:ignore="MissingTranslation">您有红包可以领取</string>
+    <string name="price_yuan" tools:ignore="MissingTranslation">%s</string>
+    <string name="red_packet_price"  tools:ignore="MissingTranslation">获得%s元\n现金红包</string>
+    <string name="coupons_date"  tools:ignore="MissingTranslation">%1$s至%2$s</string>
+    <string name="coupons_goods_msg">满%1$s元减%2$s元</string>
 </resources>

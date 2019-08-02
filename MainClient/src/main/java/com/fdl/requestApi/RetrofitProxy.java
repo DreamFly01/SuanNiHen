@@ -74,6 +74,8 @@ public class RetrofitProxy {
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())// 使用RxJava作为回调适配器
                 .build();
+
+//        RetrofitUrlManager.getInstance().setGlobalDomain(Contans.API_HOST);
         apiService = retrofit.create(RequestApi.class);
     }
 

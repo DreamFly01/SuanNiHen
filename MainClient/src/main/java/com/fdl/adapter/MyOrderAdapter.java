@@ -81,9 +81,9 @@ public class MyOrderAdapter extends CommonAdapter<MyOrderBean> {
                 tvChose3.setVisibility(View.VISIBLE);
                 tvChose1.setText("取消订单");
                 tvChose2.setText("去付款");
-                if (myOrderBean.ShopType.equals("6")) {
-                    tvChose3.setVisibility(View.GONE);
-                }
+//                if (myOrderBean.ShopType.equals("6")) {
+//                    tvChose3.setVisibility(View.GONE);
+//                }
                 tvChose3.setVisibility(View.GONE);
                 tvChose3.setText("好友代付");
                 tvChose3.setTextColor(Color.parseColor("#fc1a4e"));

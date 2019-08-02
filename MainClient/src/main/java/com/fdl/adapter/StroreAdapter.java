@@ -1,21 +1,16 @@
 package com.fdl.adapter;
 
-import android.content.Context;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.fdl.bean.SuperMarketBean;
 import com.fdl.utils.ImageUtils;
 import com.fdl.utils.StrUtils;
 import com.sg.cj.snh.R;
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 

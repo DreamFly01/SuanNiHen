@@ -1,144 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-              android:orientation="vertical">
-
-
-  <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@drawable/img_login_top"
-      android:layout_gravity="center_horizontal"
-      android:layout_marginTop="@dimen/y90"
-      android:layout_marginBottom="@dimen/y90"
-      />
+    android:orientation="vertical">
 
 
-  <LinearLayout
-      style="@style/login_input_layout"
-      >
-
-    <EditText
-        android:id="@+id/et_username"
-        style="@style/login_input_edit"
-        android:hint="请输入账号"
-        android:text=""
-        />
-
-  </LinearLayout>
-
-  <View
-      style="@style/login_input_line"
-      />
-
-  <LinearLayout
-      style="@style/login_input_layout"
-      >
-
-    <EditText
-        android:id="@+id/et_psd"
-        style="@style/login_input_edit"
-        android:inputType="textPassword"
-        android:layout_weight="1"
-        android:hint="请输入密码"
-        android:text=""
-        />
-
-    <TextView
-        android:id="@+id/txt_forget_psd"
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-        android:textColor="@color/topbar_bg"
-        android:layout_gravity="center_vertical"
-        android:text="忘记密码?"
-        />
-
-  </LinearLayout>
-
-
-  <View
-      style="@style/login_input_line"
-      />
-
-
-  <Button
-      android:id="@+id/btn_login"
-      style="@style/login_input_button"
-      android:text="登录"
-      />
-
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/y30"
-      android:layout_marginBottom="@dimen/y30"
-      >
-
-    <TextView
-        android:id="@+id/txt_sms_login"
-        style="@style/login_input_edit"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="@dimen/x70"
-        android:text="手机验证码登陆"
-        />
-
-    <TextView
-        android:id="@+id/txt_regiest"
-        style="@style/login_input_edit"
-        android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/x70"
-        android:text="注册新用户"
-        />
-
-  </RelativeLayout>
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      >
-
-    <View
-        style="@style/login_input_line"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="0dp"
-        />
-
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="第三方登录"
-        android:textColor="@color/et_txt_color"
-        android:layout_gravity="center_vertical"
-        android:textSize="@dimen/x43"
-        android:layout_marginLeft="@dimen/x5"
-        android:layout_marginRight="@dimen/x5"
-        />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y90"
+        android:layout_marginBottom="@dimen/y90"
+        android:background="@drawable/img_login_top" />
 
 
-    <View
-        style="@style/login_input_line"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
+    <LinearLayout style="@style/login_input_layout">
 
-        android:layout_marginLeft="0dp"
-        />
+        <EditText
+            android:id="@+id/et_username"
+            style="@style/login_input_edit"
+            android:hint="请输入账号"
+            android:text="" />
 
-  </LinearLayout>
+    </LinearLayout>
+
+    <View style="@style/login_input_line" />
+
+    <LinearLayout style="@style/login_input_layout">
+
+        <EditText
+            android:id="@+id/et_psd"
+            style="@style/login_input_edit"
+            android:layout_weight="1"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/txt_forget_psd"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="忘记密码?"
+            android:textColor="@color/topbar_bg" />
+
+    </LinearLayout>
 
 
-  <Button
-      android:id="@+id/btn_wechat_login"
-      style="@style/login_input_button"
+    <View style="@style/login_input_line" />
 
-      android:layout_width="@dimen/y150"
-      android:layout_height="@dimen/y150"
-      android:layout_gravity="center_horizontal"
-      android:background="@drawable/img_wechat"
-      />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/login_input_button"
+        android:text="登录" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_marginBottom="@dimen/y30">
+
+        <TextView
+            android:id="@+id/txt_sms_login"
+            style="@style/login_input_edit"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/x70"
+            android:text="手机验证码登陆" />
+
+        <TextView
+            android:id="@+id/txt_regiest"
+            style="@style/login_input_edit"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x70"
+            android:text="注册新用户" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            style="@style/login_input_line"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_marginRight="@dimen/x5"
+            android:text="第三方登录"
+            android:textColor="@color/et_txt_color"
+            android:textSize="@dimen/x43" />
+
+
+        <View
+            style="@style/login_input_line"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="0dp"
+
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_wechat_login"
+        style="@style/login_input_button"
+
+        android:layout_width="@dimen/y150"
+        android:layout_height="@dimen/y150"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/img_wechat" />
 </LinearLayout>

@@ -34,6 +34,7 @@ import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.StrUtils;
+import com.fdl.wedgit.BaseFragmentActivity;
 import com.fdl.wedgit.StarBarView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.snh.R;
@@ -57,7 +58,7 @@ import butterknife.OnClick;
  * <p>version：1<p>
  */
 @SuppressLint("Registered")
-public class FoodAddGoodsActivity extends FragmentActivity {
+public class FoodAddGoodsActivity extends BaseFragmentActivity {
 
 
     @BindView(R.id.heard_back)

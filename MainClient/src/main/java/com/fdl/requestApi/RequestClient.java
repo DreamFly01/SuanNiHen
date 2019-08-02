@@ -1,8 +1,11 @@
 package com.fdl.requestApi;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.fdl.activity.main.redPacket.bean.CouponsGoodsBean;
+import com.fdl.activity.main.redPacket.bean.RedPacketBean;
 import com.fdl.bean.AccountDetailsBean;
 import com.fdl.bean.AddressBean;
 import com.fdl.bean.AgreementBean;
@@ -54,6 +57,7 @@ import com.fdl.bean.WoolBean;
 import com.fdl.bean.daoBean.MyBankBean;
 import com.fdl.bean.daoBean.SupplierBean;
 import com.fdl.db.DBManager;
+import com.fdl.jpush.Logger;
 import com.fdl.utils.Contans;
 import com.fdl.utils.NetworkUtils;
 import com.fdl.utils.SPUtils;
@@ -1008,7 +1012,8 @@ public class RequestClient {
     }
 
     /**
-     *商家可预订基本信息
+     * 商家可预订基本信息
+     *
      * @param SupplierId
      * @param context
      * @param observer
@@ -1025,6 +1030,7 @@ public class RequestClient {
 
     /**
      * 提交预定订单
+     *
      * @param SupplierId
      * @param AdultCount
      * @param ChildCount
@@ -1034,16 +1040,16 @@ public class RequestClient {
      * @param observer
      * @return
      */
-    public static Subscription PostSubscribeInfo(int SupplierId, int AdultCount,int ChildCount, int SeatType,String DinnerTime,Context context, NetSubscriber<BaseResultBean<Integer>> observer) {
+    public static Subscription PostSubscribeInfo(int SupplierId, int AdultCount, int ChildCount, int SeatType, String DinnerTime, Context context, NetSubscriber<BaseResultBean<Integer>> observer) {
         Map<String, Object> map = new TreeMap<>();
         map.put("SupplierId", SupplierId);
-        map.put("UserId",PartyApp.getAppComponent().getDataManager().getId());
-        map.put("AdultCount",AdultCount);
-        map.put("ChildCount",ChildCount);
-        map.put("SeatType",SeatType);
-        map.put("DinnerTime",DinnerTime);
-        map.put("Name","李四");
-        map.put("Phone","13723890933");
+        map.put("UserId", PartyApp.getAppComponent().getDataManager().getId());
+        map.put("AdultCount", AdultCount);
+        map.put("ChildCount", ChildCount);
+        map.put("SeatType", SeatType);
+        map.put("DinnerTime", DinnerTime);
+        map.put("Name", "李四");
+        map.put("Phone", "13723890933");
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .PostSubscribeInfo(map),
@@ -1052,12 +1058,13 @@ public class RequestClient {
 
     /**
      * 获取预定订单信息
+     *
      * @param applyId
      * @param context
      * @param observer
      * @return
      */
-    public static Subscription GetSubscribeApplyInfo(int applyId,Context context, NetSubscriber<BaseResultBean<SubscribeApplyInfoBean>> observer) {
+    public static Subscription GetSubscribeApplyInfo(int applyId, Context context, NetSubscriber<BaseResultBean<SubscribeApplyInfoBean>> observer) {
         Map<String, Object> map = new TreeMap<>();
         map.put("applyId", applyId);
 
@@ -1069,12 +1076,13 @@ public class RequestClient {
 
     /**
      * 预定订单提交
+     *
      * @param map
      * @param context
      * @param observer
      * @return
      */
-    public static Subscription SaveOrder(Map<String, Object> map,Context context, NetSubscriber<BaseResultBean> observer) {
+    public static Subscription SaveOrder(Map<String, Object> map, Context context, NetSubscriber<BaseResultBean> observer) {
         map.put("userid", PartyApp.getAppComponent().getDataManager().getId());
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
@@ -1083,16 +1091,17 @@ public class RequestClient {
     }
 
     /**
-     *预定订单列表获取
+     * 预定订单列表获取
+     *
      * @param SupplierId
      * @param context
      * @param observer
      * @return
      */
-    public static Subscription GetPredeterminerList(int SupplierId,Context context, NetSubscriber<BaseResultBean<List<FoodPredeterminelistBean>>> observer) {
+    public static Subscription GetPredeterminerList(int SupplierId, Context context, NetSubscriber<BaseResultBean<List<FoodPredeterminelistBean>>> observer) {
         Map<String, Object> map = new TreeMap<>();
         map.put("userid", PartyApp.getAppComponent().getDataManager().getId());
-        map.put("SupplierId",SupplierId);
+        map.put("SupplierId", SupplierId);
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .GetPredeterminerList(map),
@@ -1101,15 +1110,16 @@ public class RequestClient {
 
     /**
      * 预定订单取消
+     *
      * @param applyId
      * @param context
      * @param observer
      * @return
      */
-    public static Subscription CanclePredeterminerOrder(int applyId,Context context, NetSubscriber<BaseResultBean> observer) {
+    public static Subscription CanclePredeterminerOrder(int applyId, Context context, NetSubscriber<BaseResultBean> observer) {
         Map<String, Object> map = new TreeMap<>();
         map.put("UserId", PartyApp.getAppComponent().getDataManager().getId());
-        map.put("applyId",applyId);
+        map.put("applyId", applyId);
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .CanclePredeterminerOrder(map),
@@ -1118,6 +1128,7 @@ public class RequestClient {
 
     /**
      * 更改预订单（菜品的增减）
+     *
      * @param OrderNo
      * @param isComfirm
      * @param OITEMS
@@ -1127,9 +1138,9 @@ public class RequestClient {
      */
     public static Subscription ChangePredeterminerOrder(String OrderNo, int isComfirm, List<FoodGoodsCommitBean> OITEMS, Context context, NetSubscriber<BaseResultBean> observer) {
         Map<String, Object> map = new TreeMap<>();
-        map.put("OrderNo",OrderNo);
-        map.put("isComfirm",isComfirm);//1为商家和发起人本人添加，无需确认，直接进入订单0为分享出去的好友参与添加，需发起人和商家确认
-        map.put("OITEMS",OITEMS);
+        map.put("OrderNo", OrderNo);
+        map.put("isComfirm", isComfirm);//1为商家和发起人本人添加，无需确认，直接进入订单0为分享出去的好友参与添加，需发起人和商家确认
+        map.put("OITEMS", OITEMS);
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .ChangePredeterminerOrder(map),
@@ -1138,6 +1149,7 @@ public class RequestClient {
 
     /**
      * 预定订单优惠劵更改
+     *
      * @param OrderNo
      * @param couponid
      * @param context
@@ -1146,13 +1158,14 @@ public class RequestClient {
      */
     public static Subscription CouponsChange(String OrderNo, int couponid, Context context, NetSubscriber<BaseResultBean> observer) {
         Map<String, Object> map = new TreeMap<>();
-        map.put("orderno",OrderNo);
-        map.put("couponid",couponid);
+        map.put("orderno", OrderNo);
+        map.put("couponid", couponid);
         return doRequest1(RetrofitProxy
                         .getApiService(context, "")
                         .CouponsChange(map),
                 context, observer);
     }
+
     /**
      * 获取客服数据
      *
@@ -1449,6 +1462,7 @@ public class RequestClient {
                         GetSuperMarketCommTenant(map),
                 context, observer);
     }
+
     public static Subscription GetSuperMarketCommTenant1(int SellerId, String Condition, Context context, NetSubscriber<BaseResultBean<SupplierBean>> observer) {
         Map<String, Object> map = new TreeMap<>();
         if (!StrUtils.isEmpty(PartyApp.getAppComponent().getDataManager().getId() + "")) {
@@ -1589,14 +1603,14 @@ public class RequestClient {
      * @param observer
      * @return
      */
-    public static Subscription Search(int index, String keyword, int type,int AreaId, Context context, NetSubscriber<BaseResultBean<List<MainProcuctBean>>> observer) {
+    public static Subscription Search(int index, String keyword, int type, int AreaId, Context context, NetSubscriber<BaseResultBean<List<MainProcuctBean>>> observer) {
         Map<String, Object> map = new TreeMap<>();
         map.put("Index", index);
         map.put("size", 12);
         if (!StrUtils.isEmpty(keyword)) {
             map.put("keyword", keyword);
         }
-        map.put("AreaId",AreaId);
+        map.put("AreaId", AreaId);
         map.put("type", type);
         return doRequest1(RetrofitProxy.
                         getApiService(context, "").
@@ -1729,8 +1743,7 @@ public class RequestClient {
      */
     public static Subscription GetUserCouponsList(int usestate, int pageIndex, Context context, NetSubscriber<BaseResultBean<MyCouponsBean>> observer) {
         Map<String, Object> map = new TreeMap<>();
-//        map.put("SupplierId", PartyApp.getAppComponent().getDataManager().getId());
-        map.put("uid", PartyApp.getAppComponent().getDataManager().getId());
+        map.put("UserID", PartyApp.getAppComponent().getDataManager().getId());
         map.put("usestate", usestate);
         map.put("pageIndex", pageIndex);
         map.put("pageSize", 20);
@@ -1961,6 +1974,7 @@ public class RequestClient {
 
     /**
      * 判断用户是否可以领取红包
+     *
      * @param context
      * @param observer
      * @return
@@ -1969,8 +1983,53 @@ public class RequestClient {
         Map<String, Object> map = new TreeMap<>();
         map.put("UserId", PartyApp.getAppComponent().getDataManager().getId());
         return doRequest1(RetrofitProxy
-                        .getApiService(context,"")
+                        .getApiService(context, "")
                         .getRedPacketType(map),
+                context, observer);
+    }
+
+
+    /**
+     * 领取礼包
+     *
+     * @param addressID 区县ID
+     * @param way       礼包类型 int 可不传 4平台 3全国 2供应商指定商品 1本地
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription getRedPacket(NetSubscriber<BaseResultBean<RedPacketBean>> observer) {
+        return getRedPacket(-1, observer);
+    }
+
+    public static Subscription getRedPacket(int way, NetSubscriber<BaseResultBean<RedPacketBean>> observer) {
+        Map<String, Object> map = new TreeMap<>();
+        map.put("UserId", PartyApp.getAppComponent().getDataManager().getId());
+        String addressID = SPUtils.getInstance(observer.getContext()).getString(Contans.CITY_ID);
+        if (!TextUtils.isEmpty(addressID)) {
+            map.put("AddressID", Integer.parseInt(addressID));
+        }
+        if (way != -1) {
+            map.put("Way", way);
+        }
+        Logger.i("red value map",map.toString());
+        return doRequest1(RetrofitProxy
+                        .getApiService(observer.getContext(), "")
+                        .getRedPacket(map),
+                observer.getContext(), observer);
+    }
+
+
+    /**
+     * 获取优惠券商品列表
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription getCouponsGoodsList(Context context,Map<String, Object> map, NetSubscriber<BaseResultBean<CouponsGoodsBean>> observer) {
+        return doRequest1(RetrofitProxy
+                        .getApiService(context, "")
+                        .getCouponsGoodsList(map),
                 context, observer);
     }
 

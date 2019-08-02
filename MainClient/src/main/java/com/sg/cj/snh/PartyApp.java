@@ -31,6 +31,7 @@ import com.fdl.utils.JumpUtils;
 import com.fdl.utils.LanguageUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
+import com.lzy.okgo.OkGo;
 import com.mob.MobSDK;
 import com.netease.nim.uikit.api.NimUIKit;
 import com.netease.nim.uikit.business.session.module.MsgRevokeFilter;
@@ -62,6 +63,7 @@ import com.sg.cj.snh.di.component.DaggerAppComponent;
 import com.sg.cj.snh.di.module.AppModule;
 import com.sg.cj.snh.di.module.HttpModule;
 import com.sg.cj.snh.ui.activity.login.LoginActivity;
+import com.sg.cj.snh.uitls.AppViewUtils;
 import com.snh.greendao.DaoSession;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -71,6 +73,7 @@ import java.util.Locale;
 
 import cn.jpush.android.api.JPushInterface;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
+import okhttp3.OkHttpClient;
 
 /**
  * author : ${CHENJIE}
@@ -115,8 +118,10 @@ public class PartyApp extends App {
     @Override
     public void onCreate() {
         super.onCreate();
+        OkGo.getInstance().init(this);
         registerToWX();
         MobSDK.init(this);
+        AppViewUtils.init(this);
         int designWidth = 750;
         new RudenessScreenHelper(this, designWidth).activate();
         ToastMgr.builder.init(getApplicationContext());

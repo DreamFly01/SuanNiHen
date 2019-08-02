@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/red_packet_dialog"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.fdl.activity.main.redPacket.RedPacketDialog">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="320dp">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="236dp"
+                android:layout_height="292dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="11dp"
+                android:background="@drawable/red_packet_bg" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/red_packet_get_bg" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/red_packet_new" />
 
 
-    <ImageView
-        backgroud="#FFDD96"
+            <TextView
+                android:id="@+id/red_packet_show"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/imageView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/red_packet_txt_bg"
+                android:gravity="center"
+                android:text="@string/red_packet_message"
+                android:textColor="#F95115"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        android:layout_width="250dp"
-        android:layout_height="314dp" />
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/red_packet_my_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/red_packet_show"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:text="我的—查看优惠卷、红包"
+                android:textColor="#ffff9898"
+                android:textSize="11sp" />
+
+            <ImageButton
+                android:id="@+id/red_packet_get_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="65dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/red_packet_get" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="150dp" />
+
+        <ImageButton
+            android:id="@+id/red_packet_close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/red_packer_dialog_close" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

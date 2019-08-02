@@ -22,7 +22,7 @@ public class Constants {
     // public static final String BASE_IP = "http://shop.hnyunshang.com/";
 //  public static final String BASE_IP = "https://shop.snihen.com/";//正式环境
     public static final String BASE_IP = "http://test.snihen.com/";//测试环境
-    public static final String BASE_HOST =Contans.API_HOST;
+    public static final String BASE_HOST = Contans.API_HOST;
     //去支付：http://shop.hnyunshang.com/Wx_User/SNH_ShopOrders?CartIds=570%2C568&SupplierIds=93%2C
     public static final String QZF = BASE_IP + "Wx_User/SNH_ShopOrders?CartIds=@@&SupplierIds=##";
     //商品收藏：
@@ -89,6 +89,9 @@ public class Constants {
     //商家入驻：
     public static final String SJRZ = BASE_IP + "MobileEnter/settled_phone";
 
+    public static final String GET_RED_PACKET = Contans.PORT_8089_HOST + "api/Coupons/ReceiveAll";
+
+    public static final String GET_COUPON_LIST = Contans.PORT_8089_HOST + "api/coupons/GetCouponSellerList";
 
     //================= PATH ====================
 
@@ -114,5 +117,10 @@ public class Constants {
     public static final String SP_BalanceOne = "BalanceOne";
     public static final String SP_Integral = "Integral";
     public static final String SP_WxOpenId = "WxOpenId";
+
+
+    //*******************Bundle 字段********************************
+    public static final String STROE_ID = "stroeId";
+    public static final String GOODS_ID = "goodsId";
 
 }

@@ -51,6 +51,7 @@ import com.fdl.utils.JumpUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
 import com.fdl.utils.UrlUtils;
+import com.fdl.wedgit.BaseFragmentActivity;
 import com.fdl.wedgit.StarBarView;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
@@ -84,7 +85,7 @@ import butterknife.OnClick;
  * <p>version：1<p>
  */
 @SuppressLint("Registered")
-public class FoodShopActivity extends FragmentActivity {
+public class FoodShopActivity extends BaseFragmentActivity {
 
 
     @BindView(R.id.av_avi)
@@ -209,15 +210,13 @@ public class FoodShopActivity extends FragmentActivity {
         bundle = getIntent().getExtras();
         if (null != bundle) {
             id = bundle.getInt("stroeId");
-            distance = bundle.getString("distance");
-            latitude = bundle.getDouble("latitude");
-            longitude = bundle.getDouble("longitude");
+            distance = bundle.getString("distance","");
+//            latitude = bundle.getDouble("latitude");
+//            longitude = bundle.getDouble("longitude");
             goodsId = bundle.getInt("goodsId");
             shopType = bundle.getInt("shopType");
         }
-        if (StrUtils.isEmpty(distance)) {
-            distance = "";
-        }
+
         try {
 
             latitude = Double.parseDouble(SPUtils.getInstance(this).getString(Contans.LATITUDE));

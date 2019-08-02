@@ -1,5 +1,7 @@
 package com.fdl.utils;
 
+import android.content.Context;
+
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +26,7 @@ public class StrUtils {
         if (!StrUtils.isNumeric(mobile)) {
             return false;
         }
-        if (mobile.length()!=11) {
+        if (mobile.length() != 11) {
             return false;
         }
 
@@ -106,30 +108,32 @@ public class StrUtils {
 
     /**
      * 断用户名是否正确
+     *
      * @param str
      * @return
      */
-    public static Boolean isNUmName(String str){
-        String regex= "^[0-9]+$";
+    public static Boolean isNUmName(String str) {
+        String regex = "^[0-9]+$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(str);
         return m.matches();
     }
-    public static Boolean is_(String str){
-        String s = str.substring(0,1);
-        String w = str.substring(str.length()-1);
-        if(s.equals("_")){
+
+    public static Boolean is_(String str) {
+        String s = str.substring(0, 1);
+        String w = str.substring(str.length() - 1);
+        if (s.equals("_")) {
             return false;
         }
-        if(w.equals("_")){
-            return  false;
+        if (w.equals("_")) {
+            return false;
         }
         return true;
     }
 
 
     //校验身份证号码是否合格
-    public static Boolean isSfz(String cardId){
+    public static Boolean isSfz(String cardId) {
         if (cardId.length() == 15 || cardId.length() == 18) {
             if (!cardCodeVerifySimple(cardId)) {
                 return false;
@@ -143,11 +147,12 @@ public class StrUtils {
         }
         return true;
     }
+
     private static boolean cardCodeVerifySimple(String cardcode) {
         //第一代身份证正则表达式(15位)
         String isIDCard1 = "^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$";
         //第二代身份证正则表达式(18位)
-        String isIDCard2 ="^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])((\\d{4})|\\d{3}[A-Z])$";
+        String isIDCard2 = "^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])((\\d{4})|\\d{3}[A-Z])$";
 
         //验证身份证
         if (cardcode.matches(isIDCard1) || cardcode.matches(isIDCard2)) {
@@ -155,6 +160,7 @@ public class StrUtils {
         }
         return false;
     }
+
     private static boolean cardCodeVerify(String cardcode) {
         int i = 0;
         String r = "error";
@@ -170,15 +176,15 @@ public class StrUtils {
         i += Integer.parseInt(cardcode.substring(7, 8)) * 1;
         i += Integer.parseInt(cardcode.substring(8, 9)) * 6;
         i += Integer.parseInt(cardcode.substring(9, 10)) * 3;
-        i += Integer.parseInt(cardcode.substring(10,11)) * 7;
-        i += Integer.parseInt(cardcode.substring(11,12)) * 9;
-        i += Integer.parseInt(cardcode.substring(12,13)) * 10;
-        i += Integer.parseInt(cardcode.substring(13,14)) * 5;
-        i += Integer.parseInt(cardcode.substring(14,15)) * 8;
-        i += Integer.parseInt(cardcode.substring(15,16)) * 4;
-        i += Integer.parseInt(cardcode.substring(16,17)) * 2;
+        i += Integer.parseInt(cardcode.substring(10, 11)) * 7;
+        i += Integer.parseInt(cardcode.substring(11, 12)) * 9;
+        i += Integer.parseInt(cardcode.substring(12, 13)) * 10;
+        i += Integer.parseInt(cardcode.substring(13, 14)) * 5;
+        i += Integer.parseInt(cardcode.substring(14, 15)) * 8;
+        i += Integer.parseInt(cardcode.substring(15, 16)) * 4;
+        i += Integer.parseInt(cardcode.substring(16, 17)) * 2;
         i = i % 11;
-        lastnumber =cardcode.substring(17,18);
+        lastnumber = cardcode.substring(17, 18);
         if (i == 0) {
             r = "1";
         }
@@ -234,26 +240,28 @@ public class StrUtils {
     }
 
     //验证密码是否合格
-    public static boolean isPsw(String password){
+    public static boolean isPsw(String password) {
         String check = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{6,20}$";
         Pattern regex = Pattern.compile(check);
         Matcher matcher = regex.matcher(password);
-        if(!matcher.matches()){
+        if (!matcher.matches()) {
             return false;
         }
         return true;
     }
-    public static String getDistance(String distance){
-        if(isEmpty(distance)){
+
+    public static String getDistance(String distance) {
+        if (isEmpty(distance)) {
             return "";
         }
-       double s=  Double.parseDouble(distance);
-       if(s>1000){
-           return s/1000+"km";
-       }else {
-           return distance+"m";
-       }
+        double s = Double.parseDouble(distance);
+        if (s > 1000) {
+            return s / 1000 + "km";
+        } else {
+            return distance + "m";
+        }
     }
+
     public static String hideCardNo(String cardNo) {
         if (StrUtils.isEmpty(cardNo)) {
             return cardNo;
@@ -268,7 +276,7 @@ public class StrUtils {
             if (i < beforeLength || i >= (length - afterLength)) {
                 sb.append(cardNo.charAt(i));
             } else {
-                if (i == 4||i==9||i==14) {
+                if (i == 4 || i == 9 || i == 14) {
                     sb.append(" ");
                 } else {
                     sb.append(replaceSymbol);
@@ -277,5 +285,12 @@ public class StrUtils {
         }
 
         return sb.toString();
+    }
+
+
+    public static String fromResources(Context context, int resId, Object... args) {
+        String sFormat = context.getResources().getString(resId);
+        String str = String.format(sFormat, args);
+        return str;
     }
 }

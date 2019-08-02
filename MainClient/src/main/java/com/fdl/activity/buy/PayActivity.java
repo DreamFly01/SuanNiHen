@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.alipay.sdk.app.PayTask;
 import com.fdl.BaseActivity;
+import com.fdl.activity.buy.event.PayResultEvent;
 import com.fdl.activity.goTravel.TravelActivity;
 import com.fdl.activity.main.MainActivity;
 import com.fdl.activity.wool.WoolDetailsActivity;
@@ -39,6 +40,8 @@ import com.sg.cj.snh.R;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 import java.util.Map;
@@ -509,6 +512,9 @@ public class PayActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                PayResultEvent event = new PayResultEvent();
+                event.setResult(RESULT_OK);
+                EventBus.getDefault().post(event);
                 FinishActivityManager.getManager().finishActivity(PayActivity.class);
                 PayActivity.this.finish();
 

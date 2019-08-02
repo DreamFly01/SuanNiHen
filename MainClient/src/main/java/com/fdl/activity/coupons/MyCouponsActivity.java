@@ -14,8 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fdl.BaseActivity;
+import com.fdl.jpush.Logger;
 import com.fdl.utils.IsBang;
 import com.sg.cj.snh.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +75,30 @@ public class MyCouponsActivity extends BaseActivity {
         }
         adapter = new MyAdapter(getSupportFragmentManager(), this);
         tabVp.setAdapter(adapter);
+        tabVp.setOffscreenPageLimit(2);
+
+        tabVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                Logger.i("test", "ViewPager onPageScrolled position = " + position + " , positionOffset"
+//                        + positionOffset + " , positionOffsetPixels" + positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Logger.i("test", "ViewPager onPageSelected = " + position);
+                MyCouponsEvent event = new MyCouponsEvent();
+                event.position = position;
+                EventBus.getDefault().post(event);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                Logger.i("test", "ViewPager onPageScrollStateChanged = " + state);
+            }
+        });
+
+
         tabOrder.setupWithViewPager(tabVp);
         for (int i = 0; i < tabOrder.getTabCount(); i++) {
             TabLayout.Tab tab = tabOrder.getTabAt(i);
@@ -88,6 +115,7 @@ public class MyCouponsActivity extends BaseActivity {
 //                setIndicator(tabOrder, 40, 40);
 //            }
 //        });
+
     }
 
     @Override

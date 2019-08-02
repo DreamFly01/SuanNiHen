@@ -14,6 +14,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +37,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.fdl.BaseFragment;
 import com.fdl.activity.buy.ProductDetailsActivity;
 import com.fdl.activity.buy.ShopDetailsActivity;
+import com.fdl.activity.main.event.AddressLocationEvent;
+import com.fdl.activity.main.event.GPSEvent;
 import com.fdl.activity.set.ProtocolActivity;
 import com.fdl.activity.supermarket.StoreDetailsActivity;
 import com.fdl.activity.supermarket.StoreListActivity;
@@ -56,6 +59,7 @@ import com.fdl.db.ShopTypeEnum;
 import com.fdl.requestApi.NetSubscriber;
 import com.fdl.requestApi.RequestClient;
 import com.fdl.updata.UpdateAppHttpUtil;
+import com.fdl.utils.BaiduMapUtils;
 import com.fdl.utils.Contans;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.ImageUtils;
@@ -63,7 +67,6 @@ import com.fdl.utils.IsBang;
 import com.fdl.utils.JumpUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
-import com.fdl.utils.UrlUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -86,6 +89,9 @@ import com.vector.update_app.listener.ExceptionHandler;
 import com.vector.update_app.utils.AppUpdateUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -168,6 +174,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
 
     @Override
     public int initContentView() {
+        EventBus.getDefault().register(this);
         return R.layout.fragment_main_layout;
     }
 
@@ -196,11 +203,33 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
         setRecyclerView();
         district = SPUtils.getInstance(getContext()).getString(Contans.LAST_CITY_ID);
         loadingCache();
+        if (!BaiduMapUtils.isOPenGPS(getContext())) {
+            dialogUtils.twoBtnDialog("为了提高定位的准确度，更好的为您服务，请打开GPS", new DialogUtils.ChoseClickLisener() {
+                @Override
+                public void onConfirmClick(View v) {
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    //设置完成后返回原来的界面
+                    getActivity().startActivityForResult(intent,101);
+                    dialogUtils.dismissDialog();
+                }
+
+                @Override
+                public void onCancelClick(View v) {
+                    dialogUtils.dismissDialog();
+                }
+            }, true);
+        }
         if (isNetworkConnected(getContext())) {
             checkPerm();
         } else {
             dialogUtils.noBtnDialog("请打开网络连接");
             SPUtils.getInstance(getContext()).saveData(Contans.CITY, "");
+        }
+    }
+    @Subscribe
+    public void gPSEvent(GPSEvent event) {
+        if (event.isOpen()) {
+            checkPerm();
         }
     }
 
@@ -211,7 +240,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-               jump(bannerBean.banner.get(position));
+                jump(bannerBean.banner.get(position));
             }
         });
     }
@@ -601,7 +630,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
             case 2:
                 if (bean.BusinessActivities == 1) {
                     bundle.putInt("stroeId", bean.SupplierId);
-                    bundle.putInt("goodsId",bean.GoodsId);
+                    bundle.putInt("goodsId", bean.GoodsId);
                     JumpUtils.dataJump(getActivity(), StoreDetailsActivity.class, bundle, false);
                 } else {
                     bundle.putInt("stroeId", bean.SupplierId);
@@ -635,7 +664,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
             case 2:
                 if (bean.BusinessActivities == 1) {
                     bundle.putInt("stroeId", bean.SupplierId);
-                    bundle.putInt("goodsId",bean.GoodsId);
+                    bundle.putInt("goodsId", bean.GoodsId);
                     JumpUtils.dataJump(getActivity(), StoreDetailsActivity.class, bundle, false);
                 } else {
                     bundle.putInt("stroeId", bean.SupplierId);
@@ -649,6 +678,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
                 break;
         }
     }
+
     @Override
     public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
 
@@ -672,6 +702,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        EventBus.getDefault().unregister(this);
         if (null != mLocationClient) {
             mLocationClient.stop();
         }
@@ -679,7 +710,8 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
 
 
     private int type = 0;
-    String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
+    String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+
     private void checkPerm() {
 
         if (EasyPermissions.hasPermissions(getContext(), permissions)) {
@@ -835,7 +867,9 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
 
             address = aearBean1.AddressName;
             txtLocation.setText(address);
-
+            AddressLocationEvent event = new AddressLocationEvent();
+            event.setLocation(true);
+            EventBus.getDefault().post(event);
         } catch (Exception e) {
             district = "全国";
             address = "全国";
@@ -855,13 +889,13 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
                 break;
             case R.id.layout_search:
                 bundle = new Bundle();
-                bundle.putInt("type",1);
-                if(district.equals("全国")){
-                bundle.putInt("AreaId",0);
-                }else {
-                    bundle.putInt("AreaId",Integer.parseInt(district));
+                bundle.putInt("type", 1);
+                if (district.equals("全国")) {
+                    bundle.putInt("AreaId", 0);
+                } else {
+                    bundle.putInt("AreaId", Integer.parseInt(district));
                 }
-                JumpUtils.dataJump(getActivity(), SearchActivity.class,bundle, false);
+                JumpUtils.dataJump(getActivity(), SearchActivity.class, bundle, false);
                 break;
         }
 
@@ -1083,7 +1117,7 @@ public class MainFragment extends BaseFragment implements EasyPermissions.Permis
         new UpdateAppManager.Builder()
                 .setActivity(getActivity())
                 .setHttpManager(new UpdateAppHttpUtil())
-                .setUpdateUrl(Contans.HOST+"webapi/Version/GetVersion?Channel=1&SourceSystem=1")
+                .setUpdateUrl(Contans.HOST + "webapi/Version/GetVersion?Channel=1&SourceSystem=1")
                 .handleException(new ExceptionHandler() {
                     @Override
                     public void onException(Exception e) {

@@ -1,6 +1,7 @@
 package com.fdl.requestApi;
 
 
+import com.fdl.activity.main.redPacket.bean.CouponsGoodsBean;
 import com.fdl.bean.AccountDetailsBean;
 import com.fdl.bean.AddressBean;
 import com.fdl.bean.AgreementBean;
@@ -57,6 +58,7 @@ import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -713,13 +715,6 @@ public interface RequestApi {
     Observable<BaseResultBean<List<CouponsBean>>> GetSupplierCoupons(@QueryMap Map<String,Object> params);
 
     /**
-     * 获取我的优惠券
-     * @param params
-     * @return
-     */
-    @GET("webapi/Coupons/GetUserCouponsList")
-    Observable<BaseResultBean<MyCouponsBean>> GetUserCouponsList(@QueryMap Map<String,Object> params);
-    /**
      * 领取优惠券
      * @param params
      * @return
@@ -879,11 +874,39 @@ public interface RequestApi {
 
 
     /**
-     * 新增银行卡
+     * 查询是否可以领取新人红包
      * @param params
      * @return
      */
+    @Headers({"Domain-Name: port8089"})
     @GET("RedPacket/GetIsAvailable")
     Observable<BaseResultBean> getRedPacketType(@QueryMap Map<String,Object> params);
+
+
+    /**
+     * 领取新人红包
+     * @param params
+     * @return
+     */
+    @Headers({"Domain-Name: port8089"})
+    @POST("Coupons/ReceiveAll")
+    Observable<BaseResultBean> getRedPacket(@Body Map<String,Object> params);
+
+    /**
+     * 获取我的优惠券
+     * @param params
+     * @return
+     */
+    @Headers({"Domain-Name: port8089"})
+    @GET("Coupons/GetUserCouponsList")
+    Observable<BaseResultBean<MyCouponsBean>> GetUserCouponsList(@QueryMap Map<String,Object> params);
+    /**
+     * 获取优惠券商品列表
+     * @param params
+     * @return
+     */
+    @Headers({"Domain-Name: port8089"})
+    @GET("coupons/GetCouponSellerList")
+    Observable<BaseResultBean<CouponsGoodsBean>> getCouponsGoodsList(@QueryMap Map<String,Object> params);
 
 }

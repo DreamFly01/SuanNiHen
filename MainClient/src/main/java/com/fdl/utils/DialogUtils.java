@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Display;
 import android.view.Gravity;
@@ -443,6 +444,68 @@ public class DialogUtils {
         return this;
     }
 
+
+    /**
+     * 分享弹窗
+     *
+     * @return
+     */
+    public DialogUtils ShareDialog(String title, String url, String introduce, String imgUrl,String shareTitle) {
+        this.confirmClickLisener = confirmClickLisener;
+        //自定义样式使得弹窗铺满全屏
+        builder = new AlertDialog.Builder(mContext, R.style.Dialog_FS);
+        inflater = LayoutInflater.from(mContext);
+        v = inflater.inflate(R.layout.dialog_buttom_layout, null);
+        TextView cancel = (TextView) v.findViewById(R.id.btn_cancel);
+        ImageView friend = (ImageView) v.findViewById(R.id.share_friend);
+        ImageView commends = (ImageView) v.findViewById(R.id.share_commends);
+        TextView shareTitleTv = v.findViewById(R.id.share_title);
+
+        shareTitleTv.setText(shareTitle);
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(flag);
+        dialog.setCancelable(flag);
+        dialog.show();
+
+        WindowManager windowManager = mActivity.getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
+        layoutParams.width = (int) display.getWidth();
+        dialog.getWindow().setAttributes(layoutParams);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.getWindow().setContentView(v);
+
+        friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (StrUtils.isEmpty(url)) {
+                    return;
+                }
+                if (url.contains("http")) {
+                    ShareUtils.ShareWechat(title, url, introduce, imgUrl);//分享好友
+                } else {
+                    ShareUtils.ShareWechctApplets(title, url, introduce, imgUrl);//分享小程序
+                }
+                SgLog.d("title:" + title + "  url:" + url + "  introduce:" + introduce + "  imgurl:" + imgUrl);
+                dialog.dismiss();
+            }
+        });
+
+        commends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareUtils.ShareWechatMom(title, url, introduce, imgUrl);//分享朋友圈
+                dialog.dismiss();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        return this;
+    }
 
     /**
      * 规格选择弹窗

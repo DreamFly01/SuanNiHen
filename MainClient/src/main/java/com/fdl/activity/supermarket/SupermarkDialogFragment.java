@@ -295,11 +295,20 @@ public class SupermarkDialogFragment extends DialogFragment {
     }
 
     private void updataDataToDb(Long id,Long goodId) {
+        Long inventory;
+        double price ;
+        int total = getArguments().getInt("total",0);
+        if (data.Stock != 0) {
+            inventory = (long) data.Stock;
+        }else {
+            inventory = getArguments().getLong("Inventory");
+        }
 
-        int total = getArguments().getInt("total");
-        Long inventory = getArguments().getLong("Inventory");
-        double price = getArguments().getDouble("Price");
-
+        if (data.Price != 0) {
+            price = data.Price;
+        }else {
+            price = getArguments().getDouble("Price");
+        }
         DaoMaster daoMaster = new DaoMaster(DBManager.getInstance(getContext()).getWritableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         CommTenantDao commTenantDao = daoSession.getCommTenantDao();

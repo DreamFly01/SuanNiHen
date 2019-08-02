@@ -5,13 +5,10 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.fdl.bean.BaseResultBean;
 import com.fdl.utils.DialogUtils;
 import com.fdl.utils.StrUtils;
 import com.fdl.wedgit.CustomProgress;
-import com.google.gson.Gson;
 
 import rx.Subscriber;
 
@@ -56,13 +53,13 @@ public abstract class NetSubscriber<T> extends Subscriber<T> {
         dialogUtils = new DialogUtils(context, (Activity) context);
         if (t instanceof BaseResultBean) {
             BaseResultBean bean = (BaseResultBean) t;
-            if(null!=bean.code){
-            if (bean.code.equals("01")|bean.code.equals("1")) {
-                onResultNext(t);
+            if (null != bean.code) {
+                if (bean.code.equals("01") | bean.code.equals("1")) {
+                    onResultNext(t);
+                } else {
+                    onResultErro(new APIException(bean.msg));
+                }
             } else {
-                onResultErro(new APIException(bean.msg));
-            }
-            }else {
                 onResultNext(t);
             }
 
@@ -79,17 +76,17 @@ public abstract class NetSubscriber<T> extends Subscriber<T> {
         if (StrUtils.isEmpty(erro.msg)) {
             erro.msg = "网络连接失败";
         }
-        if(!StrUtils.isEmpty(erro.msg)&&erro.msg.contains("未将对象引用设置到对象的实例")){
+        if (!StrUtils.isEmpty(erro.msg) && erro.msg.contains("未将对象引用设置到对象的实例")) {
             erro.msg = "操作失败，请稍后再试";
         }
         Log.d(HttpLogger.LOGKYE, "erro: " + erro.msg);
-        dialogUtils.simpleDialog(erro.msg, new DialogUtils.ConfirmClickLisener() {
-            @Override
-            public void onConfirmClick(View v) {
-                dialogUtils.dismissDialog();
-                dismissLoadingView();
-            }
-        }, true);
+//        dialogUtils.simpleDialog(erro.msg, new DialogUtils.ConfirmClickLisener() {
+//            @Override
+//            public void onConfirmClick(View v) {
+//                dialogUtils.dismissDialog();
+//                dismissLoadingView();
+//            }
+//        }, true);
     }
 
     public void dismissLoadingView() {
@@ -103,4 +100,7 @@ public abstract class NetSubscriber<T> extends Subscriber<T> {
         dismissLoadingView();
     }
 
+    public Context getContext() {
+        return context;
+    }
 }

@@ -45,6 +45,7 @@ import com.fdl.utils.JumpUtils;
 import com.fdl.utils.SPUtils;
 import com.fdl.utils.StrUtils;
 import com.fdl.utils.UrlUtils;
+import com.fdl.wedgit.BaseFragmentActivity;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.common.base.utils.SgLog;
@@ -79,7 +80,7 @@ import butterknife.OnClick;
  * <p>changeTime：2019/1/25<p>
  * <p>version：1<p>
  */
-public class StoreDetailsActivity extends FragmentActivity {
+public class StoreDetailsActivity extends BaseFragmentActivity {
 
     @BindView(R.id.av_avi)
     AVLoadingIndicatorView avAvi;

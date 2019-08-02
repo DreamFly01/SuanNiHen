@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.fdl.BaseActivity;
 import com.fdl.activity.buy.PayActivity;
+import com.fdl.activity.buy.event.PayResultEvent;
 import com.fdl.activity.supermarket.StoreCouponsActivity;
 import com.fdl.adapter.PredetermineAdapter;
 import com.fdl.bean.BaseResultBean;
@@ -31,6 +32,9 @@ import com.fdl.utils.JumpUtils;
 import com.fdl.utils.StrUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.sg.cj.snh.R;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -117,6 +121,7 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_food_perdetermine_two_layout);
+        EventBus.getDefault().register(this);
         bundle = getIntent().getExtras();
         if (null != bundle) {
             applyId = bundle.getInt("applyId");
@@ -130,10 +135,16 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
     public void setUpViews() {
         setImm(false);
         heardTitle.setText("订单详情");
-        heardTvMenu.setText("邀请");
+        heardTvMenu.setText("去结算");
         setRecyclerView();
         getData();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     private void setRecyclerView() {
@@ -222,49 +233,10 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_pay:
-                if (isNeedCommit) {
-                    int noPayMoney =0;
-                    int payMoney = 0;
-                    for (OrdersData ordersDatum : ordersData) {
-                        noPayMoney += ordersDatum.GoodsNum2*ordersDatum.SalesPrice;
-                        payMoney+=ordersDatum.GoodsNum*ordersDatum.SalesPrice;
-                    }
-                    int finalPayMoney = payMoney;
-                    dialogUtils.twoBtnDialog("当前总价格为："+(noPayMoney+payMoney)+"元，其中未确定："+noPayMoney+"元,应支付为:"+payMoney+"元,是否继续支付？", new DialogUtils.ChoseClickLisener() {
-                        @Override
-                        public void onConfirmClick(View v) {
-                            dialogUtils.dismissDialog();
-                            if(finalPayMoney >0){
-                            toPay();
-                            }else{
-                                dialogUtils.noBtnDialog("当前支付价格为0，无法前往支付");
-                            }
-                        }
-
-                        @Override
-                        public void onCancelClick(View v) {
-                            dialogUtils.dismissDialog();
-                        }
-                    },false);
-//                    dialogUtils.noBtnDialog("请先提交菜单，再去买单哦~");
-                }else if (ordersData.size() <= 0) {
-                    dialogUtils.noBtnDialog("当前订单没有菜品，请先去添加菜品哦~");
-                } else {
-                    toPay();
-                }
 
                 break;
             case R.id.heard_fl_menu:
-                if (StrUtils.isEmpty(orderNo)) {
-                    setCommitData(1);
-                } else {
-                    if (!isNeedCommit) {
-                        dialogUtils.ShareDialog(shopName, shareUrl, "我在该店铺预订了"+time+"吃饭，邀请您点餐", imgUrl);
-                    } else {
-                        dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
-                    }
-                }
-
+                pay();
                 break;
             case R.id.ll_coupons:
                 List<CommTenant> productData = new ArrayList<>();
@@ -285,6 +257,61 @@ public class FoodPredetermineStepTwoActivity extends BaseActivity {
                 startActivityForResult(intent1, 1000);
                 break;
         }
+    }
+
+    @Subscribe
+    public void payResultEvent(PayResultEvent event) {
+        if (event.getResult() == RESULT_OK) {
+            shareOther();
+        }
+    }
+
+    private void shareOther() {
+        if (StrUtils.isEmpty(orderNo)) {
+            setCommitData(1);
+        } else {
+            if (!isNeedCommit) {
+//                dialogUtils.ShareDialog(shopName, shareUrl, "我在该店铺预订了"+time+"吃饭，邀请您点餐", imgUrl);
+                dialogUtils.ShareDialog(shopName, shareUrl, "我在该店铺预订了"+time+"吃饭，邀请您点餐",
+                        imgUrl,"分享给您的用餐成员，就可以一起来点餐啦！");
+            } else {
+                dialogUtils.noBtnDialog("请先提交菜单，再进行分享哦~");
+            }
+        }
+    }
+
+    private void pay() {
+        if (isNeedCommit) {
+            int noPayMoney =0;
+            int payMoney = 0;
+            for (OrdersData ordersDatum : ordersData) {
+                noPayMoney += ordersDatum.GoodsNum2*ordersDatum.SalesPrice;
+                payMoney+=ordersDatum.GoodsNum*ordersDatum.SalesPrice;
+            }
+            int finalPayMoney = payMoney;
+            dialogUtils.twoBtnDialog("当前总价格为："+(noPayMoney+payMoney)+"元，其中未确定："+noPayMoney+"元,应支付为:"+payMoney+"元,是否继续支付？", new DialogUtils.ChoseClickLisener() {
+                @Override
+                public void onConfirmClick(View v) {
+                    dialogUtils.dismissDialog();
+                    if(finalPayMoney >0){
+                        toPay();
+                    }else{
+                        dialogUtils.noBtnDialog("当前支付价格为0，无法前往支付");
+                    }
+                }
+
+                @Override
+                public void onCancelClick(View v) {
+                    dialogUtils.dismissDialog();
+                }
+            },false);
+//                    dialogUtils.noBtnDialog("请先提交菜单，再去买单哦~");
+        }else if (ordersData.size() <= 0) {
+            dialogUtils.noBtnDialog("当前订单没有菜品，请先去添加菜品哦~");
+        } else {
+            toPay();
+        }
+
     }
 
     private String shareUrl;

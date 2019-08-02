@@ -1,0 +1,82 @@
+﻿{
+  "code": "01",
+  "data": {
+    "list": [
+      {
+        "ID": 145,
+        "SupplierID": 121,
+        "Name": "商品满20减5",
+        "Price": 5.00,
+        "FullPrice": 20.00,
+        "Way": 1,
+        "GoodsIds": null,
+        "GoodsList": [],
+        "ShopName": "芙蓉兴盛",
+        "ShopLogo": "https://shop.snihen.com:8448/api/Source/472720",
+        "BusinessActivities": "1",
+        "ShopType": "6",
+        "BeginTime": "2019-07-01 00:00:00:000",
+        "EndTime": "2019-08-31 00:00:00:000",
+        "CreateTime": "2019-07-27 03:37:37:000"
+      },
+      {
+        "ID": 146,
+        "SupplierID": 121,
+        "Name": "0727供应商优惠券",
+        "Price": 2.00,
+        "FullPrice": 4.00,
+        "Way": 2,
+        "GoodsIds": "6192",
+        "GoodsList": [
+          {
+            "Id": 6192,
+            "Name": "盼盼香蕉味酥 105g",
+            "ShortInfo": null,
+            "Images": "https://shop.snihen.com:8448/api/Source/472502",
+            "SalesPrice": 4.00
+          },          {
+            "Id": 5057,
+            "Name": "小劲酒",
+            "Images": "https:\/\/shop.snihen.com:8448\/api\/Source\/436206",
+            "ShortInfo": null,
+            "SalesPrice": 12
+          },          {
+            "Id": 5125,
+            "Name": "125ml毛铺纯谷酒",
+            "Images": "https:\/\/shop.snihen.com:8448\/api\/Source\/438506",
+            "ShortInfo": null,
+            "SalesPrice": 7
+          }, {
+            "Id": 6192,
+            "Name": "盼盼香蕉味酥 105g",
+            "ShortInfo": null,
+            "Images": "https://shop.snihen.com:8448/api/Source/472502",
+            "SalesPrice": 4.00
+          },          {
+            "Id": 5057,
+            "Name": "小劲酒",
+            "Images": "https:\/\/shop.snihen.com:8448\/api\/Source\/436206",
+            "ShortInfo": null,
+            "SalesPrice": 12
+          },          {
+            "Id": 5125,
+            "Name": "125ml毛铺纯谷酒",
+            "Images": "https:\/\/shop.snihen.com:8448\/api\/Source\/438506",
+            "ShortInfo": null,
+            "SalesPrice": 7
+          }
+        ],
+        "ShopName": "芙蓉兴盛",
+        "ShopLogo": "https://shop.snihen.com:8448/api/Source/472720",
+        "BusinessActivities": "1",
+        "ShopType": "6",
+        "BeginTime": "2019-07-27 12:00:00:000",
+        "EndTime": "2019-07-31 12:00:00:000",
+        "CreateTime": "2019-07-27 08:00:24:000"
+      }
+    ],
+    "couponCount": 2,
+    "redPacketPrice": 4.95
+  },
+  "msg": "获取成功"
+}

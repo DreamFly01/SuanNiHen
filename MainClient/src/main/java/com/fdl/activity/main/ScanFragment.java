@@ -17,6 +17,7 @@ import com.fdl.BaseFragment;
 import com.fdl.activity.buy.ProductDetailsActivity;
 import com.fdl.activity.buy.ShopDetailsActivity;
 import com.fdl.activity.food.FoodShopActivity;
+import com.fdl.jpush.Logger;
 import com.fdl.utils.IsBang;
 import com.fdl.utils.JumpUtils;
 import com.fdl.utils.UrlUtils;
@@ -128,6 +129,19 @@ public class ScanFragment extends BaseFragment implements QRCodeView.Delegate, E
     public void onStop() {
         mZXingView.stopCamera(); // 关闭摄像头预览，并且隐藏扫描框
         super.onStop();
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {
+            mZXingView.stopCamera(); // 关闭摄像头预览，并且隐藏扫描框
+        }else {
+            mZXingView.startCamera();
+            // 打开后置摄像头开始预览，但是并未开始识别
+//        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
+            mZXingView.startSpotAndShowRect(); // 显示扫描框，并开始识别
+        }
     }
 
     @Override

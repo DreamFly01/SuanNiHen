@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fdl.jpush.Logger;
 import com.fdl.utils.Contans;
 import com.fdl.utils.IsBang;
 import com.fdl.utils.LanguageUtils;
@@ -49,6 +50,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Logger.i("ActivityName",getActivityName());
         LanguageUtils.setdefaultLanguage(this,SPUtils.getInstance(this).getString("language"));
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initContentView(savedInstanceState);
@@ -79,7 +81,11 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
 
     }
-
+    private String getActivityName(){
+        Context context = this;
+        String contextString = context.toString();
+        return contextString.substring(0, contextString.indexOf("@"));
+    }
     /**
      * 处理点击事件分发，判断是否隐藏键盘
      *
@@ -324,4 +330,13 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         }
     }
 
+
+    protected void setFinishBtn(int id) {
+        findView(id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 }
